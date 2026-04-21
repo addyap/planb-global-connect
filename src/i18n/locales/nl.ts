@@ -1,0 +1,77 @@
+const nl = {
+  nav: { home: "Home", about: "Over mij", services: "Wat wij doen", area: "Regio", contact: "Contact" },
+  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Bespreek vandaag uw project" },
+  hero: {
+    eyebrow: "Plan B Concept — Côte d'Azur",
+    title: "Projectmanagement & bouwadvies in Zuid-Frankrijk",
+    subtitle: "Meer dan 30 jaar praktijkervaring. Volledig tweetalig Engels & Frans. Betrouwbare begeleiding van eerste schets tot oplevering.",
+  },
+  home: {
+    whatTitle: "Wat wij doen",
+    whatText: "Volledig projectmanagement en bouwcoördinatie voor particulieren, investeerders en ontwikkelaars aan de Franse Rivièra.",
+    aboutTitle: "Over Anthony",
+    aboutText: "Anthony Gratton is een Britse moedertaalspreker, volledig tweetalig Frans, en woont en werkt al meer dan 30 jaar in Frankrijk. Hij vertegenwoordigt u op de bouwplaats, behartigt uw belangen en houdt elk project in beweging.",
+    areaTitle: "Werkgebied",
+    areaText: "Actief in de Var (83) en Alpes-Maritimes (06), aan de Franse Rivièra en omliggende regio's.",
+    whyTitle: "Waarom Plan B Concept",
+    why: [
+      { t: "Tweetalig voordeel", d: "Heldere communicatie tussen Engelstalige klanten en Franse vakmensen." },
+      { t: "Lokale expertise", d: "Dertig jaar netwerk, leveranciers en ambachtslieden aan de Côte d'Azur." },
+      { t: "Oplossingsgericht", d: "Als plan A faalt, bouwen wij plan B — op tijd en binnen budget." },
+      { t: "Eén aanspreekpunt", d: "Eén vertrouwde adviseur die architecten, aannemers en administratie coördineert." },
+    ],
+  },
+  about: {
+    title: "Over mij",
+    lead: "Anthony Gratton — uw tweetalige projectpartner aan de Franse Rivièra.",
+    p1: "Brits-Engels als moedertaal, volledig tweetalig Frans, al meer dan 30 jaar woonachtig en werkzaam in Frankrijk.",
+    p2: "Ik combineer Britse nauwkeurigheid met Franse vakkennis om bouw- en renovatieprojecten op te leveren die voldoen aan de verwachtingen van internationale klanten.",
+    expertiseTitle: "Expertise",
+    expertise: [
+      "Projectmanagement (maîtrise d'œuvre)",
+      "Bouwcoördinatie",
+      "Vertegenwoordiging opdrachtgever",
+      "Toezicht en rapportage",
+      "Administratieve en technische afhandeling",
+    ],
+  },
+  services: {
+    title: "Wat wij doen",
+    subtitle: "Gestructureerde diensten voor particulieren, investeerders en ontwikkelaars.",
+    items: [
+      { t: "Projectmanagement", d: "Volledige maîtrise d'œuvre: planning, budgetbewaking en oplevering, van haalbaarheid tot sleuteloverdracht.", b: "Eén vertrouwde leider van dag één tot oplevering." },
+      { t: "Bouwcoördinatie", d: "Coördinatie van architecten, ingenieurs, aannemers en ambachtslieden zodat elk vak samenwerkt.", b: "Minder vertraging, strakkere uitvoering." },
+      { t: "Klantadvies", d: "Onafhankelijk advies over ontwerp, budget, contracten en leveranciers — altijd aan uw zijde.", b: "Weloverwogen beslissingen, uw belangen beschermd." },
+      { t: "Toezicht op de bouwplaats", d: "Regelmatige bezoeken, kwaliteitscontrole, voortgangsrapportage en foto-updates.", b: "Volledig inzicht, ook vanuit het buitenland." },
+      { t: "Problemen oplossen — de Plan B-filosofie", d: "Wanneer er iets misgaat, stoppen wij niet — wij ontwerpen het alternatief en gaan door.", b: "Pragmatisch, rustig, resultaatgericht." },
+    ],
+  },
+  area: {
+    title: "Werkgebied",
+    subtitle: "Actief aan de Franse Rivièra en omliggende regio's.",
+    depts: [
+      { code: "83", name: "Var" },
+      { code: "06", name: "Alpes-Maritimes" },
+    ],
+    note: "Projecten buiten deze departementen op aanvraag bespreekbaar.",
+  },
+  contact: {
+    title: "Contact",
+    subtitle: "Bespreek vandaag uw project.",
+    name: "Naam",
+    email: "E-mail",
+    phone: "Telefoon",
+    message: "Bericht",
+    send: "Verstuur",
+    sent: "Bedankt — uw bericht is verzonden.",
+    phoneLabel: "Telefoon",
+    emailLabel: "E-mail",
+    whatsappLabel: "WhatsApp",
+    whatsappPrefill: "Hallo Anthony, ik zou graag een project willen bespreken.",
+  },
+  footer: {
+    tagline: "Projectmanagement & bouwadvies — Côte d'Azur.",
+    rights: "Alle rechten voorbehouden.",
+  },
+};
+export default nl;

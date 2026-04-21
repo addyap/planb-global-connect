@@ -1,0 +1,77 @@
+const sv = {
+  nav: { home: "Hem", about: "Om mig", services: "Vad vi gör", area: "Område", contact: "Kontakt" },
+  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Diskutera ditt projekt idag" },
+  hero: {
+    eyebrow: "Plan B Concept — Côte d'Azur",
+    title: "Projektledning & byggrådgivning i södra Frankrike",
+    subtitle: "Över 30 års erfarenhet i fält. Fullt tvåspråkig engelska & franska. Pålitlig vägledning från första skiss till slutbesiktning.",
+  },
+  home: {
+    whatTitle: "Vad vi gör",
+    whatText: "Komplett projektledning och byggsamordning för privatkunder, investerare och byggherrar längs franska Rivieran.",
+    aboutTitle: "Om Anthony",
+    aboutText: "Anthony Gratton har engelska som modersmål, är fullt tvåspråkig i franska och har bott och arbetat i Frankrike i över 30 år. Han representerar dig på plats, försvarar dina intressen och håller varje projekt i rörelse.",
+    areaTitle: "Verksamhetsområden",
+    areaText: "Verksam i Var (83) och Alpes-Maritimes (06), längs hela franska Rivieran och omgivande regioner.",
+    whyTitle: "Varför Plan B Concept",
+    why: [
+      { t: "Tvåspråkig fördel", d: "Tydlig kommunikation mellan engelsktalande kunder och franska yrkesmän." },
+      { t: "Lokal expertis", d: "Trettio års nätverk, leverantörer och hantverkare på Côte d'Azur." },
+      { t: "Lösningsorienterad", d: "När plan A misslyckas bygger vi plan B — i tid och inom budget." },
+      { t: "En kontaktperson", d: "En betrodd rådgivare som samordnar arkitekter, entreprenörer och myndigheter." },
+    ],
+  },
+  about: {
+    title: "Om mig",
+    lead: "Anthony Gratton — din tvåspråkiga projektpartner på franska Rivieran.",
+    p1: "Brittisk engelska som modersmål, fullt tvåspråkig i franska, bosatt och verksam i Frankrike i över 30 år.",
+    p2: "Jag kombinerar brittisk noggrannhet med franskt kunnande för att leverera bygg- och renoveringsprojekt som motsvarar internationella kunders förväntningar.",
+    expertiseTitle: "Expertis",
+    expertise: [
+      "Projektledning (maîtrise d'œuvre)",
+      "Byggsamordning",
+      "Representation av beställare",
+      "Byggplatsuppföljning och rapportering",
+      "Administrativ och teknisk hantering",
+    ],
+  },
+  services: {
+    title: "Vad vi gör",
+    subtitle: "Strukturerade tjänster för privatkunder, investerare och byggherrar.",
+    items: [
+      { t: "Projektledning", d: "Komplett maîtrise d'œuvre: planering, tidsstyrning, kostnadskontroll och leverans, från förstudie till överlämning.", b: "En pålitlig ledare från första dagen till färdigställande." },
+      { t: "Byggsamordning", d: "Samordning av arkitekter, ingenjörer, entreprenörer och hantverkare så att varje yrkesgrupp arbetar i takt.", b: "Färre förseningar, renare utförande." },
+      { t: "Kundrådgivning", d: "Oberoende rådgivning om design, budget, avtal och leverantörsval — alltid på din sida.", b: "Välgrundade beslut, skyddade intressen." },
+      { t: "Byggplatsuppföljning", d: "Regelbundna besök, kvalitetskontroller, lägesrapporter och foto­uppdateringar.", b: "Full insyn, även från utlandet." },
+      { t: "Problemlösning — Plan B-filosofin", d: "När något går fel stannar vi inte — vi utformar alternativet och går vidare.", b: "Pragmatisk, lugn, resultatinriktad." },
+    ],
+  },
+  area: {
+    title: "Verksamhetsområde",
+    subtitle: "Verksam längs franska Rivieran och omgivande regioner.",
+    depts: [
+      { code: "83", name: "Var" },
+      { code: "06", name: "Alpes-Maritimes" },
+    ],
+    note: "Projekt utanför dessa departement diskuteras på begäran.",
+  },
+  contact: {
+    title: "Kontakt",
+    subtitle: "Diskutera ditt projekt idag.",
+    name: "Namn",
+    email: "E-post",
+    phone: "Telefon",
+    message: "Meddelande",
+    send: "Skicka",
+    sent: "Tack — ditt meddelande har skickats.",
+    phoneLabel: "Telefon",
+    emailLabel: "E-post",
+    whatsappLabel: "WhatsApp",
+    whatsappPrefill: "Hej Anthony, jag skulle vilja diskutera ett projekt.",
+  },
+  footer: {
+    tagline: "Projektledning & byggrådgivning — Côte d'Azur.",
+    rights: "Alla rättigheter förbehållna.",
+  },
+};
+export default sv;
