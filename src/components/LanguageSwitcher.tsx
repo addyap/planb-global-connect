@@ -15,11 +15,11 @@ export const LanguageSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger
         aria-label="Change language"
-        className="flex items-center gap-2 rounded-full border border-accent/60 bg-accent/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent hover:bg-accent hover:text-accent-foreground transition-colors"
+        className="flex items-center gap-2 rounded-full border-2 border-accent bg-accent text-accent-foreground px-4 py-2 text-sm font-bold uppercase tracking-wider shadow-[0_4px_20px_-4px_hsl(var(--accent)/0.6)] hover:shadow-[0_6px_28px_-4px_hsl(var(--accent)/0.8)] hover:scale-105 transition-all"
       >
         <Globe className="h-4 w-4" />
         <span>{current.label}</span>
-        <ChevronDown className="h-3.5 w-3.5 opacity-80" />
+        <ChevronDown className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[12rem] p-1">
         {LANGUAGES.map((lng) => {
