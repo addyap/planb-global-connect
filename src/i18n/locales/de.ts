@@ -3,7 +3,7 @@ const de = {
   cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Besprechen Sie Ihr Projekt — noch heute" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projektsteuerung & Baubegleitung in Südfrankreich",
+    title: "Projektsteuerung an der Côte d'Azur",
     subtitle: "Über 30 Jahre Praxiserfahrung. Vollständig zweisprachig Englisch & Französisch. Verlässliche Begleitung von der ersten Skizze bis zur Schlüsselübergabe.",
   },
   home: {

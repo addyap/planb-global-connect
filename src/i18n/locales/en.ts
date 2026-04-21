@@ -3,7 +3,7 @@ const en = {
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Discuss your project today" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Project Management & Construction Advisory in the South of France",
+    title: "Project Management on the French Riviera",
     subtitle: "30+ years of on-the-ground experience. Fully bilingual English & French. Trusted guidance from first sketch to final handover.",
   },
   home: {
