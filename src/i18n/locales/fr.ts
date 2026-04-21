@@ -3,7 +3,7 @@ const fr = {
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Maîtrise d'œuvre & conseil en construction dans le Sud de la France",
+    title: "Maîtrise d'œuvre sur la Côte d'Azur",
     subtitle: "Plus de 30 ans d'expérience sur le terrain. Parfaitement bilingue anglais & français. Un accompagnement de confiance, de l'esquisse à la livraison.",
   },
   home: {

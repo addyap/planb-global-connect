@@ -3,7 +3,7 @@ const sv = {
   cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Diskutera ditt projekt idag" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projektledning & byggrådgivning i södra Frankrike",
+    title: "Projektledning på Franska Rivieran",
     subtitle: "Över 30 års erfarenhet i fält. Fullt tvåspråkig engelska & franska. Pålitlig vägledning från första skiss till slutbesiktning.",
   },
   home: {

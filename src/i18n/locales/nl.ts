@@ -3,7 +3,7 @@ const nl = {
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Bespreek vandaag uw project" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projectmanagement & bouwadvies in Zuid-Frankrijk",
+    title: "Projectmanagement aan de Côte d'Azur",
     subtitle: "Meer dan 30 jaar praktijkervaring. Volledig tweetalig Engels & Frans. Betrouwbare begeleiding van eerste schets tot oplevering.",
   },
   home: {
