@@ -1,0 +1,77 @@
+const fr = {
+  nav: { home: "Accueil", about: "À propos", services: "Nos prestations", area: "Zone", contact: "Contact" },
+  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui" },
+  hero: {
+    eyebrow: "Plan B Concept — Côte d'Azur",
+    title: "Maîtrise d'œuvre & conseil en construction dans le Sud de la France",
+    subtitle: "Plus de 30 ans d'expérience sur le terrain. Parfaitement bilingue anglais & français. Un accompagnement de confiance, de l'esquisse à la livraison.",
+  },
+  home: {
+    whatTitle: "Nos prestations",
+    whatText: "Maîtrise d'œuvre et coordination de chantier de bout en bout, pour particuliers, investisseurs et promoteurs sur la Côte d'Azur.",
+    aboutTitle: "À propos d'Anthony",
+    aboutText: "Anthony Gratton est de langue maternelle anglaise, parfaitement bilingue français, et vit et travaille en France depuis plus de 30 ans. Il vous représente sur site, défend vos intérêts et fait avancer chaque projet.",
+    areaTitle: "Zones d'intervention",
+    areaText: "Nous intervenons dans le Var (83) et les Alpes-Maritimes (06), sur toute la Côte d'Azur et ses environs.",
+    whyTitle: "Pourquoi Plan B Concept",
+    why: [
+      { t: "Avantage bilingue", d: "Une communication claire entre clients anglophones et professionnels français." },
+      { t: "Expertise locale", d: "Trente ans de réseau, d'artisans et de fournisseurs sur la Côte d'Azur." },
+      { t: "Orienté solutions", d: "Quand le plan A échoue, nous construisons le plan B — dans les délais, dans le budget." },
+      { t: "Interlocuteur unique", d: "Un seul référent de confiance qui coordonne architectes, entreprises et administration." },
+    ],
+  },
+  about: {
+    title: "À propos",
+    lead: "Anthony Gratton — votre partenaire bilingue sur la Côte d'Azur.",
+    p1: "Anglophone de naissance, parfaitement bilingue français, installé en France depuis plus de 30 ans.",
+    p2: "J'allie la rigueur britannique au savoir-faire français pour livrer des projets de construction et de rénovation à la hauteur des attentes d'une clientèle internationale.",
+    expertiseTitle: "Expertise",
+    expertise: [
+      "Maîtrise d'œuvre",
+      "Coordination de chantier",
+      "Représentation du maître d'ouvrage",
+      "Suivi de chantier et reporting",
+      "Démarches administratives et techniques",
+    ],
+  },
+  services: {
+    title: "Nos prestations",
+    subtitle: "Des services structurés pour particuliers, investisseurs et promoteurs.",
+    items: [
+      { t: "Maîtrise d'œuvre", d: "Planification, ordonnancement, maîtrise des coûts et livraison, de la faisabilité à la réception.", b: "Un référent unique, de A à Z." },
+      { t: "Coordination de chantier", d: "Coordination des architectes, bureaux d'études, entreprises et artisans pour que chaque corps de métier avance ensemble.", b: "Moins de retards, une exécution plus propre." },
+      { t: "Conseil client", d: "Conseil indépendant sur la conception, le budget, les contrats et le choix des prestataires — toujours de votre côté.", b: "Des décisions éclairées, vos intérêts protégés." },
+      { t: "Suivi de chantier", d: "Visites régulières, contrôles qualité, comptes rendus et reportages photo.", b: "Une visibilité totale, même à distance." },
+      { t: "Résolution de problèmes — la philosophie Plan B", d: "Quand un imprévu survient, nous ne nous arrêtons pas — nous concevons l'alternative et avançons.", b: "Pragmatique, serein, orienté résultats." },
+    ],
+  },
+  area: {
+    title: "Zone d'intervention",
+    subtitle: "Interventions sur toute la Côte d'Azur et les régions voisines.",
+    depts: [
+      { code: "83", name: "Var" },
+      { code: "06", name: "Alpes-Maritimes" },
+    ],
+    note: "Projets hors de ces départements étudiés sur demande.",
+  },
+  contact: {
+    title: "Contact",
+    subtitle: "Parlons de votre projet dès aujourd'hui.",
+    name: "Nom",
+    email: "E-mail",
+    phone: "Téléphone",
+    message: "Message",
+    send: "Envoyer",
+    sent: "Merci — votre message a bien été envoyé.",
+    phoneLabel: "Téléphone",
+    emailLabel: "E-mail",
+    whatsappLabel: "WhatsApp",
+    whatsappPrefill: "Bonjour Anthony, je souhaiterais discuter d'un projet.",
+  },
+  footer: {
+    tagline: "Maîtrise d'œuvre & conseil en construction — Côte d'Azur.",
+    rights: "Tous droits réservés.",
+  },
+};
+export default fr;

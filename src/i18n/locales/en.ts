@@ -1,0 +1,77 @@
+const en = {
+  nav: { home: "Home", about: "About Me", services: "What We Do", area: "Area", contact: "Contact" },
+  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Discuss your project today" },
+  hero: {
+    eyebrow: "Plan B Concept — Côte d'Azur",
+    title: "Project Management & Construction Advisory in the South of France",
+    subtitle: "30+ years of on-the-ground experience. Fully bilingual English & French. Trusted guidance from first sketch to final handover.",
+  },
+  home: {
+    whatTitle: "What we do",
+    whatText: "End-to-end project management and construction coordination for private clients, investors and developers across the French Riviera.",
+    aboutTitle: "About Anthony",
+    aboutText: "Anthony Gratton is a native British English speaker, fully bilingual in French, with over 30 years of living and working in France. He represents you on site, protects your interests and keeps every project moving.",
+    areaTitle: "Areas covered",
+    areaText: "Operating across Var (83) and Alpes-Maritimes (06), on the French Riviera and surrounding regions.",
+    whyTitle: "Why choose Plan B Concept",
+    why: [
+      { t: "Bilingual advantage", d: "Clear communication between English-speaking clients and French professionals." },
+      { t: "Local expertise", d: "Three decades of networks, suppliers and craftsmen on the Côte d'Azur." },
+      { t: "Solution-driven", d: "When Plan A fails, we build the Plan B — on time, on budget." },
+      { t: "Single point of contact", d: "One trusted advisor coordinating architects, contractors and administration." },
+    ],
+  },
+  about: {
+    title: "About Me",
+    lead: "Anthony Gratton — your bilingual project partner on the French Riviera.",
+    p1: "Native British English speaker, fully bilingual in French, with more than 30 years living and working in France.",
+    p2: "I combine British rigour with French know-how to deliver construction and renovation projects that match the expectations of international clients.",
+    expertiseTitle: "Expertise",
+    expertise: [
+      "Project management (maîtrise d'œuvre)",
+      "Construction coordination",
+      "Client representation",
+      "Site monitoring & reporting",
+      "Administrative and technical handling",
+    ],
+  },
+  services: {
+    title: "What We Do",
+    subtitle: "Structured services for private clients, investors and developers.",
+    items: [
+      { t: "Project Management", d: "Full maîtrise d'œuvre: planning, scheduling, cost control and delivery, from feasibility to handover.", b: "A single trusted lead from day one to completion." },
+      { t: "Construction Coordination", d: "Coordinating architects, engineers, contractors and craftsmen so every trade works in sync.", b: "Fewer delays, cleaner execution, no finger-pointing." },
+      { t: "Client Advisory", d: "Independent advice on design, budget, contracts and supplier selection — always on your side.", b: "Informed decisions, protected interests." },
+      { t: "Site Monitoring", d: "Regular on-site visits, quality checks, progress reporting and photo updates.", b: "Total visibility, even from abroad." },
+      { t: "Problem Solving — the Plan B philosophy", d: "When something goes wrong on site, we don't stop — we design the alternative and keep moving.", b: "Pragmatic, calm, results-driven." },
+    ],
+  },
+  area: {
+    title: "Area of Intervention",
+    subtitle: "Operating across the French Riviera and surrounding regions.",
+    depts: [
+      { code: "83", name: "Var" },
+      { code: "06", name: "Alpes-Maritimes" },
+    ],
+    note: "Projects outside these departments considered on request.",
+  },
+  contact: {
+    title: "Contact",
+    subtitle: "Discuss your project today.",
+    name: "Name",
+    email: "Email",
+    phone: "Phone",
+    message: "Message",
+    send: "Send message",
+    sent: "Thank you — your message has been sent.",
+    phoneLabel: "Phone",
+    emailLabel: "Email",
+    whatsappLabel: "WhatsApp",
+    whatsappPrefill: "Hello Anthony, I would like to discuss a project.",
+  },
+  footer: {
+    tagline: "Project management & construction advisory — Côte d'Azur.",
+    rights: "All rights reserved.",
+  },
+};
+export default en;

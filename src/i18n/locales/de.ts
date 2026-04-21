@@ -1,0 +1,77 @@
+const de = {
+  nav: { home: "Start", about: "Über mich", services: "Leistungen", area: "Region", contact: "Kontakt" },
+  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Besprechen Sie Ihr Projekt — noch heute" },
+  hero: {
+    eyebrow: "Plan B Concept — Côte d'Azur",
+    title: "Projektsteuerung & Baubegleitung in Südfrankreich",
+    subtitle: "Über 30 Jahre Praxiserfahrung. Vollständig zweisprachig Englisch & Französisch. Verlässliche Begleitung von der ersten Skizze bis zur Schlüsselübergabe.",
+  },
+  home: {
+    whatTitle: "Was wir tun",
+    whatText: "Umfassende Projektsteuerung und Baukoordination für Privatkunden, Investoren und Bauträger an der französischen Riviera.",
+    aboutTitle: "Über Anthony",
+    aboutText: "Anthony Gratton ist britischer Muttersprachler, vollständig zweisprachig Französisch, und lebt und arbeitet seit über 30 Jahren in Frankreich. Er vertritt Sie vor Ort, wahrt Ihre Interessen und hält jedes Projekt in Bewegung.",
+    areaTitle: "Einsatzgebiete",
+    areaText: "Tätig im Département Var (83) und in den Alpes-Maritimes (06), an der gesamten Côte d'Azur und den angrenzenden Regionen.",
+    whyTitle: "Warum Plan B Concept",
+    why: [
+      { t: "Zweisprachiger Vorteil", d: "Klare Kommunikation zwischen englischsprachigen Kunden und französischen Fachleuten." },
+      { t: "Lokale Expertise", d: "Dreißig Jahre Netzwerk, Lieferanten und Handwerker an der Côte d'Azur." },
+      { t: "Lösungsorientiert", d: "Wenn Plan A scheitert, entwickeln wir Plan B — termingerecht, im Budget." },
+      { t: "Ein Ansprechpartner", d: "Ein vertrauenswürdiger Berater koordiniert Architekten, Unternehmen und Behörden." },
+    ],
+  },
+  about: {
+    title: "Über mich",
+    lead: "Anthony Gratton — Ihr zweisprachiger Projektpartner an der französischen Riviera.",
+    p1: "Britischer Muttersprachler, vollständig zweisprachig Französisch, seit mehr als 30 Jahren in Frankreich ansässig und tätig.",
+    p2: "Ich verbinde britische Gründlichkeit mit französischem Fachwissen, um Bau- und Renovierungsprojekte zu realisieren, die den Ansprüchen einer internationalen Kundschaft gerecht werden.",
+    expertiseTitle: "Kompetenzen",
+    expertise: [
+      "Projektsteuerung (maîtrise d'œuvre)",
+      "Baukoordination",
+      "Bauherrenvertretung",
+      "Baustellenüberwachung und Reporting",
+      "Administrative und technische Abwicklung",
+    ],
+  },
+  services: {
+    title: "Leistungen",
+    subtitle: "Strukturierte Leistungen für Privatkunden, Investoren und Bauträger.",
+    items: [
+      { t: "Projektsteuerung", d: "Vollständige Maîtrise d'œuvre: Planung, Terminierung, Kostenkontrolle und Abnahme, von der Machbarkeit bis zur Übergabe.", b: "Ein verlässlicher Ansprechpartner vom ersten Tag bis zur Fertigstellung." },
+      { t: "Baukoordination", d: "Koordination von Architekten, Ingenieuren, Unternehmen und Handwerkern, damit alle Gewerke im Takt arbeiten.", b: "Weniger Verzögerungen, saubere Ausführung." },
+      { t: "Kundenberatung", d: "Unabhängige Beratung zu Planung, Budget, Verträgen und Anbieterauswahl — immer auf Ihrer Seite.", b: "Fundierte Entscheidungen, geschützte Interessen." },
+      { t: "Bauüberwachung", d: "Regelmäßige Vor-Ort-Besuche, Qualitätskontrollen, Fortschrittsberichte und Foto-Updates.", b: "Volle Transparenz, auch aus dem Ausland." },
+      { t: "Problemlösung — die Plan-B-Philosophie", d: "Wenn etwas schiefgeht, halten wir nicht an — wir entwerfen die Alternative und machen weiter.", b: "Pragmatisch, ruhig, ergebnisorientiert." },
+    ],
+  },
+  area: {
+    title: "Einsatzgebiet",
+    subtitle: "Tätig an der französischen Riviera und in den umliegenden Regionen.",
+    depts: [
+      { code: "83", name: "Var" },
+      { code: "06", name: "Alpes-Maritimes" },
+    ],
+    note: "Projekte außerhalb dieser Départements auf Anfrage.",
+  },
+  contact: {
+    title: "Kontakt",
+    subtitle: "Besprechen Sie Ihr Projekt — noch heute.",
+    name: "Name",
+    email: "E-Mail",
+    phone: "Telefon",
+    message: "Nachricht",
+    send: "Senden",
+    sent: "Danke — Ihre Nachricht wurde gesendet.",
+    phoneLabel: "Telefon",
+    emailLabel: "E-Mail",
+    whatsappLabel: "WhatsApp",
+    whatsappPrefill: "Hallo Anthony, ich würde gerne ein Projekt besprechen.",
+  },
+  footer: {
+    tagline: "Projektsteuerung & Baubegleitung — Côte d'Azur.",
+    rights: "Alle Rechte vorbehalten.",
+  },
+};
+export default de;
