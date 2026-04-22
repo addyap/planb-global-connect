@@ -28,7 +28,7 @@ const en = {
     p2: "I combine British rigour with French know-how to deliver construction and renovation projects that match the expectations of international clients.",
     expertiseTitle: "Expertise",
     expertise: [
-      "Project management (maîtrise d'œuvre)",
+      "Project management",
       "Construction coordination",
       "Client representation",
       "Site monitoring & reporting",
@@ -39,7 +39,7 @@ const en = {
     title: "What We Do",
     subtitle: "Structured services for private clients, investors and developers.",
     items: [
-      { t: "Project Management", d: "Full maîtrise d'œuvre: planning, scheduling, cost control and delivery, from feasibility to handover.", b: "A single trusted lead from day one to completion." },
+      { t: "Project Management", d: "Full project management: planning, scheduling, cost control and delivery, from feasibility to handover.", b: "A single trusted lead from day one to completion." },
       { t: "Construction Coordination", d: "Coordinating architects, engineers, contractors and craftsmen so every trade works in sync.", b: "Fewer delays, cleaner execution, no finger-pointing." },
       { t: "Client Advisory", d: "Independent advice on design, budget, contracts and supplier selection — always on your side.", b: "Informed decisions, protected interests." },
       { t: "Site Monitoring", d: "Regular on-site visits, quality checks, progress reporting and photo updates.", b: "Total visibility, even from abroad." },

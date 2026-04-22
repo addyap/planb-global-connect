@@ -28,7 +28,7 @@ const de = {
     p2: "Ich verbinde britische Gründlichkeit mit französischem Fachwissen, um Bau- und Renovierungsprojekte zu realisieren, die den Ansprüchen einer internationalen Kundschaft gerecht werden.",
     expertiseTitle: "Kompetenzen",
     expertise: [
-      "Projektsteuerung (maîtrise d'œuvre)",
+      "Projektsteuerung",
       "Baukoordination",
       "Bauherrenvertretung",
       "Baustellenüberwachung und Reporting",
@@ -39,7 +39,7 @@ const de = {
     title: "Leistungen",
     subtitle: "Strukturierte Leistungen für Privatkunden, Investoren und Bauträger.",
     items: [
-      { t: "Projektsteuerung", d: "Vollständige Maîtrise d'œuvre: Planung, Terminierung, Kostenkontrolle und Abnahme, von der Machbarkeit bis zur Übergabe.", b: "Ein verlässlicher Ansprechpartner vom ersten Tag bis zur Fertigstellung." },
+      { t: "Projektsteuerung", d: "Vollständige Projektsteuerung: Planung, Terminierung, Kostenkontrolle und Abnahme, von der Machbarkeit bis zur Übergabe.", b: "Ein verlässlicher Ansprechpartner vom ersten Tag bis zur Fertigstellung." },
       { t: "Baukoordination", d: "Koordination von Architekten, Ingenieuren, Unternehmen und Handwerkern, damit alle Gewerke im Takt arbeiten.", b: "Weniger Verzögerungen, saubere Ausführung." },
       { t: "Kundenberatung", d: "Unabhängige Beratung zu Planung, Budget, Verträgen und Anbieterauswahl — immer auf Ihrer Seite.", b: "Fundierte Entscheidungen, geschützte Interessen." },
       { t: "Bauüberwachung", d: "Regelmäßige Vor-Ort-Besuche, Qualitätskontrollen, Fortschrittsberichte und Foto-Updates.", b: "Volle Transparenz, auch aus dem Ausland." },
