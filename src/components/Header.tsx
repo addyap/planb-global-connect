@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo-plan-b.png";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CONTACT } from "@/lib/contact";
+import { Menu, MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const sections = ["home", "about", "services", "area", "contact"] as const;
@@ -11,6 +13,7 @@ export const Header = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -52,8 +55,18 @@ export const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3 md:gap-5">
           <LanguageSwitcher />
+          <Button
+            asChild
+            size="sm"
+            className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 shadow-gold"
+          >
+            <a href={wa} target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+              <MessageCircle className="h-4 w-4" />
+              <span>WhatsApp</span>
+            </a>
+          </Button>
           <button
             className="md:hidden p-2 text-primary-foreground"
             onClick={() => setOpen((v) => !v)}
