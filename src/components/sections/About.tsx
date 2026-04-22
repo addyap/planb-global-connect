@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
+import founderPhoto from "@/assets/plan-b-founder.jpg";
 
 export const About = () => {
   const { t } = useTranslation();
@@ -18,6 +19,14 @@ export const About = () => {
           <p className="text-lg text-foreground/80 leading-relaxed">{t("about.p2")}</p>
         </div>
         <div className="md:col-span-2 bg-primary text-primary-foreground rounded-2xl p-8 shadow-elegant">
+          <img
+            src={founderPhoto}
+            alt="Founder of Plan B Côte d’Azur – Project Management expert"
+            loading="lazy"
+            width={770}
+            height={965}
+            className="w-full aspect-[4/5] object-cover rounded-xl mb-6"
+          />
           <h3 className="font-display text-accent text-lg mb-5">{t("about.expertiseTitle")}</h3>
           <ul className="space-y-3">
             {expertise.map((e, i) => (
