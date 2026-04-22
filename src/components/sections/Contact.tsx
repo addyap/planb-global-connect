@@ -33,7 +33,6 @@ export const Contact = () => {
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-5 leading-tight">
             {t("cta.discuss")}
           </h2>
-          <p className="text-muted-foreground mb-8">{t("contact.subtitle")}</p>
 
           <div className="space-y-3">
             <a href={`tel:${CONTACT.phoneIntl}`} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
