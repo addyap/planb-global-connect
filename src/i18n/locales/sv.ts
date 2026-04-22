@@ -28,7 +28,7 @@ const sv = {
     p2: "Jag kombinerar brittisk noggrannhet med franskt kunnande för att leverera bygg- och renoveringsprojekt som motsvarar internationella kunders förväntningar.",
     expertiseTitle: "Expertis",
     expertise: [
-      "Projektledning (maîtrise d'œuvre)",
+      "Projektledning",
       "Byggsamordning",
       "Representation av beställare",
       "Byggplatsuppföljning och rapportering",
@@ -39,7 +39,7 @@ const sv = {
     title: "Vad vi gör",
     subtitle: "Strukturerade tjänster för privatkunder, investerare och byggherrar.",
     items: [
-      { t: "Projektledning", d: "Komplett maîtrise d'œuvre: planering, tidsstyrning, kostnadskontroll och leverans, från förstudie till överlämning.", b: "En pålitlig ledare från första dagen till färdigställande." },
+      { t: "Projektledning", d: "Komplett projektledning: planering, tidsstyrning, kostnadskontroll och leverans, från förstudie till överlämning.", b: "En pålitlig ledare från första dagen till färdigställande." },
       { t: "Byggsamordning", d: "Samordning av arkitekter, ingenjörer, entreprenörer och hantverkare så att varje yrkesgrupp arbetar i takt.", b: "Färre förseningar, renare utförande." },
       { t: "Kundrådgivning", d: "Oberoende rådgivning om design, budget, avtal och leverantörsval — alltid på din sida.", b: "Välgrundade beslut, skyddade intressen." },
       { t: "Byggplatsuppföljning", d: "Regelbundna besök, kvalitetskontroller, lägesrapporter och foto­uppdateringar.", b: "Full insyn, även från utlandet." },
