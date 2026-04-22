@@ -3,12 +3,12 @@ const fr = {
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Maîtrise d'œuvre sur la Côte d'Azur",
+    title: "Project Management sur la Côte d'Azur",
     subtitle: "Plus de 30 ans d'expérience sur le terrain. Parfaitement bilingue anglais & français. Un accompagnement de confiance, de l'esquisse à la livraison.",
   },
   home: {
     whatTitle: "Nos prestations",
-    whatText: "Maîtrise d'œuvre et coordination de chantier de bout en bout, pour particuliers, investisseurs et promoteurs sur la Côte d'Azur.",
+    whatText: "Project Management et coordination de chantier de bout en bout, pour particuliers, investisseurs et promoteurs sur la Côte d'Azur.",
     aboutTitle: "À propos d'Anthony",
     aboutText: "Anthony Gratton est de langue maternelle anglaise, parfaitement bilingue français, et vit et travaille en France depuis plus de 30 ans. Il vous représente sur site, défend vos intérêts et fait avancer chaque projet.",
     areaTitle: "Zones d'intervention",
@@ -28,7 +28,7 @@ const fr = {
     p2: "J'allie la rigueur britannique au savoir-faire français pour livrer des projets de construction et de rénovation à la hauteur des attentes d'une clientèle internationale.",
     expertiseTitle: "Expertise",
     expertise: [
-      "Maîtrise d'œuvre",
+      "Project Management",
       "Coordination de chantier",
       "Représentation du maître d'ouvrage",
       "Suivi de chantier et reporting",
@@ -39,7 +39,7 @@ const fr = {
     title: "Nos prestations",
     subtitle: "Des services structurés pour particuliers, investisseurs et promoteurs.",
     items: [
-      { t: "Maîtrise d'œuvre", d: "Planification, ordonnancement, maîtrise des coûts et livraison, de la faisabilité à la réception.", b: "Un référent unique, de A à Z." },
+      { t: "Project Management", d: "Planification, ordonnancement, maîtrise des coûts et livraison, de la faisabilité à la réception.", b: "Un référent unique, de A à Z." },
       { t: "Coordination de chantier", d: "Coordination des architectes, bureaux d'études, entreprises et artisans pour que chaque corps de métier avance ensemble.", b: "Moins de retards, une exécution plus propre." },
       { t: "Conseil client", d: "Conseil indépendant sur la conception, le budget, les contrats et le choix des prestataires — toujours de votre côté.", b: "Des décisions éclairées, vos intérêts protégés." },
       { t: "Suivi de chantier", d: "Visites régulières, contrôles qualité, comptes rendus et reportages photo.", b: "Une visibilité totale, même à distance." },
@@ -70,7 +70,7 @@ const fr = {
     whatsappPrefill: "Bonjour Anthony, je souhaiterais discuter d'un projet.",
   },
   footer: {
-    tagline: "Maîtrise d'œuvre & conseil en construction — Côte d'Azur.",
+    tagline: "Project Management & conseil en construction — Côte d'Azur.",
     rights: "Tous droits réservés.",
   },
 };

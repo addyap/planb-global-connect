@@ -28,7 +28,7 @@ const nl = {
     p2: "Ik combineer Britse nauwkeurigheid met Franse vakkennis om bouw- en renovatieprojecten op te leveren die voldoen aan de verwachtingen van internationale klanten.",
     expertiseTitle: "Expertise",
     expertise: [
-      "Projectmanagement (maîtrise d'œuvre)",
+      "Projectmanagement",
       "Bouwcoördinatie",
       "Vertegenwoordiging opdrachtgever",
       "Toezicht en rapportage",
@@ -39,7 +39,7 @@ const nl = {
     title: "Wat wij doen",
     subtitle: "Gestructureerde diensten voor particulieren, investeerders en ontwikkelaars.",
     items: [
-      { t: "Projectmanagement", d: "Volledige maîtrise d'œuvre: planning, budgetbewaking en oplevering, van haalbaarheid tot sleuteloverdracht.", b: "Eén vertrouwde leider van dag één tot oplevering." },
+      { t: "Projectmanagement", d: "Volledig projectmanagement: planning, budgetbewaking en oplevering, van haalbaarheid tot sleuteloverdracht.", b: "Eén vertrouwde leider van dag één tot oplevering." },
       { t: "Bouwcoördinatie", d: "Coördinatie van architecten, ingenieurs, aannemers en ambachtslieden zodat elk vak samenwerkt.", b: "Minder vertraging, strakkere uitvoering." },
       { t: "Klantadvies", d: "Onafhankelijk advies over ontwerp, budget, contracten en leveranciers — altijd aan uw zijde.", b: "Weloverwogen beslissingen, uw belangen beschermd." },
       { t: "Toezicht op de bouwplaats", d: "Regelmatige bezoeken, kwaliteitscontrole, voortgangsrapportage en foto-updates.", b: "Volledig inzicht, ook vanuit het buitenland." },
