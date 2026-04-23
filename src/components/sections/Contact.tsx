@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle, Linkedin } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 
 export const Contact = () => {
@@ -54,6 +54,13 @@ export const Contact = () => {
               <div>
                 <div className="text-xs text-muted-foreground">{t("contact.whatsappLabel")}</div>
                 <div className="font-medium text-foreground">{CONTACT.phoneDisplay}</div>
+              </div>
+            </a>
+            <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
+              <div className="h-10 w-10 rounded-lg bg-[#0A66C2] flex items-center justify-center"><Linkedin className="h-4 w-4 text-white" /></div>
+              <div>
+                <div className="text-xs text-muted-foreground">LinkedIn</div>
+                <div className="font-medium text-foreground">Anthony Gratton</div>
               </div>
             </a>
           </div>
