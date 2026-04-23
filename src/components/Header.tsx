@@ -7,7 +7,7 @@ import { CONTACT } from "@/lib/contact";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const sections = ["home", "about", "services", "area", "contact"] as const;
+const sections = ["home", "about", "services", "questionnaire", "area", "contact"] as const;
 
 export const Header = () => {
   const { t } = useTranslation();
@@ -52,21 +52,21 @@ export const Header = () => {
         scrolled ? "bg-primary/95 backdrop-blur-md shadow-elegant" : "bg-primary/70 backdrop-blur-sm"
       )}
     >
-      <div className="container flex items-center justify-between h-20 md:h-28">
-        <button onClick={() => go("home")} className="flex items-center gap-2 group" aria-label="Plan B Concept — home">
+      <div className="container flex h-20 items-center justify-between md:h-28">
+        <button onClick={() => go("home")} className="group flex items-center gap-2" aria-label="Plan B Concept — home">
           <img
             src={logo}
             alt="Plan B Concept"
-            className="h-16 md:h-24 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105"
+            className="h-16 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-24"
           />
         </button>
 
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden items-center gap-7 md:flex">
           {sections.map((s) => (
             <button
               key={s}
               onClick={() => go(s)}
-              className="text-sm font-medium text-primary-foreground/90 hover:text-accent transition-colors"
+              className="text-sm font-medium text-primary-foreground/90 transition-colors hover:text-accent"
             >
               {t(`nav.${s}`)}
             </button>
@@ -78,7 +78,7 @@ export const Header = () => {
           <Button
             asChild
             size="sm"
-            className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 shadow-gold"
+            className="hidden bg-accent text-accent-foreground shadow-gold hover:bg-accent/90 sm:inline-flex"
           >
             <a href={wa} target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
               <MessageCircle className="h-4 w-4" />
@@ -86,7 +86,7 @@ export const Header = () => {
             </a>
           </Button>
           <button
-            className="md:hidden p-2 text-primary-foreground"
+            className="p-2 text-primary-foreground md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="menu"
           >
@@ -96,13 +96,13 @@ export const Header = () => {
       </div>
 
       {open && (
-        <nav className="md:hidden bg-primary border-t border-accent/20">
-          <div className="container py-4 flex flex-col gap-1">
+        <nav className="border-t border-accent/20 bg-primary md:hidden">
+          <div className="container flex flex-col gap-1 py-4">
             {sections.map((s) => (
               <button
                 key={s}
                 onClick={() => go(s)}
-                className="text-left px-2 py-3 text-primary-foreground hover:text-accent border-b border-accent/10 last:border-0"
+                className="border-b border-accent/10 px-2 py-3 text-left text-primary-foreground hover:text-accent last:border-0"
               >
                 {t(`nav.${s}`)}
               </button>
