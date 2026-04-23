@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle, Linkedin } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 
 export const Contact = () => {
