@@ -13,14 +13,31 @@ export const Header = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    let lastScrollY = window.scrollY;
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 20);
+
+      if (open || currentScrollY < 24) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 120) {
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [open]);
 
   const go = (id: string) => {
     setOpen(false);
@@ -31,6 +48,7 @@ export const Header = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        visible ? "translate-y-0" : "-translate-y-full",
         scrolled ? "bg-primary/95 backdrop-blur-md shadow-elegant" : "bg-primary/70 backdrop-blur-sm"
       )}
     >
