@@ -7,14 +7,10 @@ export const HomeSummary = () => {
   const icons = [Users, MapPin, Shield, Briefcase];
   return (
     <section className="py-20 md:py-28 bg-background">
-      <div className="container grid md:grid-cols-2 gap-10 md:gap-16 mb-20">
+      <div className="container mb-20 max-w-3xl">
         <div>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">{t("home.whatTitle")}</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">{t("home.whatText")}</p>
-        </div>
-        <div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">{t("home.aboutTitle")}</h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">{t("home.aboutText")}</p>
         </div>
       </div>
 
