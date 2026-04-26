@@ -48,8 +48,8 @@ const de = {
   },
   questionnaire: {
     title: "Projektfragebogen",
-    heading: "Beschreiben Sie Anthony Ihr Projekt",
-    intro: "Dieses Formular sammelt die wichtigsten Projektdaten, damit Anthony Umfang, Prioritäten und die nächsten Schritte vor dem ersten Gespräch besser einschätzen kann.",
+    heading: "Beschreiben Sie mir Ihr Projekt",
+    intro: "Dieses Formular sammelt die wichtigsten Projektdaten, damit ich Umfang, Prioritäten und die nächsten Schritte vor dem ersten Gespräch besser einschätzen kann.",
     highlights: [
       "Geeignet für Renovierungen, Neubauten und Aufwertungsprojekte.",
       "Hilft, Machbarkeit, Bedarf und passende Unterstützung schnell zu erfassen.",
@@ -78,7 +78,7 @@ const de = {
     timelineOptions: ["Sofort", "Innerhalb von 3 Monaten", "Innerhalb von 6 Monaten", "6–12 Monate", "Nur Planungsphase"],
     serviceOptions: ["Projektsteuerung", "Baukoordination", "Bauherrenvertretung", "Budget- und Anbieterauswahl", "Baustellenüberwachung", "Administrative Begleitung"],
     siteVisitOptions: ["Ja", "Nein"],
-    note: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit dem ausgefüllten Fragebogen an Anthony.",
+    note: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit dem ausgefüllten Fragebogen an mich.",
     submit: "Fragebogen senden",
     success: "Ihr Fragebogen ist versandbereit.",
     emailSubject: "Plan B Concept — Neuer Projektfragebogen",

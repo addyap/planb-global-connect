@@ -48,8 +48,8 @@ const nl = {
   },
   questionnaire: {
     title: "Projectvragenlijst",
-    heading: "Vertel Anthony over uw project",
-    intro: "Met dit formulier krijgt Anthony vooraf de essentiële informatie over uw woning, prioriteiten en gewenste begeleiding.",
+    heading: "Vertel mij over uw project",
+    intro: "Met dit formulier krijg ik vooraf de essentiële informatie over uw woning, prioriteiten en gewenste begeleiding.",
     highlights: [
       "Geschikt voor renovaties, nieuwbouw en verbeteringswerken.",
       "Helpt snel de scope, haalbaarheid en vervolgstappen te bepalen.",
@@ -78,7 +78,7 @@ const nl = {
     timelineOptions: ["Onmiddellijk", "Binnen 3 maanden", "Binnen 6 maanden", "6–12 maanden", "Alleen in planningsfase"],
     serviceOptions: ["Projectmanagement", "Bouwcoördinatie", "Vertegenwoordiging opdrachtgever", "Budget- en leveranciersadvies", "Toezicht en rapportage", "Administratieve begeleiding"],
     siteVisitOptions: ["Ja", "Nee"],
-    note: "Bij verzenden opent uw e-mailprogramma met de ingevulde vragenlijst direct aan Anthony.",
+    note: "Bij verzenden opent uw e-mailprogramma met de ingevulde vragenlijst direct aan mij.",
     submit: "Vragenlijst verzenden",
     success: "Uw vragenlijst is klaar om te verzenden.",
     emailSubject: "Plan B Concept — Nieuwe projectvragenlijst",
