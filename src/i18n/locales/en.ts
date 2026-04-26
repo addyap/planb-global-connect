@@ -48,11 +48,11 @@ const en = {
   },
   questionnaire: {
     title: "Project Questionnaire",
-    heading: "Tell Anthony about your project",
-    intro: "This intake form helps Anthony understand the property, priorities and level of support you need before the first call or site visit.",
+    heading: "Tell me about your project",
+    intro: "This intake form helps me understand the property, priorities and level of support you need before the first call or site visit.",
     highlights: [
       "Captures the essentials for renovations, new builds and property improvement projects.",
-      "Gives Anthony enough context to advise on scope, feasibility and next steps quickly.",
+      "Gives me enough context to advise on scope, feasibility and next steps quickly.",
       "Ideal for overseas owners who need a reliable local point of contact on the French Riviera.",
     ],
     fields: {
@@ -85,7 +85,7 @@ const en = {
       "Administrative guidance",
     ],
     siteVisitOptions: ["Yes", "No"],
-    note: "Submitting opens your email app with the completed questionnaire addressed directly to Anthony.",
+    note: "Submitting opens your email app with the completed questionnaire addressed directly to me.",
     submit: "Send questionnaire",
     success: "Your questionnaire is ready to send.",
     emailSubject: "Plan B Concept — New project questionnaire",

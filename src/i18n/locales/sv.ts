@@ -48,7 +48,7 @@ const sv = {
   },
   questionnaire: {
     title: "Projektformulär",
-    heading: "Berätta för Anthony om ditt projekt",
+    heading: "Berätta för mig om ditt projekt",
     intro: "Detta formulär samlar in den viktigaste informationen om fastigheten, prioriteringarna och vilket stöd du behöver.",
     highlights: [
       "Anpassat för renoveringar, nybyggnationer och förbättringsprojekt.",
@@ -78,7 +78,7 @@ const sv = {
     timelineOptions: ["Omedelbart", "Inom 3 månader", "Inom 6 månader", "6–12 månader", "Endast planeringsfas"],
     serviceOptions: ["Projektledning", "Byggsamordning", "Representation av beställare", "Budget- och leverantörsråd", "Byggplatsuppföljning", "Administrativ vägledning"],
     siteVisitOptions: ["Ja", "Nej"],
-    note: "När du skickar öppnas ditt e-postprogram med det ifyllda formuläret adresserat direkt till Anthony.",
+    note: "När du skickar öppnas ditt e-postprogram med det ifyllda formuläret adresserat direkt till mig.",
     submit: "Skicka formuläret",
     success: "Ditt formulär är klart att skickas.",
     emailSubject: "Plan B Concept — Ny projektförfrågan",

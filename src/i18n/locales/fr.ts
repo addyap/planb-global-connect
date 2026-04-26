@@ -48,8 +48,8 @@ const fr = {
   },
   questionnaire: {
     title: "Questionnaire projet",
-    heading: "Présentez votre projet à Anthony",
-    intro: "Ce formulaire permet à Anthony de comprendre rapidement le bien, vos priorités et le niveau d'accompagnement attendu avant un premier échange ou une visite.",
+    heading: "Présentez-moi votre projet",
+    intro: "Ce formulaire me permet de comprendre rapidement le bien, vos priorités et le niveau d'accompagnement attendu avant un premier échange ou une visite.",
     highlights: [
       "Conçu pour les rénovations, constructions neuves et projets d'amélioration de propriété.",
       "Permet d'identifier rapidement le périmètre, la faisabilité et les prochaines étapes utiles.",
@@ -85,7 +85,7 @@ const fr = {
       "Accompagnement administratif",
     ],
     siteVisitOptions: ["Oui", "Non"],
-    note: "L'envoi ouvre votre messagerie avec le questionnaire complété prêt à être adressé directement à Anthony.",
+    note: "L'envoi ouvre votre messagerie avec le questionnaire complété prêt à m'être adressé directement.",
     submit: "Envoyer le questionnaire",
     success: "Votre questionnaire est prêt à être envoyé.",
     emailSubject: "Plan B Concept — Nouveau questionnaire projet",
