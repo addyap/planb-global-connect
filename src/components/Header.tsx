@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo-plan-b.png";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/button";
@@ -7,10 +8,21 @@ import { CONTACT } from "@/lib/contact";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const sections = ["home", "about", "services", "questionnaire", "area", "contact"] as const;
+type NavItem = { key: string; path: string; sectionId?: string };
+
+const navItems: NavItem[] = [
+  { key: "home", path: "/", sectionId: "home" },
+  { key: "about", path: "/about", sectionId: "about" },
+  { key: "services", path: "/services", sectionId: "services" },
+  { key: "questionnaire", path: "/questionnaire" },
+  { key: "area", path: "/area", sectionId: "area" },
+  { key: "contact", path: "/contact", sectionId: "contact" },
+];
 
 export const Header = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -39,9 +51,28 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [open]);
 
-  const go = (id: string) => {
+  // When landing on a section URL (e.g. /about), scroll to that section.
+  useEffect(() => {
+    const match = navItems.find((item) => item.path === location.pathname);
+    if (!match || !match.sectionId) return;
+    // Wait for layout, then scroll
+    const id = match.sectionId;
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else if (id === "home") window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }, [location.pathname]);
+
+  const handleNav = (item: NavItem) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (item.path !== location.pathname) {
+      navigate(item.path);
+      return;
+    }
+    if (item.sectionId) {
+      document.getElementById(item.sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -53,7 +84,7 @@ export const Header = () => {
       )}
     >
       <div className="container flex h-20 items-center justify-between md:h-28">
-        <button onClick={() => go("home")} className="group flex items-center gap-2" aria-label="Plan B Concept — home">
+        <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2" aria-label="Plan B Concept — home">
           <img
             src={logo}
             alt="Plan B Concept"
@@ -62,13 +93,13 @@ export const Header = () => {
         </button>
 
         <nav className="hidden items-center gap-7 md:flex">
-          {sections.map((s) => (
+          {navItems.map((item) => (
             <button
-              key={s}
-              onClick={() => go(s)}
+              key={item.key}
+              onClick={() => handleNav(item)}
               className="text-sm font-medium text-primary-foreground/90 transition-colors hover:text-accent"
             >
-              {t(`nav.${s}`)}
+              {t(`nav.${item.key}`)}
             </button>
           ))}
         </nav>
@@ -98,13 +129,13 @@ export const Header = () => {
       {open && (
         <nav className="border-t border-accent/20 bg-primary md:hidden">
           <div className="container flex flex-col gap-1 py-4">
-            {sections.map((s) => (
+            {navItems.map((item) => (
               <button
-                key={s}
-                onClick={() => go(s)}
+                key={item.key}
+                onClick={() => handleNav(item)}
                 className="border-b border-accent/10 px-2 py-3 text-left text-primary-foreground hover:text-accent last:border-0"
               >
-                {t(`nav.${s}`)}
+                {t(`nav.${item.key}`)}
               </button>
             ))}
           </div>
