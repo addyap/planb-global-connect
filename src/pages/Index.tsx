@@ -5,7 +5,6 @@ import { Hero } from "@/components/sections/Hero";
 import { HomeSummary } from "@/components/sections/HomeSummary";
 import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
-import { Questionnaire } from "@/components/sections/Questionnaire";
 import { Area } from "@/components/sections/Area";
 import { Contact } from "@/components/sections/Contact";
 import { useEffect } from "react";
@@ -30,7 +29,6 @@ const Index = () => {
         <About />
         <Services />
         <Area />
-        <Questionnaire />
         <Contact />
       </main>
       <Footer />
