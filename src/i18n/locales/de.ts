@@ -41,7 +41,7 @@ const de = {
     items: [
       { t: "Projektsteuerung", d: "Vollständige Projektsteuerung: Planung, Terminierung, Kostenkontrolle und Abnahme, von der Machbarkeit bis zur Übergabe.", b: "Ein verlässlicher Ansprechpartner vom ersten Tag bis zur Fertigstellung." },
       { t: "Baukoordination", d: "Koordination von Architekten, Ingenieuren, Unternehmen und Handwerkern, damit alle Gewerke im Takt arbeiten.", b: "Weniger Verzögerungen, saubere Ausführung." },
-      { t: "Kundenberatung", d: "Unabhängige Beratung zu Planung, Budget, Verträgen und Anbieterauswahl — immer auf Ihrer Seite.", b: "Fundierte Entscheidungen, geschützte Interessen." },
+      { t: "Kundenbetreuung & Beratung", d: "Unabhängige Betreuung und Beratung zu Planung, Budget, Verträgen und Anbieterauswahl — immer auf Ihrer Seite.", b: "Fundierte Entscheidungen, geschützte Interessen." },
       { t: "Bauüberwachung", d: "Regelmäßige Vor-Ort-Besuche, Qualitätskontrollen, Fortschrittsberichte und Foto-Updates.", b: "Volle Transparenz, auch aus dem Ausland." },
       { t: "Problemlösung — die Plan-B-Philosophie", d: "Wenn etwas schiefgeht, halten wir nicht an — wir entwerfen die Alternative und machen weiter.", b: "Pragmatisch, ruhig, ergebnisorientiert." },
     ],

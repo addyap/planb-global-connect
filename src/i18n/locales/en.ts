@@ -41,7 +41,7 @@ const en = {
     items: [
       { t: "Project Management", d: "Full project management: planning, scheduling, cost control and delivery, from feasibility to handover.", b: "A single trusted lead from day one to completion." },
       { t: "Construction Coordination", d: "Coordinating architects, engineers, contractors and craftsmen so every trade works in sync.", b: "Fewer delays, cleaner execution, no finger-pointing." },
-      { t: "Client Advisory", d: "Independent advice on design, budget, contracts and supplier selection — always on your side.", b: "Informed decisions, protected interests." },
+      { t: "Client Support & Guidance", d: "Independent support and guidance on design, budget, contracts and supplier selection — always on your side.", b: "Informed decisions, protected interests." },
       { t: "Site Monitoring", d: "Regular on-site visits, quality checks, progress reporting and photo updates.", b: "Total visibility, even from abroad." },
       { t: "Problem Solving — the Plan B philosophy", d: "When something goes wrong on site, we don't stop — we design the alternative and keep moving.", b: "Pragmatic, calm, results-driven." },
     ],
