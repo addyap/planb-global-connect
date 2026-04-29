@@ -41,7 +41,7 @@ const sv = {
     items: [
       { t: "Projektledning", d: "Komplett projektledning: planering, tidsstyrning, kostnadskontroll och leverans, från förstudie till överlämning.", b: "En pålitlig ledare från första dagen till färdigställande." },
       { t: "Byggsamordning", d: "Samordning av arkitekter, ingenjörer, entreprenörer och hantverkare så att varje yrkesgrupp arbetar i takt.", b: "Färre förseningar, renare utförande." },
-      { t: "Kundrådgivning", d: "Oberoende rådgivning om design, budget, avtal och leverantörsval — alltid på din sida.", b: "Välgrundade beslut, skyddade intressen." },
+      { t: "Kundstöd & vägledning", d: "Oberoende stöd och vägledning kring design, budget, avtal och leverantörsval — alltid på din sida.", b: "Välgrundade beslut, skyddade intressen." },
       { t: "Byggplatsuppföljning", d: "Regelbundna besök, kvalitetskontroller, lägesrapporter och fotouppdateringar.", b: "Full insyn, även från utlandet." },
       { t: "Problemlösning — Plan B-filosofin", d: "När något går fel stannar vi inte — vi utformar alternativet och går vidare.", b: "Pragmatisk, lugn, resultatinriktad." },
     ],

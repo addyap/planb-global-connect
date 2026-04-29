@@ -41,7 +41,7 @@ const fr = {
     items: [
       { t: "Coordination des Travaux", d: "Planification, ordonnancement, maîtrise des coûts et livraison, de la faisabilité à la réception.", b: "Un référent unique, de A à Z." },
       { t: "Coordination de chantier", d: "Coordination des architectes, bureaux d'études, entreprises et artisans pour que chaque corps de métier avance ensemble.", b: "Moins de retards, une exécution plus propre." },
-      { t: "Conseil client", d: "Conseil indépendant sur la conception, le budget, les contrats et le choix des prestataires — toujours de votre côté.", b: "Des décisions éclairées, vos intérêts protégés." },
+      { t: "Accompagnement & conseil client", d: "Accompagnement et conseil indépendants sur la conception, le budget, les contrats et le choix des prestataires — toujours de votre côté.", b: "Des décisions éclairées, vos intérêts protégés." },
       { t: "Suivi de chantier", d: "Visites régulières, contrôles qualité, comptes rendus et reportages photo.", b: "Une visibilité totale, même à distance." },
       { t: "Résolution de problèmes — la philosophie Plan B", d: "Quand un imprévu survient, nous ne nous arrêtons pas — nous concevons l'alternative et avançons.", b: "Pragmatique, serein, orienté résultats." },
     ],

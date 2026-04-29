@@ -41,7 +41,7 @@ const nl = {
     items: [
       { t: "Projectmanagement", d: "Volledig projectmanagement: planning, budgetbewaking en oplevering, van haalbaarheid tot sleuteloverdracht.", b: "Eén vertrouwde leider van dag één tot oplevering." },
       { t: "Bouwcoördinatie", d: "Coördinatie van architecten, ingenieurs, aannemers en ambachtslieden zodat elk vak samenwerkt.", b: "Minder vertraging, strakkere uitvoering." },
-      { t: "Klantadvies", d: "Onafhankelijk advies over ontwerp, budget, contracten en leveranciers — altijd aan uw zijde.", b: "Weloverwogen beslissingen, uw belangen beschermd." },
+      { t: "Klantbegeleiding & advies", d: "Onafhankelijke begeleiding en advies over ontwerp, budget, contracten en leveranciers — altijd aan uw zijde.", b: "Weloverwogen beslissingen, uw belangen beschermd." },
       { t: "Toezicht op de bouwplaats", d: "Regelmatige bezoeken, kwaliteitscontrole, voortgangsrapportage en foto-updates.", b: "Volledig inzicht, ook vanuit het buitenland." },
       { t: "Problemen oplossen — de Plan B-filosofie", d: "Wanneer er iets misgaat, stoppen wij niet — wij ontwerpen het alternatief en gaan door.", b: "Pragmatisch, rustig, resultaatgericht." },
     ],
