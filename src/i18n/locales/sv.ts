@@ -25,7 +25,7 @@ const sv = {
     title: "Om mig",
     lead: "Anthony Gratton — din tvåspråkiga projektpartner på franska Rivieran.",
     p1: "Brittisk engelska som modersmål, fullt tvåspråkig i franska, bosatt och verksam i Frankrike i över 30 år.",
-    p2: "Jag kombinerar brittisk noggrannhet med franskt kunnande för att leverera bygg- och renoveringsprojekt som motsvarar internationella kunders förväntningar.",
+    p2: "Jag kombinerar noggrannhet och öga för detaljer med djup lokal kännedom för att leverera bygg- och renoveringsprojekt som motsvarar internationella kunders förväntningar.",
     expertiseTitle: "Expertis",
     expertise: [
       "Projektledning",
