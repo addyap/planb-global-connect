@@ -1,64 +1,58 @@
-name: Build and Deploy Website
+name: Build Website
 
 on:
   push:
     branches:
-      - main
+      - main # or whichever branch you want to trigger the build
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🧰 Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18' # Use whatever version you need
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: 🛠️ Build website
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Build website
         run: npm run build
 
-      - name: 🔗 Install Playwright for link validation
-        run: npx playwright install chromium
-
-      - name: 🔍 Validate internal links
-        continue-on-error: true
+      - name: Verify sitemap.xml
         run: |
-          # Start preview server in background
-          npm run preview &
-          SERVER_PID=$!
-          
-          # Wait for server to be ready
-          sleep 5
-          
-          # Run link checker
-          PW_BASE_URL=http://localhost:4173 node scripts/check-links.mjs
-          
-          # Cleanup
-          kill $SERVER_PID 2>/dev/null || true
+          test -f dist/sitemap.xml || (echo "::error::sitemap.xml missing in dist/" && exit 1)
+          test -s dist/sitemap.xml || (echo "::error::sitemap.xml is empty" && exit 1)
+          COUNT=$(grep -c "<loc>" dist/sitemap.xml)
+          echo "Sitemap URL count: $COUNT"
+          test "$COUNT" -gt 0 || (echo "::error::sitemap.xml has no URLs" && exit 1)
 
-      - name: 🧹 Clean target folder on Bluehost
+      - name: Sitemap sanity checks
+        run: node scripts/validate-sitemap.mjs dist/sitemap.xml
+
+      - name: Clean public folder
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
+          username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            rm -rf /home1/ionctpmy/public_html/*
+            rm -rf /home1/ionctpmy/${{ secrets.TARGET_FOLDER }}/
 
-      - name: 🚀 Upload dist contents via rsync
+
+      - name: Upload dist contents via rsync
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-          rsync -avz --delete \
-            dist/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home1/ionctpmy/public_html/
+          rsync -avz --delete dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/home1/ionctpmy/${{ secrets.TARGET_FOLDER }}/
