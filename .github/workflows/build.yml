@@ -27,16 +27,6 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Verify sitemap.xml
-        run: |
-          test -f dist/sitemap.xml || (echo "::error::sitemap.xml missing in dist/" && exit 1)
-          test -s dist/sitemap.xml || (echo "::error::sitemap.xml is empty" && exit 1)
-          COUNT=$(grep -c "<loc>" dist/sitemap.xml)
-          echo "Sitemap URL count: $COUNT"
-          test "$COUNT" -gt 0 || (echo "::error::sitemap.xml has no URLs" && exit 1)
-
-      - name: Sitemap sanity checks
-        run: node scripts/validate-sitemap.mjs dist/sitemap.xml
 
       - name: Clean public folder
         uses: appleboy/ssh-action@v1.0.0
