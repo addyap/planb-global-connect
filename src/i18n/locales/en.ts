@@ -25,7 +25,7 @@ const en = {
     title: "About Me",
     lead: "Anthony Gratton — your bilingual project partner on the French Riviera.",
     p1: "Native British English speaker, fully bilingual in French, with more than 30 years living and working in France.",
-    p2: "I combine British rigour with French know-how to deliver construction and renovation projects that match the expectations of international clients.",
+    p2: "I combine rigour and attention to detail with deep local know-how to deliver construction and renovation projects that match the expectations of international clients.",
     expertiseTitle: "Expertise",
     expertise: [
       "Project management",
