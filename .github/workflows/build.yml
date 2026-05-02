@@ -3,7 +3,7 @@ name: Build Website
 on:
   push:
     branches:
-      - main # or whichever branch you want to trigger the build
+      - main
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Use whatever version you need
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
