@@ -25,7 +25,7 @@ const nl = {
     title: "Over mij",
     lead: "Anthony Gratton — uw tweetalige projectpartner aan de Franse Rivièra.",
     p1: "Brits-Engels als moedertaal, volledig tweetalig Frans, al meer dan 30 jaar woonachtig en werkzaam in Frankrijk.",
-    p2: "Ik combineer nauwkeurigheid en oog voor detail met diepgaande lokale vakkennis om bouw- en renovatieprojecten op te leveren die voldoen aan de verwachtingen van internationale klanten.",
+    p2: "Ik combineer nauwkeurigheid en oog voor detail met een gevestigd netwerk van betrouwbare lokale partners om bouw- en renovatieprojecten op te leveren die voldoen aan de verwachtingen van internationale klanten.",
     expertiseTitle: "Expertise",
     expertise: [
       "Projectmanagement",

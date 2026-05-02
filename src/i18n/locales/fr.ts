@@ -25,7 +25,7 @@ const fr = {
     title: "À propos",
     lead: "Anthony Gratton — votre partenaire bilingue sur la Côte d'Azur.",
     p1: "Anglophone de naissance, parfaitement bilingue français, installé en France depuis plus de 30 ans.",
-    p2: "J'allie rigueur et souci du détail à un savoir-faire local approfondi pour livrer des projets de construction et de rénovation à la hauteur des attentes d'une clientèle internationale.",
+    p2: "J'allie rigueur et souci du détail à un réseau établi de partenaires locaux de confiance pour livrer des projets de construction et de rénovation à la hauteur des attentes d'une clientèle internationale.",
     expertiseTitle: "Expertise",
     expertise: [
       "Coordination des Travaux",

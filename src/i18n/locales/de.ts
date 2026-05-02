@@ -25,7 +25,7 @@ const de = {
     title: "Über mich",
     lead: "Anthony Gratton — Ihr zweisprachiger Projektpartner an der französischen Riviera.",
     p1: "Britischer Muttersprachler, vollständig zweisprachig Französisch, seit mehr als 30 Jahren in Frankreich ansässig und tätig.",
-    p2: "Ich verbinde Sorgfalt und Liebe zum Detail mit fundiertem lokalem Fachwissen, um Bau- und Renovierungsprojekte zu realisieren, die den Ansprüchen einer internationalen Kundschaft gerecht werden.",
+    p2: "Ich verbinde Sorgfalt und Liebe zum Detail mit einem etablierten Netzwerk verlässlicher lokaler Partner, um Bau- und Renovierungsprojekte zu realisieren, die den Ansprüchen einer internationalen Kundschaft gerecht werden.",
     expertiseTitle: "Kompetenzen",
     expertise: [
       "Projektsteuerung",
