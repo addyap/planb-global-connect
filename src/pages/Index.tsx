@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 import { Hero } from "@/components/sections/Hero";
 import { HomeSummary } from "@/components/sections/HomeSummary";
@@ -22,8 +23,16 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
+      <SEO
+        title={`${t("hero.title")} | Plan B Concept`}
+        description={t("hero.subtitle")}
+        path="/"
+      />
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded">
+        Skip to main content
+      </a>
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <HomeSummary />
         <About />
