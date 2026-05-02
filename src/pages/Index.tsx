@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { Hero } from "@/components/sections/Hero";
 import { HomeSummary } from "@/components/sections/HomeSummary";
 import { About } from "@/components/sections/About";
@@ -32,7 +32,6 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
