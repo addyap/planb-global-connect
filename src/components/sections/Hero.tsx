@@ -20,6 +20,10 @@ export const Hero = () => {
         aria-hidden="true"
         width={1920}
         height={1080}
+        loading="eager"
+        decoding="async"
+        // @ts-expect-error fetchpriority is a valid HTML attribute
+        fetchpriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
       {/* Layered overlays for legibility */}

@@ -92,12 +92,12 @@ export const Header = () => {
           />
         </button>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
           {navItems.map((item) => (
             <button
               key={item.key}
               onClick={() => handleNav(item)}
-              className="text-sm font-medium text-primary-foreground/90 transition-colors hover:text-accent"
+              className="text-sm font-medium text-primary-foreground/90 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
             >
               {t(`nav.${item.key}`)}
             </button>
@@ -119,7 +119,9 @@ export const Header = () => {
           <button
             className="p-2 text-primary-foreground md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label="menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -127,7 +129,7 @@ export const Header = () => {
       </div>
 
       {open && (
-        <nav className="border-t border-accent/20 bg-primary md:hidden">
+        <nav id="mobile-nav" className="border-t border-accent/20 bg-primary md:hidden" aria-label="Mobile">
           <div className="container flex flex-col gap-1 py-4">
             {navItems.map((item) => (
               <button
