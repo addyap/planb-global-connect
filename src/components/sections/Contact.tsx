@@ -122,8 +122,8 @@ export const Contact = () => {
             <Label htmlFor="message">{t("contact.message")}</Label>
             <Textarea id="message" name="message" required rows={5} className="mt-1.5" />
           </div>
-          <Button type="submit" size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
-            {t("contact.send")}
+          <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
+            {submitting ? "…" : t("contact.send")}
           </Button>
           {sent && <p className="text-sm text-secondary">{t("contact.sent")}</p>}
         </form>
