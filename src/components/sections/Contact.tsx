@@ -27,14 +27,14 @@ export const Contact = () => {
     const phone = String(fd.get("phone") ?? "");
     const message = String(fd.get("message") ?? "");
 
-    const { error } = await supabase.from("form_submissions").insert({
+    const { error } = await supabase.from("form_submissions").insert([{
       form_type: "contact",
       name,
       email,
       phone,
       message,
       user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-    });
+    }]);
 
     setSubmitting(false);
 
