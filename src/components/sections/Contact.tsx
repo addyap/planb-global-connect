@@ -7,21 +7,47 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
+import { supabase } from "@/integrations/supabase/client";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
 export const Contact = () => {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
   const mailtoSubject = "Plan B Concept — Project inquiry";
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
     const fd = new FormData(e.currentTarget);
-    const body = `${fd.get("name")}\n${fd.get("email")}\n${fd.get("phone")}\n\n${fd.get("message")}`;
-    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(body)}`;
+    const name = String(fd.get("name") ?? "");
+    const email = String(fd.get("email") ?? "");
+    const phone = String(fd.get("phone") ?? "");
+    const message = String(fd.get("message") ?? "");
+
+    const { error } = await supabase.from("form_submissions").insert({
+      form_type: "contact",
+      name,
+      email,
+      phone,
+      message,
+      user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
+    });
+
+    setSubmitting(false);
+
+    if (error) {
+      toast.error(t("contact.error", { defaultValue: "Could not send your message. Please try again or email us directly." }));
+      const body = `${name}\n${email}\n${phone}\n\n${message}`;
+      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(body)}`;
+      return;
+    }
+
     setSent(true);
     toast.success(t("contact.sent"));
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
