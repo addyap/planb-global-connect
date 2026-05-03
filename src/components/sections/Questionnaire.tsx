@@ -67,7 +67,7 @@ export const Questionnaire = () => {
     defaultValues: { services: [] },
   });
 
-  const onSubmit = (values: QuestionnaireValues) => {
+  const onSubmit = async (values: QuestionnaireValues) => {
     const lines = [
       `${t("questionnaire.fields.fullName")}: ${values.fullName}`,
       `${t("questionnaire.fields.email")}: ${values.email}`,
@@ -84,9 +84,24 @@ export const Questionnaire = () => {
       values.brief,
     ];
 
-    const subject = encodeURIComponent(t("questionnaire.emailSubject"));
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
+    const { error } = await supabase.from("form_submissions").insert({
+      form_type: "questionnaire",
+      name: values.fullName,
+      email: values.email,
+      phone: values.phone,
+      message: values.brief,
+      payload: values as unknown as Record<string, unknown>,
+      user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
+    });
+
+    if (error) {
+      toast.error(t("questionnaire.error", { defaultValue: "Could not submit. Opening your email app as a fallback." }));
+      const subject = encodeURIComponent(t("questionnaire.emailSubject"));
+      const body = encodeURIComponent(lines.join("\n"));
+      window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
+      return;
+    }
+
     toast.success(t("questionnaire.success"));
   };
 
