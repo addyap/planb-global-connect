@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 type QuestionnaireValues = {
   fullName: string;
