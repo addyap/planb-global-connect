@@ -90,7 +90,7 @@ export const Questionnaire = () => {
       email: values.email,
       phone: values.phone,
       message: values.brief,
-      payload: values as unknown as Record<string, unknown>,
+      payload: values as any,
       user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
     }]);
 
