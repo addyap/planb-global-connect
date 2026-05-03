@@ -84,7 +84,7 @@ export const Questionnaire = () => {
       values.brief,
     ];
 
-    const { error } = await supabase.from("form_submissions").insert({
+    const { error } = await supabase.from("form_submissions").insert([{
       form_type: "questionnaire",
       name: values.fullName,
       email: values.email,
@@ -92,7 +92,7 @@ export const Questionnaire = () => {
       message: values.brief,
       payload: values as unknown as Record<string, unknown>,
       user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-    });
+    }]);
 
     if (error) {
       toast.error(t("questionnaire.error", { defaultValue: "Could not submit. Opening your email app as a fallback." }));
