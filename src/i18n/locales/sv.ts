@@ -17,7 +17,7 @@ const sv = {
     why: [
       { t: "Tvåspråkig fördel", d: "Tydlig kommunikation mellan engelsktalande kunder och franska yrkesmän." },
       { t: "Lokal expertis", d: "Trettio års nätverk, leverantörer och hantverkare på Côte d'Azur." },
-      { t: "Lösningsorienterad", d: "När plan A misslyckas bygger vi plan B — i tid och inom budget." },
+      { t: "Lösningsorienterad", d: "Vi skapar skräddarsydda, praktiska lösningar som håller varje projekt i tid och inom budget." },
       { t: "En kontaktperson", d: "En betrodd rådgivare som samordnar arkitekter, entreprenörer och myndigheter." },
     ],
   },

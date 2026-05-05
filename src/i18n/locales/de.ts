@@ -17,7 +17,7 @@ const de = {
     why: [
       { t: "Zweisprachiger Vorteil", d: "Klare Kommunikation zwischen englischsprachigen Kunden und französischen Fachleuten." },
       { t: "Lokale Expertise", d: "Dreißig Jahre Netzwerk, Lieferanten und Handwerker an der Côte d'Azur." },
-      { t: "Lösungsorientiert", d: "Wenn Plan A scheitert, entwickeln wir Plan B — termingerecht, im Budget." },
+      { t: "Lösungsorientiert", d: "Wir entwickeln praxisnahe, maßgeschneiderte Lösungen, die jedes Projekt termingerecht und im Budget halten." },
       { t: "Ein Ansprechpartner", d: "Ein vertrauenswürdiger Berater koordiniert Architekten, Unternehmen und Behörden." },
     ],
   },

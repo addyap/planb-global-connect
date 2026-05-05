@@ -17,7 +17,7 @@ const en = {
     why: [
       { t: "Bilingual advantage", d: "Clear communication between English-speaking clients and French professionals." },
       { t: "Local expertise", d: "Three decades of networks, suppliers and craftsmen on the Côte d'Azur." },
-      { t: "Solution-driven", d: "When Plan A fails, we build the Plan B — on time, on budget." },
+      { t: "Solution-driven", d: "We design practical, tailored solutions that keep every project on time and on budget." },
       { t: "Single point of contact", d: "One trusted advisor coordinating architects, contractors and administration." },
     ],
   },
