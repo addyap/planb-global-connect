@@ -17,7 +17,7 @@ const nl = {
     why: [
       { t: "Tweetalig voordeel", d: "Heldere communicatie tussen Engelstalige klanten en Franse vakmensen." },
       { t: "Lokale expertise", d: "Dertig jaar netwerk, leveranciers en ambachtslieden aan de Côte d'Azur." },
-      { t: "Oplossingsgericht", d: "Als plan A faalt, bouwen wij plan B — op tijd en binnen budget." },
+      { t: "Oplossingsgericht", d: "Wij bedenken praktische, op maat gemaakte oplossingen die elk project op tijd en binnen budget houden." },
       { t: "Eén aanspreekpunt", d: "Eén vertrouwde adviseur die architecten, aannemers en administratie coördineert." },
     ],
   },

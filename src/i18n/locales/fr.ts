@@ -17,7 +17,7 @@ const fr = {
     why: [
       { t: "Avantage bilingue", d: "Une communication claire entre clients anglophones et professionnels français." },
       { t: "Expertise locale", d: "Trente ans de réseau, d'artisans et de fournisseurs sur la Côte d'Azur." },
-      { t: "Orienté solutions", d: "Quand le plan A échoue, nous construisons le plan B — dans les délais, dans le budget." },
+      { t: "Orienté solutions", d: "Nous concevons des solutions pratiques et sur mesure pour mener chaque projet à bien — dans les délais, dans le budget." },
       { t: "Interlocuteur unique", d: "Un seul référent de confiance qui coordonne architectes, entreprises et administration." },
     ],
   },
