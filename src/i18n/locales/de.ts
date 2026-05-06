@@ -5,6 +5,9 @@ const de = {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projektsteuerung an der Côte d'Azur",
     subtitle: "Über 30 Jahre Praxiserfahrung. Vollständig zweisprachig Englisch & Französisch. Verlässliche Begleitung von der ersten Skizze bis zur Schlüsselübergabe.",
+    statYears: "Jahre Erfahrung",
+    statBilingual: "Zweisprachig",
+    statRegion: "Côte d'Azur",
   },
   home: {
     whatTitle: "Was wir tun",

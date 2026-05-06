@@ -5,6 +5,9 @@ const sv = {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projektledning på Franska Rivieran",
     subtitle: "Över 30 års erfarenhet i fält. Fullt tvåspråkig engelska & franska. Pålitlig vägledning från första skiss till slutbesiktning.",
+    statYears: "års erfarenhet",
+    statBilingual: "Tvåspråkig",
+    statRegion: "Côte d'Azur",
   },
   home: {
     whatTitle: "Vad vi gör",
