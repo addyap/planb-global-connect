@@ -7,6 +7,8 @@ import nl from "./locales/nl";
 import de from "./locales/de";
 import sv from "./locales/sv";
 import ru from "./locales/ru";
+import da from "./locales/da";
+import no from "./locales/no";
 
 export const LANGUAGES = [
   { code: "en", label: "EN", name: "English" },
@@ -14,6 +16,8 @@ export const LANGUAGES = [
   { code: "nl", label: "NL", name: "Nederlands" },
   { code: "de", label: "DE", name: "Deutsch" },
   { code: "sv", label: "SV", name: "Svenska" },
+  { code: "da", label: "DA", name: "Dansk" },
+  { code: "no", label: "NO", name: "Norsk" },
   { code: "ru", label: "RU", name: "Русский" },
 ] as const;
 
@@ -28,9 +32,11 @@ i18n
       de: { translation: de },
       sv: { translation: sv },
       ru: { translation: ru },
+      da: { translation: da },
+      no: { translation: no },
     },
     fallbackLng: "en",
-    supportedLngs: ["en", "fr", "nl", "de", "sv", "ru"],
+    supportedLngs: ["en", "fr", "nl", "de", "sv", "ru", "da", "no"],
     interpolation: { escapeValue: false },
     detection: { order: ["localStorage", "navigator"], caches: ["localStorage"] },
   });
