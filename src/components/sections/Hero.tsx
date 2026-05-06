@@ -73,21 +73,21 @@ export const Hero = () => {
           {/* Stats strip */}
           <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg border-t border-accent/30 pt-6">
             <div>
-              <div className="font-display text-2xl md:text-3xl font-bold text-accent">30+</div>
+              <div className="font-display text-2xl md:text-3xl font-bold text-accent">Over 30</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
-                {t("hero.statYears", { defaultValue: "Years experience" })}
+                {t("hero.statYears")}
               </div>
             </div>
             <div>
               <div className="font-display text-2xl md:text-3xl font-bold text-accent">EN/FR</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
-                {t("hero.statBilingual", { defaultValue: "Bilingual" })}
+                {t("hero.statBilingual")}
               </div>
             </div>
             <div>
               <div className="font-display text-2xl md:text-3xl font-bold text-accent">06 / 83</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
-                {t("hero.statRegion", { defaultValue: "Côte d'Azur" })}
+                {t("hero.statRegion")}
               </div>
             </div>
           </div>

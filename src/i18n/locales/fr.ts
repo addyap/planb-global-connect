@@ -5,6 +5,9 @@ const fr = {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Coordination des Travaux sur la Côte d'Azur",
     subtitle: "Plus de 30 ans d'expérience sur le terrain. Parfaitement bilingue anglais & français. Un accompagnement de confiance, de l'esquisse à la livraison.",
+    statYears: "ans d'expérience",
+    statBilingual: "Bilingue",
+    statRegion: "Côte d'Azur",
   },
   home: {
     whatTitle: "Nos prestations",

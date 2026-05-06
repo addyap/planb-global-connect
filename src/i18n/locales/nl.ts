@@ -5,6 +5,9 @@ const nl = {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projectmanagement aan de Côte d'Azur",
     subtitle: "Meer dan 30 jaar praktijkervaring. Volledig tweetalig Engels & Frans. Betrouwbare begeleiding van eerste schets tot oplevering.",
+    statYears: "jaar ervaring",
+    statBilingual: "Tweetalig",
+    statRegion: "Côte d'Azur",
   },
   home: {
     whatTitle: "Wat wij doen",

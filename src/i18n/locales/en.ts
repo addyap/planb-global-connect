@@ -5,6 +5,9 @@ const en = {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Project Management on the French Riviera",
     subtitle: "30+ years of on-the-ground experience. Fully bilingual English & French. Trusted guidance from first sketch to final handover.",
+    statYears: "years of experience",
+    statBilingual: "Bilingual",
+    statRegion: "Côte d'Azur",
   },
   home: {
     whatTitle: "What we do",
