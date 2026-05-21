@@ -3,15 +3,36 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const SITE = "https://www.planb-concept.com";
+const DEFAULT_OG_IMAGE = `${SITE}/og-image.png`;
+const SUPPORTED_LANGS = ["en", "fr", "nl", "de", "sv", "da", "no", "ru"] as const;
+
+const OG_LOCALES: Record<string, string> = {
+  en: "en_GB",
+  fr: "fr_FR",
+  nl: "nl_NL",
+  de: "de_DE",
+  sv: "sv_SE",
+  da: "da_DK",
+  no: "nb_NO",
+  ru: "ru_RU",
+};
 
 type Props = {
   title: string;
   description: string;
   path?: string;
   type?: "website" | "article";
+  image?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
-const upsertMeta = (selector: string, attr: "name" | "property", key: string, content: string) => {
+const upsertMeta = (
+  selector: string,
+  attr: "name" | "property",
+  key: string,
+  content: string
+) => {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
   if (!el) {
     el = document.createElement("meta");
@@ -21,8 +42,14 @@ const upsertMeta = (selector: string, attr: "name" | "property", key: string, co
   el.setAttribute("content", content);
 };
 
-const upsertLink = (rel: string, href: string, attrs: Record<string, string> = {}) => {
-  const key = attrs.hreflang ? `link[rel="${rel}"][hreflang="${attrs.hreflang}"]` : `link[rel="${rel}"]`;
+const upsertLink = (
+  rel: string,
+  href: string,
+  attrs: Record<string, string> = {}
+) => {
+  const key = attrs.hreflang
+    ? `link[rel="${rel}"][hreflang="${attrs.hreflang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`;
   let el = document.head.querySelector<HTMLLinkElement>(key);
   if (!el) {
     el = document.createElement("link");
@@ -33,7 +60,17 @@ const upsertLink = (rel: string, href: string, attrs: Record<string, string> = {
   el.setAttribute("href", href);
 };
 
-export const SEO = ({ title, description, path, type = "website" }: Props) => {
+const JSONLD_ID = "seo-jsonld";
+
+export const SEO = ({
+  title,
+  description,
+  path,
+  type = "website",
+  image = DEFAULT_OG_IMAGE,
+  noindex = false,
+  jsonLd,
+}: Props) => {
   const location = useLocation();
   const { i18n } = useTranslation();
   const lang = i18n.resolvedLanguage ?? "en";
@@ -44,27 +81,48 @@ export const SEO = ({ title, description, path, type = "website" }: Props) => {
     document.documentElement.lang = lang;
 
     upsertMeta('meta[name="description"]', "name", "description", description);
-    upsertMeta('meta[name="robots"]', "name", "robots", "index, follow, max-image-preview:large, max-snippet:-1");
+    upsertMeta(
+      'meta[name="robots"]',
+      "name",
+      "robots",
+      noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1"
+    );
 
     // Open Graph
     upsertMeta('meta[property="og:title"]', "property", "og:title", title);
     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
     upsertMeta('meta[property="og:url"]', "property", "og:url", url);
     upsertMeta('meta[property="og:type"]', "property", "og:type", type);
+    upsertMeta('meta[property="og:image"]', "property", "og:image", image);
+    upsertMeta('meta[property="og:site_name"]', "property", "og:site_name", "Plan B Concept");
+    upsertMeta('meta[property="og:locale"]', "property", "og:locale", OG_LOCALES[lang] ?? "en_GB");
 
     // Twitter
+    upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
     upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
-    upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
+    upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", image);
 
     // Canonical
     upsertLink("canonical", url);
 
-    // hreflang alternates
-    const langs = ["en", "fr", "nl", "de", "sv", "ru"];
-    langs.forEach((l) => upsertLink("alternate", url, { hreflang: l }));
+    // hreflang — same URL serves all languages (client-side i18n)
+    SUPPORTED_LANGS.forEach((l) => upsertLink("alternate", url, { hreflang: l }));
     upsertLink("alternate", url, { hreflang: "x-default" });
-  }, [title, description, url, lang, type]);
+
+    // JSON-LD per route
+    const existing = document.getElementById(JSONLD_ID);
+    if (existing) existing.remove();
+    if (jsonLd) {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = JSONLD_ID;
+      script.text = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+    }
+  }, [title, description, url, lang, type, image, noindex, jsonLd]);
 
   return null;
 };
