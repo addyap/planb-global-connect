@@ -12,11 +12,11 @@ type NavItem = { key: string; path: string; sectionId?: string };
 
 const navItems: NavItem[] = [
   { key: "home", path: "/", sectionId: "home" },
-  { key: "about", path: "/about", sectionId: "about" },
-  { key: "services", path: "/services", sectionId: "services" },
+  { key: "about", path: "/", sectionId: "about" },
+  { key: "services", path: "/", sectionId: "services" },
   { key: "questionnaire", path: "/questionnaire" },
-  { key: "area", path: "/area", sectionId: "area" },
-  { key: "contact", path: "/contact", sectionId: "contact" },
+  { key: "area", path: "/", sectionId: "area" },
+  { key: "contact", path: "/", sectionId: "contact" },
 ];
 
 export const Header = () => {
@@ -52,26 +52,32 @@ export const Header = () => {
   }, [open]);
 
   // When landing on a section URL (e.g. /about), scroll to that section.
+  // Scroll to section based on URL hash (e.g. /#about) on mount/change.
   useEffect(() => {
-    const match = navItems.find((item) => item.path === location.pathname);
-    if (!match || !match.sectionId) return;
-    // Wait for layout, then scroll
-    const id = match.sectionId;
+    if (location.pathname !== "/") return;
+    const id = location.hash ? location.hash.slice(1) : null;
     requestAnimationFrame(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      else if (id === "home") window.scrollTo({ top: 0, behavior: "smooth" });
+      if (!id || id === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   const handleNav = (item: NavItem) => {
     setOpen(false);
+    const targetHash = item.sectionId ? `#${item.sectionId}` : "";
     if (item.path !== location.pathname) {
-      navigate(item.path);
+      navigate(`${item.path}${targetHash}`);
       return;
     }
     if (item.sectionId) {
-      document.getElementById(item.sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (item.sectionId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        document.getElementById(item.sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
