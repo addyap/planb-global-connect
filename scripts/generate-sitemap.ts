@@ -4,7 +4,9 @@ import { resolve } from "path";
 
 const BASE_URL = "https://www.planb-concept.com";
 const LANGS = ["en", "fr", "nl", "de", "sv", "da", "no", "ru"] as const;
-const ROUTES = ["/", "/about", "/services", "/area", "/contact", "/questionnaire"];
+// Single-page app: /about, /services, /area, /contact all render the same Index
+// component (anchor sections) and canonicalize to "/", so only distinct URLs are listed.
+const ROUTES = ["/", "/questionnaire"];
 const today = new Date().toISOString().split("T")[0];
 
 const urls = ROUTES.map((path) => {
