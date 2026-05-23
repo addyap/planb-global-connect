@@ -82,7 +82,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
       <SEO
-        title={`${t("hero.title")} | Plan B Concept — Côte d'Azur`}
+        title="Project Management Côte d'Azur | Plan B Concept"
         description={t("hero.subtitle")}
         path="/"
         jsonLd={jsonLd}
