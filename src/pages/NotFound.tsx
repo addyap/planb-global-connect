@@ -32,11 +32,11 @@ const NotFound = () => {
           <nav aria-label="Site sections" className="grid sm:grid-cols-2 gap-3 text-left">
             {[
               { href: "/", label: "Home" },
-              { href: "/#about", label: "About Anthony Gratton" },
-              { href: "/#services", label: "What we do — services" },
-              { href: "/#area", label: "Areas covered — Var & Alpes-Maritimes" },
+              { href: "/about", label: "About Anthony Gratton" },
+              { href: "/services", label: "What we do — services" },
+              { href: "/area", label: "Areas covered — Var & Alpes-Maritimes" },
               { href: "/questionnaire", label: "Project questionnaire" },
-              { href: "/#contact", label: "Contact" },
+              { href: "/contact", label: "Contact" },
             ].map((l) => (
               <a
                 key={l.href}
