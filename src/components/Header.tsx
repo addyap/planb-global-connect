@@ -92,12 +92,12 @@ export const Header = () => {
         scrolled ? "bg-primary/95 backdrop-blur-md shadow-elegant" : "bg-primary/70 backdrop-blur-sm"
       )}
     >
-      <div className="container flex h-24 items-center justify-between md:h-32">
+      <div className="container flex h-16 items-center justify-between md:h-20">
         <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2 -my-2" aria-label="Plan B Concept — home">
           <img
             src={logo}
             alt="Plan B Concept"
-            className="h-20 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-32 lg:h-36"
+            className="h-8 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-10"
           />
         </button>
 
