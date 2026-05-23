@@ -27,8 +27,10 @@ const de = {
   about: {
     title: "Über mich",
     lead: "Anthony Gratton — Ihr zweisprachiger Projektpartner an der französischen Riviera.",
-    p1: "Britischer Muttersprachler, vollständig zweisprachig Französisch, seit mehr als 30 Jahren in Frankreich ansässig und tätig.",
-    p2: "Ich verbinde Sorgfalt und Liebe zum Detail mit einem etablierten Netzwerk verlässlicher lokaler Partner, um Bau- und Renovierungsprojekte zu realisieren, die den Ansprüchen einer internationalen Kundschaft gerecht werden.",
+    p1: "Plan B Concept wurde von Anthony Gratton gegründet — auf Grundlage von über 30 Jahren Erfahrung in Bauwesen und Projektsteuerung in Südfrankreich. Das Unternehmen beantwortet eine konkrete Anforderung: Internationale Immobilienbesitzer an der Côte d'Azur verdienen dieselbe Qualität der Projektüberwachung, die sie zu Hause erwarten würden — in ihrer eigenen Sprache und von jemandem, der weiß, wie das französische System tatsächlich funktioniert.",
+    p2: "Die meisten ausländischen Käufer unterschätzen, wie viel praktische Steuerung eine Renovierung oder ein Neubau an der Riviera erfordert. Handwerker arbeiten hier anders, Genehmigungen folgen ihrem eigenen Tempo, und die Folgen kleiner Missverständnisse summieren sich schnell. Ein guter Bauherrenvertreter ist der Unterschied zwischen einem Projekt, das pünktlich und im Budget landet — und einem, das es nicht tut.",
+    p3: "Im Département Var ansässig, tätig in Var (83) und Alpes-Maritimes (06), betreut Plan B Concept Kunden in Saint-Tropez, Cannes, Nizza, Antibes, Monaco, Grasse, Mougins, Valbonne und den umliegenden Gemeinden. Jedes Projekt wird persönlich begleitet — kein Team von Junioren, das Ihre Villa betreut.",
+    p4: "Wenn Sie ein Projekt an der Riviera erwägen und ein offenes, sachliches Gespräch über das Vorhaben führen möchten, melden Sie sich.",
     expertiseTitle: "Kompetenzen",
     expertise: [
       "Projektsteuerung",
@@ -38,15 +40,36 @@ const de = {
       "Administrative und technische Abwicklung",
     ],
   },
+  whyPlanB: {
+    title: "Warum Plan B Concept",
+    items: [
+      { t: "Wirklich zweisprachig", d: "Englisch auf Muttersprachniveau und fließend Französisch. Jedes Fachgespräch, jeder Vertrag, jede Baustellenbesprechung — ohne Sprachbarriere." },
+      { t: "Über 30 Jahre vor Ort", d: "Drei Jahrzehnte Zusammenarbeit mit Handwerkern, Lieferanten und Behörden an der Riviera. Über die Zeit gewachsene Beziehungen, die Projekte voranbringen." },
+      { t: "Immer auf Bauherrenseite", d: "Unabhängige Vertretung. Keine Provisionen von Unternehmen, keine versteckten Margen. Ihre Interessen — geschützt." },
+    ],
+  },
   services: {
     title: "Leistungen",
     subtitle: "Strukturierte Leistungen für Privatkunden, Investoren und Bauträger.",
     items: [
-      { t: "Projektsteuerung", d: "Vollständige Projektsteuerung: Planung, Terminierung, Kostenkontrolle und Abnahme, von der Machbarkeit bis zur Übergabe.", b: "Ein verlässlicher Ansprechpartner vom ersten Tag bis zur Fertigstellung." },
-      { t: "Baukoordination", d: "Koordination von Architekten, Ingenieuren, Unternehmen und Handwerkern, damit alle Gewerke im Takt arbeiten.", b: "Weniger Verzögerungen, saubere Ausführung." },
-      { t: "Kundenbetreuung & Beratung", d: "Unabhängige Betreuung und Beratung zu Planung, Budget, Verträgen und Anbieterauswahl — immer auf Ihrer Seite.", b: "Fundierte Entscheidungen, geschützte Interessen." },
-      { t: "Bauüberwachung", d: "Regelmäßige Vor-Ort-Besuche, Qualitätskontrollen, Fortschrittsberichte und Foto-Updates.", b: "Volle Transparenz, auch aus dem Ausland." },
-      { t: "Problemlösung — die Plan-B-Philosophie", d: "Wenn etwas schiefgeht, halten wir nicht an — wir entwerfen die Alternative und machen weiter.", b: "Pragmatisch, ruhig, ergebnisorientiert." },
+      { t: "Bauherrenvertretung", d: "Ich handle in Ihrem Namen über den gesamten Projektverlauf und steuere Architekten, Unternehmen und Lieferanten, damit Sie nicht täglich vor Ort sein müssen. Besonders wertvoll für Eigentümer außerhalb Frankreichs.", b: "Ihr Projekt — vor Ort geführt, ohne die Flüge." },
+      { t: "Steuerung von Villa-Renovierungen", d: "Vollständige Koordination von Villa-Renovierungen an der Côte d'Azur — von der ersten Bestandsaufnahme bis zur Endabnahme. Genehmigungen, Planung, Gewerke, Mängelbeseitigung — alles abgedeckt.", b: "Von der ersten Skizze bis zur letzten Mängelliste." },
+      { t: "Projektsteuerung Neubau", d: "Steuerung von Neubauprojekten vom Spatenstich bis zum Einzug. Schnittstelle zu Architekten, Tragwerksplanern und der gesamten Gewerkekette.", b: "Vom Spatenstich bis zur Schlüsselübergabe." },
+      { t: "Baufachliche Beratung", d: "Unabhängige technische Beratung, bevor Sie sich festlegen. Machbarkeitsstudien, Angebotsanalysen, Auswahl von Unternehmen und Zweitmeinungen zu bestehenden Projektplanungen.", b: "Wissen, was Sie unterschreiben — bevor Sie unterschreiben." },
+      { t: "Baustellenüberwachung und Qualitätskontrolle", d: "Regelmäßige Baustellenbesuche mit ausführlichen Fotoberichten, um Ausführung nach Leistungsbeschreibung und Terminplan sicherzustellen. Probleme werden früh erkannt, bevor sie teuer werden.", b: "Augen auf der Baustelle, jede Woche." },
+      { t: "Zweisprachige Schnittstelle Kunde / Unternehmen", d: "Wir überbrücken die Lücke zwischen englischsprachigen Eigentümern und französischen Gewerken. Übersetzung technischer Unterlagen, Vertragsprüfung und Verdolmetschung bei wichtigen Vor-Ort-Terminen.", b: "Keine Sprachlücke, keine teuren Missverständnisse." },
+    ],
+  },
+  faq: {
+    title: "Häufige Fragen",
+    subtitle: "Klare Antworten auf die Fragen, die Kunden vor der Beauftragung stellen.",
+    items: [
+      { q: "Was macht ein Bauherrenvertreter eigentlich?", a: "Ein Bauherrenvertreter steuert Ihr Bau- oder Renovierungsprojekt in Ihrem Namen und übernimmt die Kommunikation mit Architekten, Unternehmen und Behörden. Er schützt Ihre Interessen, überwacht Qualität und Terminplan und übersetzt technische und administrative Komplexität in klare Informationen, auf deren Basis Sie entscheiden können." },
+      { q: "Brauche ich noch einen Architekten, wenn ich Plan B Concept beauftrage?", a: "Ja. Der Architekt plant das Projekt; Plan B Concept steuert es. Die beiden Rollen ergänzen einander. Wir arbeiten mit Ihrem Architekten zusammen (oder helfen Ihnen, einen auszuwählen), damit der Entwurf vor Ort wie vorgesehen umgesetzt wird." },
+      { q: "Was ist der Unterschied zu einem maître d'œuvre?", a: "Ein maître d'œuvre vertritt in der Regel die Planung und Ausführung der Arbeiten selbst. Ein Bauherrenvertreter — maître d'ouvrage délégué — vertritt Sie, den Auftraggeber. Der Unterschied ist entscheidend, sobald die Interessen auseinandergehen." },
+      { q: "Arbeiten Sie auch außerhalb von Var und Alpes-Maritimes?", a: "Gelegentlich, für bestehende Kunden. Das übliche Tätigkeitsgebiet ist die französische Riviera von Saint-Tropez bis Menton, einschließlich Monaco." },
+      { q: "Wie sind die Honorare strukturiert?", a: "Entweder als Prozentsatz des Projektwerts oder als fester monatlicher Pauschalbetrag, je nach Umfang und Dauer des Projekts. Transparent kalkuliert nach einem ersten Gespräch." },
+      { q: "Können Sie ein bereits laufendes Projekt übernehmen?", a: "Ja. Übernahmen mitten im Projekt sind häufig — oft dann, wenn die Kommunikation zwischen Bauherr und Unternehmen abgerissen ist oder Qualitätsprobleme auftreten. Eine unabhängige Begutachtung lässt sich meist innerhalb einer Woche organisieren." },
     ],
   },
   questionnaire: {
@@ -102,6 +125,9 @@ const de = {
   area: {
     title: "Einsatzgebiet",
     subtitle: "Tätig an der französischen Riviera und in den umliegenden Regionen.",
+    intro: "Im Einsatz für Privatkunden entlang der gesamten französischen Riviera, vom Var bis zur italienischen Grenze.",
+    varLabel: "Var (83)",
+    amLabel: "Alpes-Maritimes (06)",
     depts: [
       { code: "83", name: "Var" },
       { code: "06", name: "Alpes-Maritimes" },

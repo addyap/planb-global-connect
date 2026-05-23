@@ -27,8 +27,10 @@ const nl = {
   about: {
     title: "Over mij",
     lead: "Anthony Gratton — uw tweetalige projectpartner aan de Franse Rivièra.",
-    p1: "Brits-Engels als moedertaal, volledig tweetalig Frans, al meer dan 30 jaar woonachtig en werkzaam in Frankrijk.",
-    p2: "Ik combineer nauwkeurigheid en oog voor detail met een gevestigd netwerk van betrouwbare lokale partners om bouw- en renovatieprojecten op te leveren die voldoen aan de verwachtingen van internationale klanten.",
+    p1: "Plan B Concept is opgericht door Anthony Gratton, voortbouwend op meer dan 30 jaar ervaring in bouw en projectmanagement in Zuid-Frankrijk. Het bureau bestaat om een specifiek probleem op te lossen: internationale eigenaren aan de Côte d'Azur verdienen dezelfde kwaliteit van projecttoezicht als ze thuis zouden verwachten, in hun eigen taal, geleverd door iemand die weet hoe het Franse systeem werkelijk werkt.",
+    p2: "De meeste buitenlandse kopers onderschatten hoeveel praktische sturing een renovatie of nieuwbouw aan de Rivièra vraagt. Vakmensen werken hier anders, vergunningen gaan in hun eigen tempo, en de gevolgen van kleine misverstanden lopen snel op. Een goede opdrachtgeversvertegenwoordiger is het verschil tussen een project dat op tijd en binnen budget landt — en een dat dat niet doet.",
+    p3: "Gevestigd in de Var en actief in Var (83) en Alpes-Maritimes (06), werkt Plan B Concept voor klanten in Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne en de omliggende gemeenten. Elk project wordt persoonlijk opgepakt — geen team van junioren dat uw villa onder zijn hoede heeft.",
+    p4: "Overweegt u een project aan de Rivièra en wilt u een eerlijk, concreet gesprek over wat er bij komt kijken? Neem contact op.",
     expertiseTitle: "Expertise",
     expertise: [
       "Projectmanagement",
@@ -38,15 +40,36 @@ const nl = {
       "Administratieve en technische afhandeling",
     ],
   },
+  whyPlanB: {
+    title: "Waarom Plan B Concept",
+    items: [
+      { t: "Écht tweetalig", d: "Engels op moedertaalniveau en vloeiend Frans. Elk technisch gesprek, elk contract, elke bouwvergadering — zonder taalbarrière." },
+      { t: "30+ jaar op de werkvloer", d: "Drie decennia samenwerken met Riviera-vakmensen, leveranciers en overheden. Relaties die door de jaren zijn opgebouwd en projecten vooruithelpen." },
+      { t: "Altijd aan opdrachtgeverszijde", d: "Onafhankelijke vertegenwoordiging. Geen kickbacks van aannemers, geen verborgen marges. Uw belangen, verdedigd." },
+    ],
+  },
   services: {
     title: "Wat wij doen",
     subtitle: "Gestructureerde diensten voor particulieren, investeerders en ontwikkelaars.",
     items: [
-      { t: "Projectmanagement", d: "Volledig projectmanagement: planning, budgetbewaking en oplevering, van haalbaarheid tot sleuteloverdracht.", b: "Eén vertrouwde leider van dag één tot oplevering." },
-      { t: "Bouwcoördinatie", d: "Coördinatie van architecten, ingenieurs, aannemers en ambachtslieden zodat elk vak samenwerkt.", b: "Minder vertraging, strakkere uitvoering." },
-      { t: "Klantbegeleiding & advies", d: "Onafhankelijke begeleiding en advies over ontwerp, budget, contracten en leveranciers — altijd aan uw zijde.", b: "Weloverwogen beslissingen, uw belangen beschermd." },
-      { t: "Toezicht op de bouwplaats", d: "Regelmatige bezoeken, kwaliteitscontrole, voortgangsrapportage en foto-updates.", b: "Volledig inzicht, ook vanuit het buitenland." },
-      { t: "Problemen oplossen — de Plan B-filosofie", d: "Wanneer er iets misgaat, stoppen wij niet — wij ontwerpen het alternatief en gaan door.", b: "Pragmatisch, rustig, resultaatgericht." },
+      { t: "Vertegenwoordiging opdrachtgever", d: "Ik handel namens u gedurende het hele project en stuur architecten, aannemers en leveranciers aan zodat u niet dagelijks op de bouwplaats hoeft te zijn. Bijzonder waardevol voor eigenaren buiten Frankrijk.", b: "Uw project, op de bouwplaats geleid — zonder de vluchten." },
+      { t: "Coördinatie villarenovatie", d: "Volledige coördinatie van villarenovaties aan de Côte d'Azur, van eerste scoping tot eindoplevering. Vergunningen, planning, vakmensen, opleverpunten — alles afgehandeld.", b: "Van eerste schets tot laatste opleverpunt." },
+      { t: "Projectmanagement nieuwbouw", d: "Sturen van nieuwbouwprojecten van eerste schop tot ingebruikname. Schakel tussen architecten, constructeurs en alle betrokken vakdisciplines.", b: "Van eerste schop tot sleutel in de hand." },
+      { t: "Bouwkundig advies", d: "Onafhankelijk technisch advies vóór u zich vastlegt. Haalbaarheidsstudies, offerteanalyses, selectie van aannemers en second opinions op bestaande projectplannen.", b: "Weet wat u tekent — voor u tekent." },
+      { t: "Bouwplaatstoezicht & kwaliteitscontrole", d: "Regelmatige bezoeken met gedetailleerde fotorapporten om te waarborgen dat werk voldoet aan bestek en planning. Problemen worden vroeg gesignaleerd, voor ze duur worden.", b: "Wekelijks ogen op de bouw." },
+      { t: "Tweetalige interface klant / uitvoerders", d: "De brug tussen Engelstalige eigenaren en Franse vakmensen. Vertaling van technische documenten, contractbeoordeling en tolken op locatie tijdens cruciale vergaderingen.", b: "Geen taalbarrière, geen dure misverstanden." },
+    ],
+  },
+  faq: {
+    title: "Veelgestelde vragen",
+    subtitle: "Heldere antwoorden op de vragen die klanten stellen voor ze ons inschakelen.",
+    items: [
+      { q: "Wat doet een opdrachtgeversvertegenwoordiger eigenlijk?", a: "Een opdrachtgeversvertegenwoordiger leidt uw bouw- of renovatieproject namens u en regelt het contact met architecten, aannemers en overheden. Hij beschermt uw belangen, bewaakt kwaliteit en planning en vertaalt de technische en administratieve complexiteit naar duidelijke updates waarop u kunt sturen." },
+      { q: "Heb ik nog een architect nodig als ik Plan B Concept inschakel?", a: "Ja. De architect ontwerpt het project; Plan B Concept stuurt het aan. De twee rollen vullen elkaar aan. We werken naast uw architect (of helpen u er een te kiezen) zodat het ontwerp op de bouwplaats wordt uitgevoerd zoals bedoeld." },
+      { q: "Wat is het verschil met een maître d'œuvre?", a: "Een maître d'œuvre vertegenwoordigt doorgaans het ontwerp en de uitvoering van het werk zelf. Een opdrachtgeversvertegenwoordiger — maître d'ouvrage délégué — vertegenwoordigt ú, de klant. Dat onderscheid telt zodra de belangen uiteenlopen." },
+      { q: "Werkt u ook buiten Var en Alpes-Maritimes?", a: "Soms, voor bestaande klanten. Het standaardgebied is de Franse Rivièra van Saint-Tropez tot Menton, inclusief Monaco." },
+      { q: "Hoe zijn de honoraria opgebouwd?", a: "Ofwel een percentage van de projectwaarde, ofwel een vaste maandelijkse vergoeding, afhankelijk van omvang en duur. Transparant geoffreerd na een eerste gesprek." },
+      { q: "Kunt u een project overnemen dat al loopt?", a: "Ja. Tussentijdse reddingen komen vaak voor — meestal als de communicatie tussen klant en aannemers is vastgelopen of als er kwaliteitsproblemen ontstaan. Een onafhankelijke review kan doorgaans binnen een week worden ingepland." },
     ],
   },
   questionnaire: {
@@ -102,6 +125,9 @@ const nl = {
   area: {
     title: "Werkgebied",
     subtitle: "Actief aan de Franse Rivièra en omliggende regio's.",
+    intro: "Voor particuliere klanten aan de hele Franse Rivièra, van de Var tot aan de Italiaanse grens.",
+    varLabel: "Var (83)",
+    amLabel: "Alpes-Maritimes (06)",
     depts: [
       { code: "83", name: "Var" },
       { code: "06", name: "Alpes-Maritimes" },
