@@ -75,7 +75,6 @@ const Index = () => {
         { "@type": "AdministrativeArea", "name": "Alpes-Maritimes (06), France" },
       ],
       description: s.description,
-      availableLanguage: ["en", "fr"],
     }));
 
     return [
