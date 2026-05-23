@@ -17,10 +17,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/about" element={<RedirectToHash hash="about" />} />
-          <Route path="/services" element={<RedirectToHash hash="services" />} />
-          <Route path="/area" element={<RedirectToHash hash="area" />} />
-          <Route path="/contact" element={<RedirectToHash hash="contact" />} />
           <Route path="/questionnaire" element={<QuestionnairePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
