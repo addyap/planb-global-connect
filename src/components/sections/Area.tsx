@@ -5,9 +5,11 @@ import { MapPin, Plane, Anchor } from "lucide-react";
 export const Area = () => {
   const { t } = useTranslation();
   const depts = t("area.depts", { returnObjects: true }) as { code: string; name: string }[];
+  const towns = t("area.towns", { returnObjects: true }) as { var: string[]; am: string[]; monaco: string[] };
+  const varCommunes = towns.var;
+  const amCommunes = towns.am;
+  const monacoCommunes = towns.monaco;
 
-  const varCommunes = ["Saint-Tropez", "Sainte-Maxime", "Saint-Raphaël", "Fréjus", "Grimaud", "Cogolin", "Ramatuelle", "Gassin"];
-  const amCommunes = ["Cannes", "Nice", "Antibes", "Cap d'Antibes", "Mougins", "Valbonne", "Grasse", "Monaco", "Cap Ferrat", "Villefranche-sur-Mer", "Beaulieu-sur-Mer", "Èze", "Menton"];
 
   // Cities along the Riviera coast (positioned along the coastline path)
   const cities = [
@@ -217,7 +219,7 @@ export const Area = () => {
 
       <div className="container relative mt-16 md:mt-20">
         <p className="text-base md:text-lg text-primary-foreground/80 mb-8 max-w-3xl">{t("area.intro")}</p>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl border border-accent/25 bg-primary-foreground/[0.03] backdrop-blur-sm">
             <h3 className="font-display text-accent text-sm tracking-[0.2em] uppercase mb-4">{t("area.varLabel")}</h3>
             <p className="text-primary-foreground/90 leading-relaxed">{varCommunes.join(" · ")}</p>
@@ -226,7 +228,12 @@ export const Area = () => {
             <h3 className="font-display text-accent text-sm tracking-[0.2em] uppercase mb-4">{t("area.amLabel")}</h3>
             <p className="text-primary-foreground/90 leading-relaxed">{amCommunes.join(" · ")}</p>
           </div>
+          <div className="p-6 rounded-2xl border border-accent/25 bg-primary-foreground/[0.03] backdrop-blur-sm">
+            <h3 className="font-display text-accent text-sm tracking-[0.2em] uppercase mb-4">{t("area.monacoLabel")}</h3>
+            <p className="text-primary-foreground/90 leading-relaxed">{monacoCommunes.join(" · ")}</p>
+          </div>
         </div>
+
       </div>
     </section>
   );
