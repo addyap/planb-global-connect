@@ -16,7 +16,9 @@ export const About = () => {
             {t("about.lead")}
           </h2>
           <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p1")}</p>
-          <p className="text-lg text-foreground/80 leading-relaxed">{t("about.p2")}</p>
+          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p2")}</p>
+          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p3")}</p>
+          <p className="text-lg text-foreground/80 leading-relaxed">{t("about.p4")}</p>
         </div>
         <div className="md:col-span-2 bg-primary text-primary-foreground rounded-2xl p-8 shadow-elegant">
           <img

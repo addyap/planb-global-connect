@@ -27,8 +27,10 @@ const fr = {
   about: {
     title: "À propos",
     lead: "Anthony Gratton — votre partenaire bilingue sur la Côte d'Azur.",
-    p1: "Anglophone de naissance, parfaitement bilingue français, installé en France depuis plus de 30 ans.",
-    p2: "J'allie rigueur et souci du détail à un réseau établi de partenaires locaux de confiance pour livrer des projets de construction et de rénovation à la hauteur des attentes d'une clientèle internationale.",
+    p1: "Plan B Concept a été fondé par Anthony Gratton, fort de plus de 30 ans d'expérience dans la construction et la coordination de travaux dans le sud de la France. L'entreprise répond à un besoin précis : les propriétaires internationaux installés sur la Côte d'Azur méritent un suivi de projet de la même qualité que celui qu'ils attendraient chez eux, dans leur propre langue, et porté par un interlocuteur qui sait comment fonctionne réellement le système français.",
+    p2: "La plupart des acheteurs étrangers sous-estiment l'investissement de pilotage qu'exige une rénovation ou une construction sur la Côte d'Azur. Les artisans fonctionnent autrement ici, les autorisations avancent à leur propre rythme, et les conséquences des petites incompréhensions s'additionnent vite. Un bon maître d'ouvrage délégué, c'est la différence entre un projet livré dans les délais et dans le budget — et un projet qui dérape.",
+    p3: "Implanté dans le Var, intervenant sur le Var (83) et les Alpes-Maritimes (06), Plan B Concept accompagne des clients à Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne et les communes environnantes. Chaque projet est suivi personnellement — pas d'équipe de juniors qui gère votre villa.",
+    p4: "Si vous envisagez un projet sur la Côte d'Azur et souhaitez un échange franc et concret sur ce qu'il implique, contactez-moi.",
     expertiseTitle: "Expertise",
     expertise: [
       "Coordination des Travaux",
@@ -38,15 +40,36 @@ const fr = {
       "Démarches administratives et techniques",
     ],
   },
+  whyPlanB: {
+    title: "Pourquoi Plan B Concept",
+    items: [
+      { t: "Véritablement bilingue", d: "Anglais natif et français courant. Chaque échange technique, chaque contrat, chaque réunion de chantier — sans barrière de la langue." },
+      { t: "30+ ans sur le terrain", d: "Trois décennies de travail avec les artisans, fournisseurs et administrations de la Côte d'Azur. Des relations construites dans la durée, qui font avancer les projets." },
+      { t: "Côté maître d'ouvrage, toujours", d: "Une représentation indépendante. Aucune rétrocommission des entreprises, aucune marge cachée. Vos intérêts, défendus." },
+    ],
+  },
   services: {
     title: "Nos prestations",
     subtitle: "Des services structurés pour particuliers, investisseurs et promoteurs.",
     items: [
-      { t: "Coordination des Travaux", d: "Planification, ordonnancement, maîtrise des coûts et livraison, de la faisabilité à la réception.", b: "Un référent unique, de A à Z." },
-      { t: "Coordination de chantier", d: "Coordination des architectes, bureaux d'études, entreprises et artisans pour que chaque corps de métier avance ensemble.", b: "Moins de retards, une exécution plus propre." },
-      { t: "Accompagnement & conseil client", d: "Accompagnement et conseil indépendants sur la conception, le budget, les contrats et le choix des prestataires — toujours de votre côté.", b: "Des décisions éclairées, vos intérêts protégés." },
-      { t: "Suivi de chantier", d: "Visites régulières, contrôles qualité, comptes rendus et reportages photo.", b: "Une visibilité totale, même à distance." },
-      { t: "Résolution de problèmes — la philosophie Plan B", d: "Quand un imprévu survient, nous ne nous arrêtons pas — nous concevons l'alternative et avançons.", b: "Pragmatique, serein, orienté résultats." },
+      { t: "Maître d'ouvrage délégué", d: "J'agis en votre nom tout au long du projet, en pilotant architectes, entreprises et fournisseurs pour que vous n'ayez pas à être sur place tous les jours. Particulièrement précieux pour les propriétaires basés hors de France.", b: "Votre projet, suivi sur le terrain — sans les allers-retours." },
+      { t: "Pilotage de rénovation de villa", d: "Coordination complète des rénovations de villas sur la Côte d'Azur, du cadrage initial à la livraison finale. Autorisations, planning, corps d'état, levée des réserves — tout est pris en charge.", b: "De la première esquisse à la dernière réserve levée." },
+      { t: "Pilotage de construction neuve", d: "Gestion des projets de construction neuve, du premier coup de pioche à l'emménagement. Interface avec architectes, bureaux d'études structure et l'ensemble des corps d'état.", b: "Du terrassement à la remise des clés." },
+      { t: "Conseil en construction", d: "Conseil technique indépendant avant tout engagement. Études de faisabilité, analyse de devis, choix d'entreprises et second regard sur des projets existants.", b: "Sachez ce que vous signez — avant de signer." },
+      { t: "Suivi de chantier et contrôle qualité", d: "Visites régulières sur site avec comptes rendus photographiques détaillés, garantissant la conformité au cahier des charges et au planning. Les problèmes sont signalés tôt, avant qu'ils ne coûtent cher.", b: "Un œil sur le chantier, chaque semaine." },
+      { t: "Interface bilingue client / entreprises", d: "Le pont entre propriétaires anglophones et entreprises françaises. Traduction de documents techniques, relecture de contrats, interprétariat sur site pendant les réunions clés.", b: "Pas de barrière linguistique, pas de malentendus coûteux." },
+    ],
+  },
+  faq: {
+    title: "Questions fréquentes",
+    subtitle: "Des réponses claires aux questions que se posent les clients avant de nous confier un projet.",
+    items: [
+      { q: "Que fait concrètement un maître d'ouvrage délégué ?", a: "Un maître d'ouvrage délégué pilote votre projet de construction ou de rénovation pour votre compte, en gérant les relations avec architectes, entreprises et administrations. Il défend vos intérêts, contrôle la qualité et le planning, et traduit la complexité technique et administrative en informations claires sur lesquelles vous pouvez décider." },
+      { q: "Ai-je toujours besoin d'un architecte si je fais appel à Plan B Concept ?", a: "Oui. L'architecte conçoit le projet ; Plan B Concept le pilote. Les deux rôles sont complémentaires. Nous travaillons aux côtés de votre architecte (ou vous aidons à en choisir un) pour que la conception soit livrée sur le terrain comme prévue." },
+      { q: "Quelle est la différence avec un maître d'œuvre ?", a: "Le maître d'œuvre représente la conception et l'exécution des travaux eux-mêmes. Le maître d'ouvrage délégué vous représente, vous le client. La distinction est essentielle lorsque les intérêts divergent." },
+      { q: "Intervenez-vous en dehors du Var et des Alpes-Maritimes ?", a: "Ponctuellement, pour des clients existants. La zone d'intervention standard couvre la Côte d'Azur, de Saint-Tropez à Menton, en passant par Monaco." },
+      { q: "Comment sont structurés vos honoraires ?", a: "Soit en pourcentage de la valeur du projet, soit sous forme de forfait mensuel, selon l'envergure et la durée. Les honoraires sont chiffrés de manière transparente après un premier échange." },
+      { q: "Pouvez-vous reprendre un projet déjà en cours ?", a: "Oui. Les reprises en cours de chantier sont fréquentes — souvent lorsque la communication entre client et entreprises s'est rompue, ou lorsque des problèmes de qualité apparaissent. Un audit indépendant peut généralement être organisé dans la semaine." },
     ],
   },
   questionnaire: {
@@ -109,6 +132,9 @@ const fr = {
   area: {
     title: "Zone d'intervention",
     subtitle: "Interventions sur toute la Côte d'Azur et les régions voisines.",
+    intro: "Au service de particuliers sur toute la Côte d'Azur, du Var à la frontière italienne.",
+    varLabel: "Var (83)",
+    amLabel: "Alpes-Maritimes (06)",
     depts: [
       { code: "83", name: "Var" },
       { code: "06", name: "Alpes-Maritimes" },

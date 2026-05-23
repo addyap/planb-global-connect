@@ -27,8 +27,10 @@ const sv = {
   about: {
     title: "Om mig",
     lead: "Anthony Gratton — din tvåspråkiga projektpartner på franska Rivieran.",
-    p1: "Brittisk engelska som modersmål, fullt tvåspråkig i franska, bosatt och verksam i Frankrike i över 30 år.",
-    p2: "Jag kombinerar noggrannhet och öga för detaljer med ett etablerat nätverk av pålitliga lokala partners för att leverera bygg- och renoveringsprojekt som motsvarar internationella kunders förväntningar.",
+    p1: "Plan B Concept grundades av Anthony Gratton, med mer än 30 års erfarenhet av byggande och projektledning i södra Frankrike. Verksamheten finns för att lösa ett specifikt problem: internationella fastighetsägare på Côte d'Azur förtjänar samma kvalitet på projektuppföljningen som de skulle förvänta sig hemma — på sitt eget språk och från någon som vet hur det franska systemet faktiskt fungerar.",
+    p2: "De flesta utländska köpare underskattar hur mycket praktisk styrning en renovering eller nybyggnation på Rivieran kräver. Yrkesfolk arbetar annorlunda här, tillstånd går i sin egen takt, och konsekvenserna av små missförstånd blir snabbt stora. En bra beställarrepresentant är skillnaden mellan ett projekt som landar i tid och inom budget — och ett som inte gör det.",
+    p3: "Baserad i Var och verksam i Var (83) och Alpes-Maritimes (06), arbetar Plan B Concept för kunder i Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne och de omkringliggande kommunerna. Varje projekt tas an personligen — inget juniorteam som hanterar din villa.",
+    p4: "Om du överväger ett projekt på Rivieran och vill ha ett rakt, praktiskt samtal om vad det innebär — hör av dig.",
     expertiseTitle: "Expertis",
     expertise: [
       "Projektledning",
@@ -38,15 +40,36 @@ const sv = {
       "Administrativ och teknisk hantering",
     ],
   },
+  whyPlanB: {
+    title: "Varför Plan B Concept",
+    items: [
+      { t: "Verkligt tvåspråkig", d: "Engelska på modersmålsnivå och flytande franska. Varje teknisk diskussion, varje kontrakt, varje byggmöte — utan språkbarriär." },
+      { t: "Över 30 år på plats", d: "Tre decennier med Rivierans hantverkare, leverantörer och myndigheter. Relationer byggda över tid som för projekt framåt." },
+      { t: "Alltid på beställarens sida", d: "Oberoende representation. Inga kickbacks från entreprenörer, inga dolda marginaler. Dina intressen, försvarade." },
+    ],
+  },
   services: {
     title: "Vad vi gör",
     subtitle: "Strukturerade tjänster för privatkunder, investerare och byggherrar.",
     items: [
-      { t: "Projektledning", d: "Komplett projektledning: planering, tidsstyrning, kostnadskontroll och leverans, från förstudie till överlämning.", b: "En pålitlig ledare från första dagen till färdigställande." },
-      { t: "Byggsamordning", d: "Samordning av arkitekter, ingenjörer, entreprenörer och hantverkare så att varje yrkesgrupp arbetar i takt.", b: "Färre förseningar, renare utförande." },
-      { t: "Kundstöd & vägledning", d: "Oberoende stöd och vägledning kring design, budget, avtal och leverantörsval — alltid på din sida.", b: "Välgrundade beslut, skyddade intressen." },
-      { t: "Byggplatsuppföljning", d: "Regelbundna besök, kvalitetskontroller, lägesrapporter och fotouppdateringar.", b: "Full insyn, även från utlandet." },
-      { t: "Problemlösning — Plan B-filosofin", d: "När något går fel stannar vi inte — vi utformar alternativet och går vidare.", b: "Pragmatisk, lugn, resultatinriktad." },
+      { t: "Beställarrepresentation", d: "Jag agerar för din räkning genom hela projektet och styr arkitekter, entreprenörer och leverantörer så att du inte behöver vara på plats dagligen. Särskilt värdefullt för ägare utanför Frankrike.", b: "Ditt projekt, drivet på plats — utan flygresorna." },
+      { t: "Styrning av villarenovering", d: "Komplett samordning av villarenoveringar på Côte d'Azur, från första genomgång till slutleverans. Tillstånd, planering, hantverkare, slutbesiktning — allt hanteras.", b: "Från första skiss till sista besiktningspunkt." },
+      { t: "Projektledning nybyggnation", d: "Styrning av nybyggnadsprojekt från första spadtag till inflyttning. Kontakt med arkitekter, konstruktörer och hela kedjan av yrkesgrupper.", b: "Från första spadtag till nycklarna i handen." },
+      { t: "Byggrådgivning", d: "Oberoende teknisk rådgivning innan du binder dig. Förstudier, offertanalyser, val av entreprenörer och andra utlåtanden om befintliga projektplaner.", b: "Vet vad du skriver under — innan du skriver under." },
+      { t: "Byggplatsuppföljning och kvalitetskontroll", d: "Regelbundna besök med detaljerade fotorapporter som säkerställer att arbetet följer specifikation och tidplan. Problem flaggas tidigt innan de blir dyra.", b: "Ögon på plats, varje vecka." },
+      { t: "Tvåspråkig kundkontakt", d: "Bron mellan engelsktalande ägare och franska hantverkare. Översättning av tekniska dokument, granskning av kontrakt och tolkning på plats under viktiga möten.", b: "Inga språkluckor, inga dyra missförstånd." },
+    ],
+  },
+  faq: {
+    title: "Vanliga frågor",
+    subtitle: "Raka svar på de frågor kunder ställer innan de anlitar oss.",
+    items: [
+      { q: "Vad gör en beställarrepresentant egentligen?", a: "En beställarrepresentant leder ditt bygg- eller renoveringsprojekt för din räkning och hanterar kontakter med arkitekter, entreprenörer och myndigheter. Hen skyddar dina intressen, övervakar kvalitet och tidplan, och översätter den tekniska och administrativa komplexiteten till tydliga uppdateringar du kan agera på." },
+      { q: "Behöver jag fortfarande en arkitekt om jag anlitar Plan B Concept?", a: "Ja. Arkitekten ritar projektet; Plan B Concept driver det. Rollerna kompletterar varandra. Vi arbetar tillsammans med din arkitekt (eller hjälper dig välja en) så att designen blir levererad på plats som tänkt." },
+      { q: "Hur skiljer det sig från en maître d'œuvre?", a: "En maître d'œuvre representerar vanligen själva projekteringen och utförandet av arbetena. En beställarrepresentant — maître d'ouvrage délégué — representerar dig, kunden. Skillnaden spelar roll när intressena går isär." },
+      { q: "Arbetar ni utanför Var och Alpes-Maritimes?", a: "Ibland, för befintliga kunder. Det normala verksamhetsområdet är franska Rivieran från Saint-Tropez till Menton, inklusive Monaco." },
+      { q: "Hur är arvodena upplagda?", a: "Antingen som en procent av projektvärdet eller som ett fast månadsarvode, beroende på projektets storlek och längd. Offereras transparent efter ett första samtal." },
+      { q: "Kan ni ta över ett projekt som redan är igång?", a: "Ja. Räddningar mitt i ett projekt är vanliga — ofta när kommunikationen mellan kund och entreprenörer har brutit samman, eller när kvalitetsproblem har dykt upp. En oberoende genomgång kan oftast ordnas inom en vecka." },
     ],
   },
   questionnaire: {
@@ -102,6 +125,9 @@ const sv = {
   area: {
     title: "Verksamhetsområde",
     subtitle: "Verksam längs franska Rivieran och omgivande regioner.",
+    intro: "Till tjänst för privatkunder längs hela franska Rivieran, från Var till italienska gränsen.",
+    varLabel: "Var (83)",
+    amLabel: "Alpes-Maritimes (06)",
     depts: [
       { code: "83", name: "Var" },
       { code: "06", name: "Alpes-Maritimes" },
