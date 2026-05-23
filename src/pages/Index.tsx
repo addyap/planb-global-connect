@@ -5,7 +5,9 @@ import { SEO } from "@/components/SEO";
 import { Hero } from "@/components/sections/Hero";
 import { HomeSummary } from "@/components/sections/HomeSummary";
 import { About } from "@/components/sections/About";
+import { WhyPlanB } from "@/components/sections/WhyPlanB";
 import { Services } from "@/components/sections/Services";
+import { FAQ } from "@/components/sections/FAQ";
 import { Area } from "@/components/sections/Area";
 import { Contact } from "@/components/sections/Contact";
 import { useEffect, useMemo } from "react";
@@ -75,6 +77,22 @@ const Index = () => {
           },
         })),
       },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          { q: "What does an owner's representative actually do?", a: "An owner's representative manages your construction or renovation project on your behalf, dealing with architects, contractors, and authorities so you don't have to. They protect your interests, monitor quality and schedule, and translate the technical and administrative complexity into clear updates you can act on." },
+          { q: "Do I still need an architect if I hire Plan B Concept?", a: "Yes. An architect designs the project; Plan B Concept manages it. The two roles are complementary. We work alongside your architect (or help you select one) to make sure the design is delivered on the ground as intended." },
+          { q: "How does this differ from a maître d'œuvre?", a: "A maître d'œuvre typically represents the design and execution of the works themselves. An owner's representative — maître d'ouvrage délégué — represents you, the client. The distinction matters when interests diverge." },
+          { q: "Do you work outside Var and Alpes-Maritimes?", a: "Occasionally, for existing clients. The standard service area is the French Riviera from Saint-Tropez to Menton, including Monaco." },
+          { q: "How are fees structured?", a: "Either a percentage of project value or a fixed monthly retainer, depending on project scale and duration. Quoted transparently after an initial conversation." },
+          { q: "Can you take on a project that's already underway?", a: "Yes. Mid-project rescues are common — often when communication between client and contractors has broken down, or quality issues have emerged. An independent review can usually be arranged within a week." },
+        ].map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      },
     ],
     [t]
   );
@@ -95,7 +113,9 @@ const Index = () => {
         <Hero />
         <HomeSummary />
         <About />
+        <WhyPlanB />
         <Services />
+        <FAQ />
         <Area />
         <Contact />
       </main>
