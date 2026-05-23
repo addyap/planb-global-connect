@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -7,6 +8,9 @@ const Placeholder = ({ children }: { children: string }) => (
 );
 
 const MentionsLegales = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
       <SEO
