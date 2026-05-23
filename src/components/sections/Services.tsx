@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { HardHat, Users2, Compass, Eye, Lightbulb } from "lucide-react";
+import { HardHat, Users2, Compass, Eye, Lightbulb, Languages } from "lucide-react";
 
 export const Services = () => {
   const { t } = useTranslation();
   const items = t("services.items", { returnObjects: true }) as { t: string; d: string; b: string }[];
-  const icons = [HardHat, Users2, Compass, Eye, Lightbulb];
+  const icons = [Users2, HardHat, Compass, Lightbulb, Eye, Languages];
   return (
     <section id="services" className="py-20 md:py-28 bg-background">
       <div className="container">
@@ -20,8 +20,8 @@ export const Services = () => {
 
         <div className="grid md:grid-cols-2 gap-5">
           {items.map((s, i) => {
-            const Icon = icons[i];
-            const wide = i === items.length - 1;
+            const Icon = icons[i] ?? icons[0];
+            const wide = false;
             return (
               <article
                 key={i}
