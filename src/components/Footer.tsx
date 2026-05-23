@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo-plan-b.png";
 import { CONTACT } from "@/lib/contact";
 
@@ -27,6 +28,13 @@ export const Footer = () => {
         <div className="text-sm text-primary-foreground/60 md:text-right">
           © {new Date().getFullYear()} Plan B Concept. {t("footer.rights")}
         </div>
+      </div>
+      <div className="container mt-10 pt-6 border-t border-accent/10 flex flex-wrap gap-x-5 gap-y-2 text-xs text-primary-foreground/50 justify-center">
+        <Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link>
+        <span className="text-primary-foreground/30">|</span>
+        <Link to="/politique-de-confidentialite" className="hover:text-accent transition-colors">Politique de confidentialité</Link>
+        <span className="text-primary-foreground/30">|</span>
+        <Link to="/cgu" className="hover:text-accent transition-colors">CGU</Link>
       </div>
     </footer>
   );
