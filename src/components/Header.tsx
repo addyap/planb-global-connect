@@ -71,13 +71,17 @@ export const Header = () => {
 
   const handleNav = (item: NavItem) => {
     setOpen(false);
-    if (item.path !== location.pathname) {
-      navigate(item.path);
+    // For section links, stay on / and scroll — avoids a redirect round-trip.
+    if (item.sectionId) {
+      if (location.pathname !== "/") {
+        navigate(`/#${item.sectionId}`);
+      } else {
+        document.getElementById(item.sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (item.sectionId === "home") window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       return;
     }
-    if (item.sectionId) {
-      document.getElementById(item.sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (item.path !== location.pathname) navigate(item.path);
   };
 
   return (
