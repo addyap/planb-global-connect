@@ -27,8 +27,10 @@ const en = {
   about: {
     title: "About Me",
     lead: "Anthony Gratton — your bilingual project partner on the French Riviera.",
-    p1: "Native British English speaker, fully bilingual in French, with more than 30 years living and working in France.",
-    p2: "I combine rigour and attention to detail with an established network of trusted local partners to deliver construction and renovation projects that match the expectations of international clients.",
+    p1: "Plan B Concept was founded by Anthony Gratton, drawing on more than 30 years of experience in construction and project management across the South of France. The business exists to solve a specific problem: international property owners on the Côte d'Azur deserve the same quality of project oversight they would expect at home, delivered in their own language, by someone who knows how the French system actually works.",
+    p2: "Most foreign buyers underestimate how much hands-on management a Riviera renovation or build requires. Trades work differently here, permits move at their own pace, and the consequences of small miscommunications add up quickly. A good owner's representative is the difference between a project that lands on time and on budget — and one that doesn't.",
+    p3: "Based in the Var, working across Var (83) and Alpes-Maritimes (06), Plan B Concept serves clients in Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne and the surrounding communes. Every project is taken on personally — there is no team of juniors handling your villa.",
+    p4: "If you are considering a project on the Riviera and want a frank, practical conversation about what's involved, get in touch.",
     expertiseTitle: "Expertise",
     expertise: [
       "Project management",
@@ -38,15 +40,36 @@ const en = {
       "Administrative and technical handling",
     ],
   },
+  whyPlanB: {
+    title: "Why Plan B Concept",
+    items: [
+      { t: "Truly Bilingual", d: "Native-level English and fluent French. Every technical conversation, every contract, every site meeting — no language gap." },
+      { t: "30+ Years On the Ground", d: "Three decades working with Riviera trades, suppliers, and authorities. Relationships built over time that move projects forward." },
+      { t: "Owner-Side, Always", d: "Independent representation. No kickbacks from contractors, no hidden margins. Your interests, defended." },
+    ],
+  },
   services: {
     title: "What We Do",
     subtitle: "Structured services for private clients, investors and developers.",
     items: [
-      { t: "Project Management", d: "Full project management: planning, scheduling, cost control and delivery, from feasibility to handover.", b: "A single trusted lead from day one to completion." },
-      { t: "Construction Coordination", d: "Coordinating architects, engineers, contractors and craftsmen so every trade works in sync.", b: "Fewer delays, cleaner execution, no finger-pointing." },
-      { t: "Client Support & Guidance", d: "Independent support and guidance on design, budget, contracts and supplier selection — always on your side.", b: "Informed decisions, protected interests." },
-      { t: "Site Monitoring", d: "Regular on-site visits, quality checks, progress reporting and photo updates.", b: "Total visibility, even from abroad." },
-      { t: "Problem Solving — the Plan B philosophy", d: "When something goes wrong on site, we don't stop — we design the alternative and keep moving.", b: "Pragmatic, calm, results-driven." },
+      { t: "Owner's Representative", d: "Acting on your behalf throughout your project, managing architects, contractors and suppliers so you don't have to be on site daily. Especially valuable for owners based outside France.", b: "Your project, run on the ground — without the flights." },
+      { t: "Villa Renovation Management", d: "End-to-end coordination of villa renovations on the Côte d'Azur, from initial scoping through to final handover. Permits, planning, trades, snagging — all handled.", b: "From first sketch to final snag list." },
+      { t: "New Build Project Management", d: "Managing new construction projects from ground-breaking to occupation. Liaison with architects, structural engineers, and the full trade chain.", b: "Ground-breaking to keys in hand." },
+      { t: "Construction Advisory", d: "Independent technical advice before you commit. Feasibility studies, quote analysis, contractor selection, and second opinions on existing project plans.", b: "Know what you're signing — before you sign." },
+      { t: "Site Monitoring & Quality Control", d: "Regular site visits with detailed photographic reports, ensuring work meets specification and schedule. Issues flagged early before they become expensive.", b: "Eyes on site, every week." },
+      { t: "Bilingual Client Liaison", d: "Bridging the gap between English-speaking owners and French trades. Translation of technical documents, contract review, and on-site interpretation during critical meetings.", b: "No language gap, no costly misunderstandings." },
+    ],
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    subtitle: "Straight answers to the questions clients ask before they engage us.",
+    items: [
+      { q: "What does an owner's representative actually do?", a: "An owner's representative manages your construction or renovation project on your behalf, dealing with architects, contractors, and authorities so you don't have to. They protect your interests, monitor quality and schedule, and translate the technical and administrative complexity into clear updates you can act on." },
+      { q: "Do I still need an architect if I hire Plan B Concept?", a: "Yes. An architect designs the project; Plan B Concept manages it. The two roles are complementary. We work alongside your architect (or help you select one) to make sure the design is delivered on the ground as intended." },
+      { q: "How does this differ from a maître d'œuvre?", a: "A maître d'œuvre typically represents the design and execution of the works themselves. An owner's representative — maître d'ouvrage délégué — represents you, the client. The distinction matters when interests diverge." },
+      { q: "Do you work outside Var and Alpes-Maritimes?", a: "Occasionally, for existing clients. The standard service area is the French Riviera from Saint-Tropez to Menton, including Monaco." },
+      { q: "How are fees structured?", a: "Either a percentage of project value or a fixed monthly retainer, depending on project scale and duration. Quoted transparently after an initial conversation." },
+      { q: "Can you take on a project that's already underway?", a: "Yes. Mid-project rescues are common — often when communication between client and contractors has broken down, or quality issues have emerged. An independent review can usually be arranged within a week." },
     ],
   },
   questionnaire: {
@@ -109,6 +132,9 @@ const en = {
   area: {
     title: "Area of Intervention",
     subtitle: "Operating across the French Riviera and surrounding regions.",
+    intro: "Serving private clients across the French Riviera, from the Var to the Italian border.",
+    varLabel: "Var (83)",
+    amLabel: "Alpes-Maritimes (06)",
     depts: [
       { code: "83", name: "Var" },
       { code: "06", name: "Alpes-Maritimes" },
