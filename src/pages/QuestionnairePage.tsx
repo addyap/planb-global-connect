@@ -34,8 +34,8 @@ const QuestionnairePage = () => {
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
       <SEO
-        title={`${t("nav.questionnaire")} — Project Brief | Plan B Concept`}
-        description={t("questionnaire.intro")}
+        title="Project Brief Questionnaire | Plan B Concept — Côte d'Azur"
+        description="Share the details of your renovation, construction or property project on the French Riviera. Anthony Gratton will review your brief and reply in English or French."
         path="/questionnaire"
         jsonLd={jsonLd}
       />
