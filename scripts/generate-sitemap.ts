@@ -4,7 +4,7 @@ import { resolve } from "path";
 
 const BASE_URL = "https://www.planb-concept.com";
 // Single-page app with client-side i18n: only distinct URLs are listed; no hreflang.
-const ROUTES = ["/", "/questionnaire"];
+const ROUTES = ["/", "/questionnaire", "/mentions-legales", "/politique-de-confidentialite", "/cgu"];
 const today = new Date().toISOString().split("T")[0];
 
 const urls = ROUTES.map((path) => {
