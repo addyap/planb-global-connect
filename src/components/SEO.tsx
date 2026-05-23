@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const SITE = "https://www.planb-concept.com";
 const DEFAULT_OG_IMAGE = `${SITE}/og-image.png`;
-const SUPPORTED_LANGS = ["en", "fr", "nl", "de", "sv", "da", "no", "ru"] as const;
+
 
 const OG_LOCALES: Record<string, string> = {
   en: "en_GB",
@@ -108,9 +108,11 @@ export const SEO = ({
     // Canonical
     upsertLink("canonical", url);
 
-    // hreflang — same URL serves all languages (client-side i18n)
-    SUPPORTED_LANGS.forEach((l) => upsertLink("alternate", url, { hreflang: l }));
-    upsertLink("alternate", url, { hreflang: "x-default" });
+    // hreflang intentionally omitted: site is English-only at a single URL.
+    // Remove any previously-injected alternate tags (e.g. from earlier builds).
+    document.head
+      .querySelectorAll('link[rel="alternate"][hreflang]')
+      .forEach((el) => el.remove());
 
     // JSON-LD per route
     const existing = document.getElementById(JSONLD_ID);
