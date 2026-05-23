@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /404
 
 Sitemap: https://www.planb-concept.com/sitemap.xml

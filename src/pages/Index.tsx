@@ -27,37 +27,6 @@ const Index = () => {
     () => [
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "@id": `${SITE}/#localbusiness`,
-        name: "Plan B Concept",
-        description: t("hero.subtitle"),
-        url: `${SITE}/`,
-        image: `${SITE}/og-image.png`,
-        telephone: CONTACT.phoneIntl,
-        email: CONTACT.email,
-        priceRange: "€€€",
-        areaServed: [
-          { "@type": "AdministrativeArea", name: "Var (83)" },
-          { "@type": "AdministrativeArea", name: "Alpes-Maritimes (06)" },
-          { "@type": "Place", name: "Côte d'Azur / French Riviera" },
-        ],
-        address: {
-          "@type": "PostalAddress",
-          addressRegion: "Provence-Alpes-Côte d'Azur",
-          addressCountry: "FR",
-        },
-        founder: {
-          "@type": "Person",
-          name: CONTACT.name,
-          jobTitle: "Project Manager & Construction Advisor",
-          sameAs: [CONTACT.linkedin],
-          knowsLanguage: ["en", "fr"],
-        },
-        sameAs: [CONTACT.linkedin],
-        knowsLanguage: ["en", "fr"],
-      },
-      {
-        "@context": "https://schema.org",
         "@type": "ItemList",
         name: "Services",
         itemListElement: [
@@ -80,6 +49,7 @@ const Index = () => {
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        inLanguage: "en",
         mainEntity: [
           { q: "What does an owner's representative actually do?", a: "An owner's representative manages your construction or renovation project on your behalf, dealing with architects, contractors, and authorities so you don't have to. They protect your interests, monitor quality and schedule, and translate the technical and administrative complexity into clear updates you can act on." },
           { q: "Do I still need an architect if I hire Plan B Concept?", a: "Yes. An architect designs the project; Plan B Concept manages it. The two roles are complementary. We work alongside your architect (or help you select one) to make sure the design is delivered on the ground as intended." },
