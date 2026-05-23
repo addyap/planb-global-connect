@@ -2,12 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f1b3d" />
     <title>Project Management Côte d'Azur | Plan B Concept</title>
     <meta name="description" content="Bilingual EN/FR project management & construction advisory on the French Riviera. 30+ years experience in Var (83) & Alpes-Maritimes (06)." />
     <meta name="author" content="Anthony Gratton — Plan B Concept" />
-    <meta name="keywords" content="project management Côte d'Azur, construction advisory France, owner's representative French Riviera, Var, Alpes-Maritimes, bilingual project manager" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://www.planb-concept.com/" />
 
@@ -64,20 +63,29 @@
           "url": "https://www.planb-concept.com/",
           "name": "Plan B Concept",
           "publisher": { "@id": "https://www.planb-concept.com/#organization" },
-          "inLanguage": ["en", "fr", "nl", "de", "sv", "ru"]
+          "inLanguage": ["en", "fr"]
         },
         {
           "@type": "ProfessionalService",
           "@id": "https://www.planb-concept.com/#localbusiness",
-          "name": "Plan B Concept — Project Management & Construction Advisory",
+          "name": "Plan B Concept",
+          "description": "Bilingual EN/FR project management and construction advisory on the French Riviera. Over 30 years of experience supporting clients in Var (83) and Alpes-Maritimes (06).",
           "image": "https://www.planb-concept.com/og-image.png",
           "url": "https://www.planb-concept.com/",
           "telephone": "+33-6-15-19-81-15",
           "email": "anthony.gratton13@gmail.com",
           "priceRange": "€€€",
+          "founder": {
+            "@type": "Person",
+            "name": "Anthony Gratton",
+            "sameAs": "https://www.linkedin.com/in/anthonygratton/"
+          },
+          "availableLanguage": ["en", "fr"],
+          "knowsLanguage": ["en", "fr"],
           "areaServed": [
             { "@type": "AdministrativeArea", "name": "Var (83)" },
-            { "@type": "AdministrativeArea", "name": "Alpes-Maritimes (06)" }
+            { "@type": "AdministrativeArea", "name": "Alpes-Maritimes (06)" },
+            { "@type": "Place", "name": "Côte d'Azur" }
           ],
           "address": {
             "@type": "PostalAddress",
@@ -91,7 +99,37 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <h1>Plan B Concept — Project Management &amp; Construction Advisory, Côte d'Azur</h1>
+        <p>
+          Bilingual EN/FR project management and construction advisory on the French Riviera.
+          Over 30 years of experience supporting private clients and property owners across
+          Var (83) and Alpes-Maritimes (06).
+        </p>
+        <h2>Services</h2>
+        <ul>
+          <li>Project management</li>
+          <li>Construction coordination</li>
+          <li>Client support &amp; guidance</li>
+          <li>Site monitoring</li>
+          <li>Problem solving</li>
+        </ul>
+        <h2>Areas served</h2>
+        <ul>
+          <li>Saint-Tropez</li>
+          <li>Cannes</li>
+          <li>Nice</li>
+          <li>Antibes</li>
+          <li>Monaco</li>
+          <li>Grasse</li>
+          <li>Mougins</li>
+          <li>Valbonne</li>
+        </ul>
+        <p>Contact: Anthony Gratton — Plan B Concept.</p>
+        <p>This site requires JavaScript for the full experience.</p>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
