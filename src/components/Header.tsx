@@ -51,18 +51,23 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [open]);
 
-  // When landing on a section URL (e.g. /about), scroll to that section.
+  // When landing on a section URL (e.g. /about) or a hash (/#about), scroll to that section.
   useEffect(() => {
-    const match = navItems.find((item) => item.path === location.pathname);
-    if (!match || !match.sectionId) return;
-    // Wait for layout, then scroll
-    const id = match.sectionId;
+    let id: string | undefined;
+    if (location.hash) {
+      id = location.hash.replace(/^#/, "");
+    } else {
+      const match = navItems.find((item) => item.path === location.pathname);
+      if (match?.sectionId) id = match.sectionId;
+    }
+    if (!id) return;
+    const targetId = id;
     requestAnimationFrame(() => {
-      const el = document.getElementById(id);
+      const el = document.getElementById(targetId);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      else if (id === "home") window.scrollTo({ top: 0, behavior: "smooth" });
+      else if (targetId === "home") window.scrollTo({ top: 0, behavior: "smooth" });
     });
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   const handleNav = (item: NavItem) => {
     setOpen(false);
