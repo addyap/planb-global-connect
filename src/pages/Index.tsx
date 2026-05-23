@@ -23,29 +23,63 @@ const Index = () => {
     document.documentElement.lang = i18n.resolvedLanguage ?? "en";
   }, [i18n.resolvedLanguage]);
 
-  const jsonLd = useMemo(
-    () => [
+  const jsonLd = useMemo(() => {
+    const services: { slug: string; name: string; description: string }[] = [
       {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Services",
-        itemListElement: [
-          "Project Management",
-          "Construction Coordination",
-          "Client Support & Guidance",
-          "Site Monitoring",
-          "Problem Solving",
-        ].map((name, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          item: {
-            "@type": "Service",
-            name,
-            provider: { "@id": `${SITE}/#localbusiness` },
-            areaServed: "Côte d'Azur, France",
-          },
-        })),
+        slug: "owners-representative",
+        name: "Owner's Representative",
+        description:
+          "Acting on the client's behalf throughout the project, managing architects, contractors and suppliers. Especially valuable for owners based outside France.",
       },
+      {
+        slug: "villa-renovation",
+        name: "Villa Renovation Management",
+        description:
+          "End-to-end coordination of villa renovations on the Côte d'Azur, from initial scoping through to final handover. Permits, planning, trades and snagging — all handled.",
+      },
+      {
+        slug: "new-build-pm",
+        name: "New Build Project Management",
+        description:
+          "Managing new construction projects from ground-breaking to occupation, with liaison across architects, structural engineers and the full trade chain.",
+      },
+      {
+        slug: "construction-advisory",
+        name: "Construction Advisory",
+        description:
+          "Independent technical advice before commitment: feasibility studies, quote analysis, contractor selection and second opinions on existing plans.",
+      },
+      {
+        slug: "site-monitoring-qc",
+        name: "Site Monitoring & Quality Control",
+        description:
+          "Regular site visits with detailed photographic reports, ensuring work meets specification and schedule. Issues are flagged early before they become expensive.",
+      },
+      {
+        slug: "bilingual-client-liaison",
+        name: "Bilingual Client Liaison",
+        description:
+          "Bridging the gap between English-speaking owners and French trades: translation of technical documents, contract review and on-site interpretation during critical meetings.",
+      },
+    ];
+
+    const serviceNodes = services.map((s) => ({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${SITE}/#service-${s.slug}`,
+      name: s.name,
+      serviceType: s.name,
+      provider: { "@id": `${SITE}/#organization` },
+      areaServed: [
+        { "@type": "AdministrativeArea", "name": "Var (83), France" },
+        { "@type": "AdministrativeArea", "name": "Alpes-Maritimes (06), France" },
+      ],
+      description: s.description,
+      availableLanguage: ["en", "fr"],
+    }));
+
+    return [
+      ...serviceNodes,
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -63,9 +97,9 @@ const Index = () => {
           acceptedAnswer: { "@type": "Answer", text: a },
         })),
       },
-    ],
-    [t]
-  );
+    ];
+  }, [t]);
+
 
   return (
     <div className="min-h-screen bg-background font-body text-foreground">

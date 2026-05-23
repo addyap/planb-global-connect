@@ -132,6 +132,12 @@ const nl = {
       { code: "83", name: "Var" },
       { code: "06", name: "Alpes-Maritimes" },
     ],
+    monacoLabel: "Monaco",
+    towns: {
+      var: ["Saint-Tropez", "Sainte-Maxime", "Saint-Raphaël", "Fréjus", "Grimaud", "Cogolin", "Ramatuelle", "Gassin"],
+      am: ["Cannes", "Nice", "Antibes", "Cap d'Antibes", "Mougins", "Valbonne", "Grasse", "Cap Ferrat", "Villefranche-sur-Mer", "Beaulieu-sur-Mer", "Èze", "Menton"],
+      monaco: ["Monaco"],
+    },
     note: "Projecten buiten deze departementen op aanvraag bespreekbaar.",
   },
   contact: {

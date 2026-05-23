@@ -132,6 +132,12 @@ const ru = {
       { code: "83", name: "Вар" },
       { code: "06", name: "Приморские Альпы" },
     ],
+    monacoLabel: "Монако",
+    towns: {
+      var: ["Saint-Tropez", "Sainte-Maxime", "Saint-Raphaël", "Fréjus", "Grimaud", "Cogolin", "Ramatuelle", "Gassin"],
+      am: ["Cannes", "Nice", "Antibes", "Cap d'Antibes", "Mougins", "Valbonne", "Grasse", "Cap Ferrat", "Villefranche-sur-Mer", "Beaulieu-sur-Mer", "Èze", "Menton"],
+      monaco: ["Monaco"],
+    },
     note: "Проекты за пределами этих департаментов рассматриваются по запросу.",
   },
   contact: {
