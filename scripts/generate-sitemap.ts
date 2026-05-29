@@ -4,17 +4,24 @@ import { resolve } from "path";
 
 const BASE_URL = "https://www.planb-concept.com";
 // Single-page app with client-side i18n: only distinct URLs are listed; no hreflang.
-const ROUTES = ["/", "/questionnaire", "/mentions-legales", "/politique-de-confidentialite", "/cgu"];
+type Route = { path: string; changefreq: string; priority: string };
+const ROUTES: Route[] = [
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/questionnaire", changefreq: "weekly", priority: "0.8" },
+  { path: "/mentions-legales", changefreq: "monthly", priority: "0.5" },
+  { path: "/politique-de-confidentialite", changefreq: "monthly", priority: "0.5" },
+  { path: "/cgu", changefreq: "monthly", priority: "0.5" },
+];
 const today = new Date().toISOString().split("T")[0];
 
-const urls = ROUTES.map((path) => {
+const urls = ROUTES.map(({ path, changefreq, priority }) => {
   const loc = `${BASE_URL}${path}`;
   return [
     `  <url>`,
     `    <loc>${loc}</loc>`,
     `    <lastmod>${today}</lastmod>`,
-    `    <changefreq>monthly</changefreq>`,
-    `    <priority>${path === "/" ? "1.0" : "0.8"}</priority>`,
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority}</priority>`,
     `  </url>`,
   ].join("\n");
 }).join("\n");
