@@ -8,6 +8,7 @@
     "dev": "vite",
     "prebuild": "npx tsx scripts/generate-sitemap.ts",
     "build": "vite build",
+    "postbuild": "npx tsx scripts/postbuild-check.ts",
     "build:dev": "npx tsx scripts/generate-sitemap.ts && vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
