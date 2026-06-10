@@ -6,16 +6,17 @@ const SITE = "https://www.planb-concept.com";
 const DEFAULT_OG_IMAGE = `${SITE}/og-image.png`;
 
 
-const OG_LOCALES: Record<string, string> = {
-  en: "en_GB",
-  fr: "fr_FR",
-  nl: "nl_NL",
-  de: "de_DE",
-  sv: "sv_SE",
-  da: "da_DK",
-  no: "nb_NO",
-  ru: "ru_RU",
-};
+// English is the canonical indexed language. Other locales are signalled as alternates only.
+const OG_LOCALE = "en_GB";
+const OG_LOCALE_ALTERNATES = [
+  "fr_FR",
+  "nl_NL",
+  "de_DE",
+  "sv_SE",
+  "da_DK",
+  "nb_NO",
+  "ru_RU",
+];
 
 type Props = {
   title: string;
