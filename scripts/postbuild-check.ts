@@ -17,6 +17,11 @@ const root = process.cwd();
 const checks: { path: string; label: string }[] = [
   { path: resolve(root, "dist/index.html"), label: "dist/index.html" },
   { path: resolve(root, "vercel.json"), label: "vercel.json (repo root)" },
+  // Prerendered per-route HTML for non-JS social crawlers.
+  { path: resolve(root, "dist/questionnaire/index.html"), label: "dist/questionnaire/index.html" },
+  { path: resolve(root, "dist/mentions-legales/index.html"), label: "dist/mentions-legales/index.html" },
+  { path: resolve(root, "dist/politique-de-confidentialite/index.html"), label: "dist/politique-de-confidentialite/index.html" },
+  { path: resolve(root, "dist/cgu/index.html"), label: "dist/cgu/index.html" },
 ];
 
 let failed = false;
