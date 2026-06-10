@@ -114,7 +114,9 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3 md:gap-5">
-          <LanguageSwitcher />
+          {!["/mentions-legales", "/politique-de-confidentialite", "/cgu"].includes(location.pathname) && (
+            <LanguageSwitcher />
+          )}
           <Button
             asChild
             size="sm"

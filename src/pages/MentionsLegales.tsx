@@ -17,6 +17,7 @@ const MentionsLegales = () => {
         title="Mentions légales — Plan B Concept"
         description="Mentions légales du site planb-concept.com, édité par Plan B Concept."
         path="/mentions-legales"
+        htmlLang="fr"
       />
       <a
         href="#main"

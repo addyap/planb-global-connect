@@ -17,6 +17,7 @@ const PolitiqueConfidentialite = () => {
         title="Politique de confidentialité — Plan B Concept"
         description="Politique de confidentialité et traitement des données personnelles sur planb-concept.com."
         path="/politique-de-confidentialite"
+        htmlLang="fr"
       />
       <a
         href="#main"
