@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
 const Placeholder = ({ children }: { children: string }) => (
-  <span className="text-amber-600 font-medium italic">{children}</span>
+  <span className="text-amber-800 font-medium italic">{children}</span>
 );
 
 const PolitiqueConfidentialite = () => {
