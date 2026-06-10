@@ -97,6 +97,8 @@ export const Contact = () => {
               <img
                 src={linkedInQr}
                 alt="LinkedIn QR code for Anthony Gratton"
+                width={56}
+                height={56}
                 loading="lazy"
                 className="ml-auto h-14 w-14 shrink-0 rounded-md border border-border bg-background p-1 object-contain"
               />

@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
-import heroBg from "@/assets/hero-riviera.jpg";
+// Served from /public with a stable URL so index.html can <link rel="preload"> it.
+const heroBg = "/hero-riviera.webp";
 
 export const Hero = () => {
   const { t } = useTranslation();
