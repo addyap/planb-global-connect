@@ -140,16 +140,12 @@ const PolitiqueConfidentialite = () => {
           <section className="mb-10">
             <h2 className="font-display text-xl text-primary mb-4">Cookies</h2>
             <div className="text-foreground/90 space-y-4">
-              <p>Le site planb-concept.com utilise des cookies pour :</p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Assurer le bon fonctionnement du site (cookies techniques essentiels — pas de consentement requis)</li>
-                <li>Mesurer l&apos;audience du site via Google Analytics (cookies de mesure d&apos;audience — consentement requis)</li>
-              </ul>
+              <p>Plan B Concept n&apos;utilise aucun cookie de traçage ou de publicité.</p>
               <p>
-                Vous pouvez à tout moment modifier vos préférences via le bandeau cookies affiché lors de votre première visite, ou en paramétrant votre navigateur pour refuser les cookies.
+                Seul le stockage local (<em>localStorage</em>) de la bibliothèque i18next est utilisé, afin de mémoriser votre préférence de langue. Ce stockage est strictement nécessaire au fonctionnement du site et est exempté de recueil de consentement au titre des lignes directrices de la CNIL relatives aux cookies et traceurs.
               </p>
-              <p className="text-sm text-muted-foreground">
-                Note : à la date de publication, Google Analytics n&apos;est pas encore installé sur le site. Cette section sera mise à jour dès son activation.
+              <p>
+                Vous pouvez à tout moment supprimer ces données locales en paramétrant votre navigateur.
               </p>
             </div>
           </section>

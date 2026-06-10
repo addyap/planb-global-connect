@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -126,6 +127,12 @@ export const Contact = () => {
             {submitting ? "…" : t("contact.send")}
           </Button>
           {sent && <p className="text-sm text-secondary">{t("contact.sent")}</p>}
+          <p className="text-xs text-muted-foreground mt-3">
+            {t("contact.privacyNotice")}{" "}
+            <Link to="/politique-de-confidentialite" className="underline hover:text-accent">
+              {t("contact.privacyPolicy")}
+            </Link>
+          </p>
         </form>
       </div>
     </section>
