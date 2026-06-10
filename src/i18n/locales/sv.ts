@@ -121,6 +121,8 @@ const sv = {
       siteVisit: "Ange om ett platsbesök behövs.",
       brief: "Lägg till en kort projektbeskrivning (minst 20 tecken).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Verksamhetsområde",
@@ -153,6 +155,8 @@ const sv = {
     emailLabel: "E-post",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Hej Anthony, jag skulle vilja diskutera ett projekt.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Projektledning & byggrådgivning — Côte d'Azur.",

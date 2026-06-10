@@ -121,6 +121,8 @@ const de = {
       siteVisit: "Bitte geben Sie an, ob ein Ortstermin benötigt wird.",
       brief: "Bitte geben Sie eine kurze Projektbeschreibung ein (mindestens 20 Zeichen).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Einsatzgebiet",
@@ -153,6 +155,8 @@ const de = {
     emailLabel: "E-Mail",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Hallo Anthony, ich würde gerne ein Projekt besprechen.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Projektsteuerung & Baubegleitung — Côte d'Azur.",

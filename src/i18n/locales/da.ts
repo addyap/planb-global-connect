@@ -128,6 +128,8 @@ const da = {
       siteVisit: "Angiv, om der er behov for et besøg på stedet.",
       brief: "Giv en kort projektbeskrivelse (mindst 20 tegn).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Indsatsområde",
@@ -160,6 +162,8 @@ const da = {
     emailLabel: "E-mail",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Hej Anthony, jeg vil gerne drøfte et projekt.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Projektledelse & byggerådgivning — Côte d'Azur.",
