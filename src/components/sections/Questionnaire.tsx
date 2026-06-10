@@ -115,9 +115,9 @@ export const Questionnaire = () => {
           <span className="mb-3 block font-display text-xs uppercase tracking-[0.25em] text-secondary">
             {t("questionnaire.title")}
           </span>
-          <h2 className="font-display text-3xl font-bold leading-tight text-primary md:text-5xl">
+          <h1 className="font-display text-3xl font-bold leading-tight text-primary md:text-5xl">
             {t("questionnaire.heading")}
-          </h2>
+          </h1>
           <p className="mt-5 text-lg leading-relaxed text-foreground/80">{t("questionnaire.intro")}</p>
 
           <div className="mt-8 space-y-4">
