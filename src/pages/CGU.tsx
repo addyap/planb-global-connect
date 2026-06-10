@@ -14,6 +14,7 @@ const CGU = () => {
         title="Conditions Générales d'Utilisation — Plan B Concept"
         description="Conditions Générales d'Utilisation du site planb-concept.com."
         path="/cgu"
+        htmlLang="fr"
       />
       <a
         href="#main"
