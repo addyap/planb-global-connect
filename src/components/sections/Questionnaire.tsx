@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -262,6 +263,12 @@ export const Questionnaire = () => {
               <span>{t("questionnaire.submit")}</span>
             </Button>
           </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            {t("questionnaire.privacyNotice")}{" "}
+            <Link to="/politique-de-confidentialite" className="underline hover:text-accent">
+              {t("questionnaire.privacyPolicy")}
+            </Link>
+          </p>
         </form>
       </div>
     </section>

@@ -121,6 +121,8 @@ const nl = {
       siteVisit: "Geef aan of een plaatsbezoek nodig is.",
       brief: "Geef een korte projectomschrijving op (minstens 20 tekens).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Werkgebied",
@@ -153,6 +155,8 @@ const nl = {
     emailLabel: "E-mail",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Hallo Anthony, ik zou graag een project willen bespreken.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Projectmanagement & bouwadvies — Côte d'Azur.",

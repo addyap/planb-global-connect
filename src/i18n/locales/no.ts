@@ -128,6 +128,8 @@ const no = {
       siteVisit: "Vennligst angi om en befaring trengs.",
       brief: "Vennligst gi en kort prosjektbeskrivelse (minst 20 tegn).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Arbeidsområde",
@@ -160,6 +162,8 @@ const no = {
     emailLabel: "E-post",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Hei Anthony, jeg vil gjerne diskutere et prosjekt.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Prosjektledelse & byggrådgivning — Côte d'Azur.",

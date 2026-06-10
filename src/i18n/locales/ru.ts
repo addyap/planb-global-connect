@@ -121,6 +121,8 @@ const ru = {
       siteVisit: "Укажите, нужен ли выезд на объект.",
       brief: "Добавьте краткое описание проекта (не менее 20 символов).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Зона работы",
@@ -153,6 +155,8 @@ const ru = {
     emailLabel: "Эл. почта",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Здравствуйте, Энтони, хотел бы обсудить проект.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Управление проектами и строительный консалтинг — Лазурный Берег.",

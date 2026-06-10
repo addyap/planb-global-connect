@@ -128,6 +128,8 @@ const en = {
       siteVisit: "Please indicate if a site visit is needed.",
       brief: "Please provide a short project brief (at least 20 characters).",
     },
+    privacyNotice: "The information you provide is used solely to respond to your project enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Area of Intervention",
@@ -160,6 +162,8 @@ const en = {
     emailLabel: "Email",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Hello Anthony, I would like to discuss a project.",
+    privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Project management & construction advisory — Côte d'Azur.",

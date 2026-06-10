@@ -128,6 +128,8 @@ const fr = {
       siteVisit: "Merci d'indiquer si une visite sur place est nécessaire.",
       brief: "Merci de fournir une courte description du projet (au moins 20 caractères).",
     },
+    privacyNotice: "Les informations que vous communiquez sont utilisées uniquement pour répondre à votre demande de projet.",
+    privacyPolicy: "Politique de confidentialité",
   },
   area: {
     title: "Zone d'intervention",
@@ -160,6 +162,8 @@ const fr = {
     emailLabel: "E-mail",
     whatsappLabel: "WhatsApp",
     whatsappPrefill: "Bonjour Anthony, je souhaiterais discuter d'un projet.",
+    privacyNotice: "Les données collectées (nom, e-mail, téléphone, message) sont utilisées uniquement pour répondre à votre demande.",
+    privacyPolicy: "Politique de confidentialité",
   },
   footer: {
     tagline: "Coordination des Travaux & conseil en construction — Côte d'Azur.",
