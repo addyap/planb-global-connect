@@ -104,7 +104,7 @@ const Index = () => {
     <div className="min-h-screen bg-background font-body text-foreground">
       <SEO
         title="Project Management Côte d'Azur | Plan B Concept"
-        description={t("hero.subtitle")}
+        description="30+ years of on-the-ground experience. Fully bilingual English & French. Trusted guidance from first sketch to final handover."
         path="/"
         jsonLd={jsonLd}
       />
