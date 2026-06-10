@@ -148,7 +148,7 @@ export const Header = () => {
               <button
                 key={item.key}
                 onClick={() => handleNav(item)}
-                className="border-b border-accent/10 px-2 py-3 text-left text-primary-foreground hover:text-accent last:border-0"
+                className="border-b border-accent/10 px-2 py-3 text-left text-primary-foreground hover:text-accent last:border-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
               >
                 {t(`nav.${item.key}`)}
               </button>
