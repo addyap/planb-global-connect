@@ -26,6 +26,8 @@ type Props = {
   image?: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Optional override for <html lang>. Defaults to the active i18n language. */
+  htmlLang?: string;
 };
 
 const upsertMeta = (
