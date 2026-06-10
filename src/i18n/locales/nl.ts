@@ -162,5 +162,18 @@ const nl = {
     tagline: "Projectmanagement & bouwadvies — Côte d'Azur.",
     rights: "Alle rechten voorbehouden.",
   },
+  notFound: {
+    eyebrow: "Error 404",
+    heading: "This page could not be found",
+    body: "The link may be broken or the page may have moved. Below are the main sections of Plan B Concept — bilingual project management and construction advisory on the French Riviera.",
+    sectionsLabel: "Site sections",
+    home: "Home",
+    about: "About Anthony Gratton",
+    services: "What we do — services",
+    area: "Areas covered — Var & Alpes-Maritimes",
+    questionnaire: "Project questionnaire",
+    contact: "Contact",
+  },
+
 };
 export default nl;
