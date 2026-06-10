@@ -12,11 +12,11 @@ type NavItem = { key: string; path: string; sectionId?: string };
 
 const navItems: NavItem[] = [
   { key: "home", path: "/", sectionId: "home" },
-  { key: "about", path: "/about", sectionId: "about" },
-  { key: "services", path: "/services", sectionId: "services" },
+  { key: "about", path: "/#about", sectionId: "about" },
+  { key: "services", path: "/#services", sectionId: "services" },
   { key: "questionnaire", path: "/questionnaire" },
-  { key: "area", path: "/area", sectionId: "area" },
-  { key: "contact", path: "/contact", sectionId: "contact" },
+  { key: "area", path: "/#area", sectionId: "area" },
+  { key: "contact", path: "/#contact", sectionId: "contact" },
 ];
 
 export const Header = () => {

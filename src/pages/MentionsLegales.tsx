@@ -64,19 +64,19 @@ const MentionsLegales = () => {
             <h2 className="font-display text-xl text-primary mb-4">Hébergeur</h2>
             <div className="text-foreground/90 space-y-1">
               <p>Le site est hébergé par :</p>
-              <p className="font-medium">Bluehost (Newfold Digital Inc.)</p>
-              <p>5335 Gate Parkway</p>
-              <p>Jacksonville, FL 32256</p>
-              <p>États-Unis</p>
+              <p className="font-medium">Vercel Inc.</p>
+              <p>340 S Lemon Ave #4133</p>
+              <p>Walnut, CA 91789</p>
+              <p>USA</p>
               <p>
                 Site web :{" "}
                 <a
-                  href="https://www.bluehost.com"
+                  href="https://vercel.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:underline"
                 >
-                  https://www.bluehost.com
+                  https://vercel.com
                 </a>
               </p>
             </div>
