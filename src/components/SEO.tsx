@@ -73,10 +73,11 @@ export const SEO = ({
   image = DEFAULT_OG_IMAGE,
   noindex = false,
   jsonLd,
+  htmlLang,
 }: Props) => {
   const location = useLocation();
   const { i18n } = useTranslation();
-  const lang = i18n.resolvedLanguage ?? "en";
+  const lang = htmlLang ?? i18n.resolvedLanguage ?? "en";
   const url = `${SITE}${path ?? location.pathname}`;
 
   useEffect(() => {
@@ -93,14 +94,25 @@ export const SEO = ({
         : "index, follow, max-image-preview:large, max-snippet:-1"
     );
 
-    // Open Graph
+    // Open Graph — English is the canonical indexed language; other locales are alternates only.
     upsertMeta('meta[property="og:title"]', "property", "og:title", title);
     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
     upsertMeta('meta[property="og:url"]', "property", "og:url", url);
     upsertMeta('meta[property="og:type"]', "property", "og:type", type);
     upsertMeta('meta[property="og:image"]', "property", "og:image", image);
     upsertMeta('meta[property="og:site_name"]', "property", "og:site_name", "Plan B Concept");
-    upsertMeta('meta[property="og:locale"]', "property", "og:locale", OG_LOCALES[lang] ?? "en_GB");
+    upsertMeta('meta[property="og:locale"]', "property", "og:locale", OG_LOCALE);
+
+    // og:locale:alternate — replace any prior set so we don't duplicate the static index.html tags.
+    document.head
+      .querySelectorAll('meta[property="og:locale:alternate"]')
+      .forEach((el) => el.remove());
+    OG_LOCALE_ALTERNATES.forEach((loc) => {
+      const el = document.createElement("meta");
+      el.setAttribute("property", "og:locale:alternate");
+      el.setAttribute("content", loc);
+      document.head.appendChild(el);
+    });
 
     // Twitter
     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
@@ -111,7 +123,8 @@ export const SEO = ({
     // Canonical
     upsertLink("canonical", url);
 
-    // hreflang intentionally omitted: site is English-only at a single URL.
+    // English is the canonical indexed language; the other 7 languages are client-side UX
+    // (auto-detected) at the same URL, hence no hreflang.
     // Remove any previously-injected alternate tags (e.g. from earlier builds).
     document.head
       .querySelectorAll('link[rel="alternate"][hreflang]')
