@@ -169,5 +169,18 @@ const fr = {
     tagline: "Coordination des Travaux & conseil en construction — Côte d'Azur.",
     rights: "Tous droits réservés.",
   },
+  notFound: {
+    eyebrow: "Erreur 404",
+    heading: "Cette page est introuvable",
+    body: "Le lien est peut-être rompu ou la page a été déplacée. Voici les principales sections de Plan B Concept — coordination de projets et conseil en construction sur la Côte d'Azur, en français et en anglais.",
+    sectionsLabel: "Sections du site",
+    home: "Accueil",
+    about: "À propos d'Anthony Gratton",
+    services: "Ce que nous faisons — services",
+    area: "Zones couvertes — Var & Alpes-Maritimes",
+    questionnaire: "Questionnaire projet",
+    contact: "Contact",
+  },
+
 };
 export default fr;
