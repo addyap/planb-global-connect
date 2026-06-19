@@ -15,6 +15,7 @@ export const Contact = () => {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const mountedAt = useRef<number>(Date.now());
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
   const mailtoSubject = "Plan B Concept — Project inquiry";
 
