@@ -28,6 +28,17 @@ export const Contact = () => {
     const email = String(fd.get("email") ?? "");
     const phone = String(fd.get("phone") ?? "");
     const message = String(fd.get("message") ?? "");
+    const honeypot = String(fd.get("company") ?? "");
+    const elapsed = Date.now() - mountedAt.current;
+
+    // Spam trap: bots fill hidden field or submit too fast. Fake success silently.
+    if (honeypot || elapsed < 2000) {
+      setSubmitting(false);
+      setSent(true);
+      toast.success(t("contact.sent"));
+      (e.target as HTMLFormElement).reset();
+      return;
+    }
 
     const { error } = await supabase.from("form_submissions").insert([{
       form_type: "contact",
