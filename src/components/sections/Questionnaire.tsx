@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -68,7 +68,18 @@ export const Questionnaire = () => {
     defaultValues: { services: [] },
   });
 
+  const mountedAt = useRef<number>(Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   const onSubmit = async (values: QuestionnaireValues) => {
+    const honeypot = honeypotRef.current?.value ?? "";
+    const elapsed = Date.now() - mountedAt.current;
+    // Spam trap: silently fake success for bots.
+    if (honeypot || elapsed < 2000) {
+      toast.success(t("questionnaire.success"));
+      return;
+    }
+
     const lines = [
       `${t("questionnaire.fields.fullName")}: ${values.fullName}`,
       `${t("questionnaire.fields.email")}: ${values.email}`,
@@ -255,6 +266,20 @@ export const Questionnaire = () => {
             />
             {errorFor(errors.brief?.message)}
           </div>
+
+          {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
+          <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              ref={honeypotRef}
+              type="text"
+              id="company"
+              name="company"
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
+
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>

@@ -15,6 +15,7 @@ export const Contact = () => {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const mountedAt = useRef<number>(Date.now());
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
   const mailtoSubject = "Plan B Concept — Project inquiry";
 
@@ -27,6 +28,17 @@ export const Contact = () => {
     const email = String(fd.get("email") ?? "");
     const phone = String(fd.get("phone") ?? "");
     const message = String(fd.get("message") ?? "");
+    const honeypot = String(fd.get("company") ?? "");
+    const elapsed = Date.now() - mountedAt.current;
+
+    // Spam trap: bots fill hidden field or submit too fast. Fake success silently.
+    if (honeypot || elapsed < 2000) {
+      setSubmitting(false);
+      setSent(true);
+      toast.success(t("contact.sent"));
+      (e.target as HTMLFormElement).reset();
+      return;
+    }
 
     const { error } = await supabase.from("form_submissions").insert([{
       form_type: "contact",
@@ -124,6 +136,17 @@ export const Contact = () => {
           <div>
             <Label htmlFor="message">{t("contact.message")}</Label>
             <Textarea id="message" name="message" required rows={5} className="mt-1.5" />
+          </div>
+          {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
+          <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autoComplete="off"
+              tabIndex={-1}
+            />
           </div>
           <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
             {submitting ? "…" : t("contact.send")}
