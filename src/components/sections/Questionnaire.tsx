@@ -267,6 +267,20 @@ export const Questionnaire = () => {
             {errorFor(errors.brief?.message)}
           </div>
 
+          {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
+          <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              ref={honeypotRef}
+              type="text"
+              id="company"
+              name="company"
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
+
+
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>
             <Button type="submit" size="lg" disabled={isSubmitting} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
