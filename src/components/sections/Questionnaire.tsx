@@ -68,7 +68,18 @@ export const Questionnaire = () => {
     defaultValues: { services: [] },
   });
 
+  const mountedAt = useRef<number>(Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   const onSubmit = async (values: QuestionnaireValues) => {
+    const honeypot = honeypotRef.current?.value ?? "";
+    const elapsed = Date.now() - mountedAt.current;
+    // Spam trap: silently fake success for bots.
+    if (honeypot || elapsed < 2000) {
+      toast.success(t("questionnaire.success"));
+      return;
+    }
+
     const lines = [
       `${t("questionnaire.fields.fullName")}: ${values.fullName}`,
       `${t("questionnaire.fields.email")}: ${values.email}`,
