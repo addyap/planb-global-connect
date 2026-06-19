@@ -137,6 +137,17 @@ export const Contact = () => {
             <Label htmlFor="message">{t("contact.message")}</Label>
             <Textarea id="message" name="message" required rows={5} className="mt-1.5" />
           </div>
+          {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
+          <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
           <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
             {submitting ? "…" : t("contact.send")}
           </Button>
