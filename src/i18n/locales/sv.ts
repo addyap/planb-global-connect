@@ -106,7 +106,7 @@ const sv = {
     siteVisitOptions: ["Ja", "Nej"],
     note: "När du skickar öppnas ditt e-postprogram med det ifyllda formuläret adresserat direkt till mig.",
     submit: "Skicka formuläret",
-    success: "Ditt formulär är klart att skickas.",
+    success: "Tack — ditt formulär har tagits emot. Anthony hör av sig inom kort.",
     emailSubject: "Plan B Concept — Ny projektförfrågan",
     validation: {
       name: "Ange ditt fullständiga namn.",

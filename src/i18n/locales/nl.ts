@@ -106,7 +106,7 @@ const nl = {
     siteVisitOptions: ["Ja", "Nee"],
     note: "Bij verzenden opent uw e-mailprogramma met de ingevulde vragenlijst direct aan mij.",
     submit: "Vragenlijst verzenden",
-    success: "Uw vragenlijst is klaar om te verzenden.",
+    success: "Bedankt — uw vragenlijst is ontvangen. Anthony neemt spoedig contact met u op.",
     emailSubject: "Plan B Concept — Nieuwe projectvragenlijst",
     validation: {
       name: "Voer uw volledige naam in.",

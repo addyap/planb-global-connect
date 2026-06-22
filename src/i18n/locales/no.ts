@@ -113,7 +113,7 @@ const no = {
     siteVisitOptions: ["Ja", "Nei"],
     note: "Når du sender, åpnes e-postappen din med det utfylte skjemaet adressert direkte til meg.",
     submit: "Send skjema",
-    success: "Skjemaet ditt er klart til å sendes.",
+    success: "Takk — skjemaet ditt er mottatt. Anthony tar kontakt med deg snart.",
     emailSubject: "Plan B Concept — Nytt prosjektskjema",
     validation: {
       name: "Vennligst skriv inn fullt navn.",

@@ -113,7 +113,7 @@ const da = {
     siteVisitOptions: ["Ja", "Nej"],
     note: "Når du sender, åbnes din e-mail-app med det udfyldte spørgeskema adresseret direkte til mig.",
     submit: "Send spørgeskema",
-    success: "Dit spørgeskema er klar til at blive sendt.",
+    success: "Tak — dit spørgeskema er modtaget. Anthony vender tilbage til dig snarest.",
     emailSubject: "Plan B Concept — Nyt projektspørgeskema",
     validation: {
       name: "Indtast venligst dit fulde navn.",

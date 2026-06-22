@@ -106,7 +106,7 @@ const de = {
     siteVisitOptions: ["Ja", "Nein"],
     note: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit dem ausgefüllten Fragebogen an mich.",
     submit: "Fragebogen senden",
-    success: "Ihr Fragebogen ist versandbereit.",
+    success: "Danke — Ihr Fragebogen ist eingegangen. Anthony meldet sich in Kürze bei Ihnen.",
     emailSubject: "Plan B Concept — Neuer Projektfragebogen",
     validation: {
       name: "Bitte geben Sie Ihren vollständigen Namen ein.",

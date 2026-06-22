@@ -113,7 +113,7 @@ const en = {
     siteVisitOptions: ["Yes", "No"],
     note: "Submitting opens your email app with the completed questionnaire addressed directly to me.",
     submit: "Send questionnaire",
-    success: "Your questionnaire is ready to send.",
+    success: "Thank you — your questionnaire has been received. Anthony will be in touch shortly.",
     emailSubject: "Plan B Concept — New project questionnaire",
     validation: {
       name: "Please enter your full name.",

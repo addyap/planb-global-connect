@@ -113,7 +113,7 @@ const fr = {
     siteVisitOptions: ["Oui", "Non"],
     note: "L'envoi ouvre votre messagerie avec le questionnaire complété prêt à m'être adressé directement.",
     submit: "Envoyer le questionnaire",
-    success: "Votre questionnaire est prêt à être envoyé.",
+    success: "Merci — votre questionnaire a bien été reçu. Anthony vous recontactera rapidement.",
     emailSubject: "Plan B Concept — Nouveau questionnaire projet",
     validation: {
       name: "Merci d'indiquer votre nom complet.",
