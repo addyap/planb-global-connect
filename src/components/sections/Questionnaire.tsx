@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 
 type QuestionnaireValues = {
   fullName: string;
@@ -72,6 +72,10 @@ export const Questionnaire = () => {
   const honeypotRef = useRef<HTMLInputElement>(null);
 
   const onSubmit = async (values: QuestionnaireValues) => {
+    if (!isSupabaseConfigured) {
+      toast.error("This form is temporarily unavailable. Please email us directly.");
+      return;
+    }
     const honeypot = honeypotRef.current?.value ?? "";
     const elapsed = Date.now() - mountedAt.current;
     // Spam trap: silently fake success for bots.
@@ -281,9 +285,12 @@ export const Questionnaire = () => {
           </div>
 
 
+          {!isSupabaseConfigured && (
+            <p className="mt-4 text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
+          )}
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>
-            <Button type="submit" size="lg" disabled={isSubmitting} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+            <Button type="submit" size="lg" disabled={isSubmitting || !isSupabaseConfigured} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
               <Send className="h-4 w-4" />
               <span>{t("questionnaire.submit")}</span>
             </Button>
