@@ -72,6 +72,10 @@ export const Questionnaire = () => {
   const honeypotRef = useRef<HTMLInputElement>(null);
 
   const onSubmit = async (values: QuestionnaireValues) => {
+    if (!isSupabaseConfigured) {
+      toast.error("This form is temporarily unavailable. Please email us directly.");
+      return;
+    }
     const honeypot = honeypotRef.current?.value ?? "";
     const elapsed = Date.now() - mountedAt.current;
     // Spam trap: silently fake success for bots.
