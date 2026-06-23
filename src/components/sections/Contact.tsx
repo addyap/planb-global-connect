@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
 export const Contact = () => {
