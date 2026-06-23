@@ -285,9 +285,12 @@ export const Questionnaire = () => {
           </div>
 
 
+          {!isSupabaseConfigured && (
+            <p className="mt-4 text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
+          )}
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>
-            <Button type="submit" size="lg" disabled={isSubmitting} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+            <Button type="submit" size="lg" disabled={isSubmitting || !isSupabaseConfigured} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
               <Send className="h-4 w-4" />
               <span>{t("questionnaire.submit")}</span>
             </Button>
