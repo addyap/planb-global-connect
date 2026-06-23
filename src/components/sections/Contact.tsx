@@ -152,7 +152,10 @@ export const Contact = () => {
               tabIndex={-1}
             />
           </div>
-          <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
+          {!isSupabaseConfigured && (
+            <p className="text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
+          )}
+          <Button type="submit" size="lg" disabled={submitting || !isSupabaseConfigured} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
             {submitting ? "…" : t("contact.send")}
           </Button>
           {sent && <p className="text-sm text-secondary">{t("contact.sent")}</p>}
