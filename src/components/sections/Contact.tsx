@@ -22,6 +22,10 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting) return;
+    if (!isSupabaseConfigured) {
+      toast.error("This form is temporarily unavailable. Please email us directly.");
+      return;
+    }
     setSubmitting(true);
     const fd = new FormData(e.currentTarget);
     const name = String(fd.get("name") ?? "");
