@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import headerLogo from "@/assets/logo-plan-b-horizontal.png";
+import logo from "@/assets/logo-plan-b.png";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
