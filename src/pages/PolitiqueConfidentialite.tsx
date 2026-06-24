@@ -74,7 +74,7 @@ const PolitiqueConfidentialite = () => {
               <ul className="list-disc pl-5 space-y-2">
                 <li>Répondre à vos demandes de contact et établir des devis</li>
                 <li>Vous adresser des informations relatives à votre projet</li>
-                <li>Améliorer l&apos;expérience utilisateur du site (statistiques de navigation anonymisées)</li>
+                <li>Assurer le bon fonctionnement, la sécurité et la disponibilité du site</li>
                 <li>Respecter nos obligations légales et comptables</li>
               </ul>
             </div>
