@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { CONTACT } from "@/lib/contact";
 
 const Placeholder = ({ children }: { children: string }) => (
   <span className="text-amber-800 font-medium italic">{children}</span>
@@ -50,7 +51,7 @@ const MentionsLegales = () => {
               </div>
               <div className="space-y-1 mt-4">
                 <p>Gérant : Anthony Gratton</p>
-                <p>Contact : anthony.gratton13@gmail.com</p>
+                <p>Contact : {CONTACT.email}</p>
                 <p>Téléphone : +33 6 15 19 81 15</p>
               </div>
             </div>
