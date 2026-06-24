@@ -127,7 +127,7 @@ const PolitiqueConfidentialite = () => {
                 <li>Droit de retirer votre consentement à tout moment</li>
               </ul>
               <p>
-                Pour exercer ces droits, contactez-nous à anthony.gratton13@gmail.com en précisant l&apos;objet de votre demande et en joignant une copie d&apos;une pièce d&apos;identité si nécessaire.
+                Pour exercer ces droits, contactez-nous à {CONTACT.email} en précisant l&apos;objet de votre demande et en joignant une copie d&apos;une pièce d&apos;identité si nécessaire.
               </p>
               <p>
                 Vous disposez également du droit d&apos;introduire une réclamation auprès de la CNIL (Commission Nationale de l&apos;Informatique et des Libertés) : 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 —{" "}
