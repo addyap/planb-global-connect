@@ -92,18 +92,18 @@ export const Header = () => {
         scrolled ? "bg-primary/95 backdrop-blur-md shadow-elegant" : "bg-primary/70 backdrop-blur-sm"
       )}
     >
-      <div className="container flex h-20 items-start justify-between md:h-24">
+      <div className="container flex h-16 items-center justify-between md:h-20">
         <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2" aria-label="Plan B Côte d'Azur — home">
           <img
             src={logo}
             alt="Plan B Côte d'Azur"
             width={200}
             height={200}
-            className="h-16 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-28"
+            className="h-10 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-12"
           />
         </button>
 
-        <nav className="hidden items-center gap-7 self-center md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
           {navItems.map((item) => (
             <button
               key={item.key}
@@ -115,7 +115,7 @@ export const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 self-center md:gap-5">
+        <div className="flex items-center gap-3 md:gap-5">
           {!["/mentions-legales", "/politique-de-confidentialite", "/cgu"].includes(location.pathname) && (
             <LanguageSwitcher />
           )}
