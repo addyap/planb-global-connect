@@ -97,8 +97,8 @@ export const Header = () => {
           <img
             src={headerLogo}
             alt="Plan B Côte d'Azur"
-            width={400}
-            height={128}
+            width={1410}
+            height={393}
             className="h-14 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-16"
           />
         </button>
