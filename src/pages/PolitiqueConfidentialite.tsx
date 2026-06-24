@@ -96,7 +96,7 @@ const PolitiqueConfidentialite = () => {
             <h2 className="font-display text-xl text-primary mb-4">Durée de conservation</h2>
             <ul className="list-disc pl-5 space-y-2 text-foreground/90">
               <li>Données de contact : conservées 3 ans à compter du dernier échange, puis archivées pendant la durée légale applicable.</li>
-              <li>Données de navigation : conservées 13 mois maximum (durée standard Google Analytics).</li>
+              <li>Journaux techniques (logs serveur, hébergeur et fonctions edge) : conservés 12 mois maximum.</li>
               <li>Données comptables : conservées 10 ans conformément à l&apos;article L.123-22 du Code de commerce.</li>
             </ul>
           </section>
