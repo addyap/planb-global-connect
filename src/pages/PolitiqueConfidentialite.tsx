@@ -102,13 +102,28 @@ const PolitiqueConfidentialite = () => {
           </section>
 
           <section className="mb-10">
-            <h2 className="font-display text-xl text-primary mb-4">Destinataires des données</h2>
+            <h2 className="font-display text-xl text-primary mb-4">Destinataires des données — Sous-traitants</h2>
             <div className="text-foreground/90 space-y-4">
               <p>
-                Vos données ne sont communiquées qu&apos;aux personnes habilitées au sein de Plan B Concept et, le cas échéant, à nos sous-traitants techniques (Google Analytics). Aucune donnée n&apos;est cédée, louée ou vendue à des tiers à des fins commerciales.
+                Vos données ne sont communiquées qu&apos;aux personnes habilitées au sein de Plan B Concept et aux sous-traitants techniques strictement nécessaires au fonctionnement du site. Aucune donnée n&apos;est cédée, louée ou vendue à des tiers à des fins commerciales.
               </p>
+              <p>Les sous-traitants actuellement utilisés sont les suivants :</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Vercel Inc.</strong> (États-Unis) — hébergement du site et diffusion via CDN. Traite l&apos;adresse IP et les en-têtes HTTP des visiteurs (logs techniques, protection contre les abus).
+                </li>
+                <li>
+                  <strong>Supabase</strong> (infrastructure « Lovable Cloud ») — base de données et fonctions serveur (<em>edge functions</em>). Stocke les données soumises via les formulaires de contact et de questionnaire (nom, email, téléphone, message, détails du projet, <em>user-agent</em>) et exécute la notification associée.
+                </li>
+                <li>
+                  <strong>Resend</strong> (États-Unis) — prestataire d&apos;envoi d&apos;email. Reçoit le contenu des notifications envoyées à Plan B Concept lorsqu&apos;un formulaire est soumis (nom, email, téléphone, message, détails du projet) afin d&apos;acheminer l&apos;email.
+                </li>
+                <li>
+                  <strong>Google LLC — Google Fonts</strong> (États-Unis) — fourniture des polices de caractères affichées sur le site (<code>fonts.googleapis.com</code> et <code>fonts.gstatic.com</code>). Le chargement des polices transmet automatiquement l&apos;adresse IP et l&apos;<em>User-Agent</em> du visiteur à Google. Aucun cookie n&apos;est posé par Google Fonts.
+                </li>
+              </ul>
               <p>
-                Certains de nos sous-traitants (notamment Google) peuvent transférer des données hors de l&apos;Union européenne. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou par des décisions d&apos;adéquation.
+                Certains de ces sous-traitants (Vercel, Supabase, Resend, Google) sont susceptibles de traiter ou transférer des données en dehors de l&apos;Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou, le cas échéant, par le cadre de protection des données UE — États-Unis (<em>EU-U.S. Data Privacy Framework</em>).
               </p>
             </div>
           </section>
