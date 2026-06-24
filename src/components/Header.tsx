@@ -93,13 +93,13 @@ export const Header = () => {
       )}
     >
       <div className="container flex h-20 items-center justify-between md:h-24">
-        <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2 -my-1" aria-label="Plan B Concept — home">
+        <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2 -my-1" aria-label="Plan B Côte d'Azur — home">
           <img
             src={headerLogo}
             alt="Plan B Côte d'Azur"
             width={400}
             height={128}
-            className="h-12 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-14"
+            className="h-12 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-16"
           />
         </button>
 
