@@ -118,12 +118,12 @@ const PolitiqueConfidentialite = () => {
                 <li>
                   <strong>Resend</strong> (États-Unis) — prestataire d&apos;envoi d&apos;email. Reçoit le contenu des notifications envoyées à Plan B Concept lorsqu&apos;un formulaire est soumis (nom, email, téléphone, message, détails du projet) afin d&apos;acheminer l&apos;email.
                 </li>
-                <li>
-                  <strong>Google LLC — Google Fonts</strong> (États-Unis) — fourniture des polices de caractères affichées sur le site (<code>fonts.googleapis.com</code> et <code>fonts.gstatic.com</code>). Le chargement des polices transmet automatiquement l&apos;adresse IP et l&apos;<em>User-Agent</em> du visiteur à Google. Aucun cookie n&apos;est posé par Google Fonts.
-                </li>
               </ul>
               <p>
-                Certains de ces sous-traitants (Vercel, Supabase, Resend, Google) sont susceptibles de traiter ou transférer des données en dehors de l&apos;Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou, le cas échéant, par le cadre de protection des données UE — États-Unis (<em>EU-U.S. Data Privacy Framework</em>).
+                Les polices de caractères affichées sur le site (Orbitron, Inter) sont auto-hébergées et servies depuis notre propre domaine ; aucune requête n&apos;est effectuée vers Google Fonts ou un autre tiers pour leur chargement.
+              </p>
+              <p>
+                Certains de ces sous-traitants (Vercel, Supabase, Resend) sont susceptibles de traiter ou transférer des données en dehors de l&apos;Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou, le cas échéant, par le cadre de protection des données UE — États-Unis (<em>EU-U.S. Data Privacy Framework</em>).
               </p>
             </div>
           </section>
