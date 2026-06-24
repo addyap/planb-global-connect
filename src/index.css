@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts (Orbitron + Inter) are self-hosted via @fontsource and imported from src/main.tsx. No Google Fonts requests. */
 
 @tailwind base;
 @tailwind components;
