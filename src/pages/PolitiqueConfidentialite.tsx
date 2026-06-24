@@ -46,7 +46,7 @@ const PolitiqueConfidentialite = () => {
               <p>Le responsable du traitement des données est :</p>
               <p className="font-medium">Plan B Concept (EURL en cours d&apos;immatriculation)</p>
               <p>Gérant : Anthony Gratton</p>
-              <p>Email : anthony.gratton13@gmail.com</p>
+              <p>Email : {CONTACT.email}</p>
               <p>Adresse : <Placeholder>[À COMPLÉTER — adresse du siège social]</Placeholder></p>
             </div>
           </section>
