@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { CONTACT } from "@/lib/contact";
 
 const Placeholder = ({ children }: { children: string }) => (
   <span className="text-amber-800 font-medium italic">{children}</span>
