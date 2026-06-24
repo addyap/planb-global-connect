@@ -105,7 +105,7 @@ const PolitiqueConfidentialite = () => {
             <h2 className="font-display text-xl text-primary mb-4">Destinataires des données</h2>
             <div className="text-foreground/90 space-y-4">
               <p>
-                Vos données ne sont communiquées qu&apos;aux personnes habilitées au sein de Plan B Concept et, le cas échéant, à nos sous-traitants techniques (hébergeur Bluehost, Google Analytics). Aucune donnée n&apos;est cédée, louée ou vendue à des tiers à des fins commerciales.
+                Vos données ne sont communiquées qu&apos;aux personnes habilitées au sein de Plan B Concept et, le cas échéant, à nos sous-traitants techniques (Google Analytics). Aucune donnée n&apos;est cédée, louée ou vendue à des tiers à des fins commerciales.
               </p>
               <p>
                 Certains de nos sous-traitants (notamment Google) peuvent transférer des données hors de l&apos;Union européenne. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou par des décisions d&apos;adéquation.
