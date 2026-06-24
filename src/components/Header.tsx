@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "@/assets/logo-plan-b.png";
+import headerLogo from "@/assets/logo-plan-b-horizontal.png";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
@@ -92,14 +92,14 @@ export const Header = () => {
         scrolled ? "bg-primary/95 backdrop-blur-md shadow-elegant" : "bg-primary/70 backdrop-blur-sm"
       )}
     >
-      <div className="container flex h-16 items-center justify-between md:h-20">
-        <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2 -my-2" aria-label="Plan B Concept — home">
+      <div className="container flex h-[88px] items-center justify-between md:h-24">
+        <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2 -my-1" aria-label="Plan B Côte d'Azur — home">
           <img
-            src={logo}
-            alt="Plan B Concept"
-            width={80}
-            height={80}
-            className="h-8 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-10"
+            src={headerLogo}
+            alt="Plan B Côte d'Azur"
+            width={1410}
+            height={393}
+            className="h-14 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-16"
           />
         </button>
 
