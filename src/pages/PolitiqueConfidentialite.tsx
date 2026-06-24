@@ -60,7 +60,7 @@ const PolitiqueConfidentialite = () => {
                   Données de contact : lorsque vous remplissez le formulaire de contact ou le questionnaire en ligne (nom, prénom, adresse email, numéro de téléphone, informations relatives à votre projet).
                 </li>
                 <li>
-                  Données de navigation : adresse IP, type de navigateur, pages visitées, durée de visite, source de référence (collectées via Google Analytics — voir section Cookies ci-dessous).
+                  Données techniques de navigation : adresse IP et en-têtes HTTP (notamment <em>User-Agent</em>) transmis automatiquement à nos sous-traitants techniques lors du chargement des pages, de l&apos;envoi d&apos;un formulaire ou du chargement des polices de caractères. Voir la section « Destinataires des données » ci-dessous.
                 </li>
               </ul>
               <p>Aucune donnée sensible (au sens de l&apos;article 9 du RGPD) n&apos;est collectée.</p>
