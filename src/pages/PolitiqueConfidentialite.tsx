@@ -1,4 +1,4 @@
-import { LegalPageLayout, LegalPlaceholder } from "@/components/LegalPageLayout";
+import { LegalPageLayout } from "@/components/LegalPageLayout";
 import { CONTACT } from "@/lib/contact";
 
 const PolitiqueConfidentialite = () => {
@@ -8,7 +8,7 @@ const PolitiqueConfidentialite = () => {
       seoDescription="Politique de confidentialité et traitement des données personnelles sur planb-concept.com."
       path="/politique-de-confidentialite"
       heading="Politique de confidentialité"
-      lastUpdated="23/05/2026"
+      lastUpdated="22/07/2026"
     >
       <p className="text-foreground/90 mb-10">
         Plan B Concept attache une grande importance à la protection des données personnelles de ses visiteurs et clients. La présente politique de confidentialité décrit la manière dont vos données sont collectées, utilisées et protégées dans le cadre de votre utilisation du site planb-concept.com, conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la loi française &quot;Informatique et Libertés&quot; du 6 janvier 1978 modifiée.
@@ -18,10 +18,10 @@ const PolitiqueConfidentialite = () => {
         <h2 className="font-display text-xl text-primary mb-4">Responsable du traitement</h2>
         <div className="text-foreground/90 space-y-2">
           <p>Le responsable du traitement des données est :</p>
-          <p className="font-medium">Plan B Concept (EURL en cours d&apos;immatriculation)</p>
+          <p className="font-medium">Plan B Concept (SARL à associé unique)</p>
           <p>Gérant : Anthony Gratton</p>
           <p>Email : {CONTACT.email}</p>
-          <p>Adresse : <LegalPlaceholder>[À COMPLÉTER — adresse du siège social]</LegalPlaceholder></p>
+          <p>Adresse : 139 Impasse des Liserons, 83600 Fréjus</p>
         </div>
       </section>
 

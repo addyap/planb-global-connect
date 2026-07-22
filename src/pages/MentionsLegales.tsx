@@ -1,4 +1,4 @@
-import { LegalPageLayout, LegalPlaceholder } from "@/components/LegalPageLayout";
+import { LegalPageLayout } from "@/components/LegalPageLayout";
 import { CONTACT } from "@/lib/contact";
 
 const MentionsLegales = () => {
@@ -8,7 +8,7 @@ const MentionsLegales = () => {
       seoDescription="Mentions légales du site planb-concept.com, édité par Plan B Concept."
       path="/mentions-legales"
       heading="Mentions légales"
-      lastUpdated="23/05/2026"
+      lastUpdated="22/07/2026"
     >
       <section className="mb-10">
         <h2 className="font-display text-xl text-primary mb-4">Éditeur du site</h2>
@@ -16,12 +16,11 @@ const MentionsLegales = () => {
           <p>Le site planb-concept.com est édité par :</p>
           <div className="space-y-2">
             <p className="font-medium">Plan B Concept</p>
-            <p>Forme juridique : EURL (Entreprise Unipersonnelle à Responsabilité Limitée) en cours d&apos;immatriculation</p>
-            <p>Capital social : <LegalPlaceholder>[À COMPLÉTER — montant du capital social en euros]</LegalPlaceholder></p>
-            <p>Siège social : <LegalPlaceholder>[À COMPLÉTER — adresse complète du siège social]</LegalPlaceholder></p>
-            <p>SIRET : <LegalPlaceholder>[À COMPLÉTER — numéro SIRET à 14 chiffres]</LegalPlaceholder></p>
-            <p>RCS : <LegalPlaceholder>[À COMPLÉTER — ville d&apos;immatriculation et numéro RCS]</LegalPlaceholder></p>
-            <p>Numéro de TVA intracommunautaire : <LegalPlaceholder>[À COMPLÉTER — si applicable, format FR + 11 chiffres]</LegalPlaceholder></p>
+            <p>Forme juridique : SARL à associé unique (EURL)</p>
+            <p>Capital social : 1 000,00 €</p>
+            <p>Siège social : 139 Impasse des Liserons, 83600 Fréjus</p>
+            <p>SIRET : 107 609 307 00015</p>
+            <p>RCS : Fréjus 107 609 307</p>
           </div>
           <div className="space-y-1 mt-4">
             <p>Gérant : Anthony Gratton</p>
