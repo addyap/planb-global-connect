@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { useTurnstile } from "@/hooks/use-turnstile";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
 export const Contact = () => {
@@ -16,6 +17,7 @@ export const Contact = () => {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const mountedAt = useRef<number>(Date.now());
+  const turnstile = useTurnstile();
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
   const mailtoSubject = "Plan B Concept — Project inquiry";
 
@@ -44,15 +46,20 @@ export const Contact = () => {
       return;
     }
 
-    const { error } = await supabase.from("form_submissions").insert([{
-      form_type: "contact",
-      name,
-      email,
-      phone,
-      message,
-      user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-    }]);
+    const { error } = await supabase.functions.invoke("submit-form", {
+      body: {
+        form_type: "contact",
+        name,
+        email,
+        phone,
+        message,
+        honeypot,
+        elapsedMs: elapsed,
+        turnstileToken: turnstile.getToken(),
+      },
+    });
 
+    turnstile.reset();
     setSubmitting(false);
 
     if (error) {
@@ -152,6 +159,7 @@ export const Contact = () => {
               tabIndex={-1}
             />
           </div>
+          <div ref={turnstile.containerRef} />
           {!isSupabaseConfigured && (
             <p className="text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
           )}

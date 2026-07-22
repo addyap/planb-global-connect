@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local environment variables (Lovable Cloud / Supabase keys)
+# Local environment variables (Supabase keys)
 .env

@@ -40,4 +40,5 @@ The base static `<head>` (sitewide Organization / WebSite / ProfessionalService 
 - All 8 UI languages auto-detect from the visitor's browser; English is the canonical indexed language for meta tags.
 - All locales except EN are lazy-loaded via `i18next-resources-to-backend` (see `src/i18n/index.ts`).
 - Route-level code splitting via `React.lazy()` in `src/App.tsx`; the homepage import stays synchronous.
-- Form submissions write to the `form_submissions` table in Supabase (Lovable Cloud). RLS allows `anon` INSERT only; no public read/update/delete.
+- Form submissions go through the `submit-form` edge function (`supabase/functions/submit-form`), not a direct client insert. It verifies a Cloudflare Turnstile token and the honeypot/timing trap server-side, then writes to `form_submissions` with the service role key. RLS has no INSERT policy for `anon`/`authenticated` at all — direct REST inserts are rejected. A DB trigger rate-limits (3/email/15min, 10 total/min) and checks email format regardless of entry point.
+- Turnstile requires `VITE_TURNSTILE_SITE_KEY` (client, public) and `TURNSTILE_SECRET_KEY` (edge function secret, set via the Supabase dashboard — never in client code).

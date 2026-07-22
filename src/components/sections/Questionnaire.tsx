@@ -13,6 +13,7 @@ import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { useTurnstile } from "@/hooks/use-turnstile";
 
 type QuestionnaireValues = {
   fullName: string;
@@ -70,6 +71,7 @@ export const Questionnaire = () => {
 
   const mountedAt = useRef<number>(Date.now());
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const turnstile = useTurnstile();
 
   const onSubmit = async (values: QuestionnaireValues) => {
     if (!isSupabaseConfigured) {
@@ -100,15 +102,21 @@ export const Questionnaire = () => {
       values.brief,
     ];
 
-    const { error } = await supabase.from("form_submissions").insert([{
-      form_type: "questionnaire",
-      name: values.fullName,
-      email: values.email,
-      phone: values.phone,
-      message: values.brief,
-      payload: values as any,
-      user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-    }]);
+    const { error } = await supabase.functions.invoke("submit-form", {
+      body: {
+        form_type: "questionnaire",
+        name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        message: values.brief,
+        payload: values,
+        honeypot,
+        elapsedMs: elapsed,
+        turnstileToken: turnstile.getToken(),
+      },
+    });
+
+    turnstile.reset();
 
     if (error) {
       toast.error(t("questionnaire.error", { defaultValue: "Could not submit. Opening your email app as a fallback." }));
@@ -284,6 +292,7 @@ export const Questionnaire = () => {
             />
           </div>
 
+          <div ref={turnstile.containerRef} className="mt-6" />
 
           {!isSupabaseConfigured && (
             <p className="mt-4 text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
