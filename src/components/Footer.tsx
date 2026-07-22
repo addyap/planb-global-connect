@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-plan-b.png";
+import logo from "@/assets/logo-plan-b.webp";
 import { CONTACT } from "@/lib/contact";
 
 export const Footer = () => {
@@ -12,8 +12,9 @@ export const Footer = () => {
           <img
             src={logo}
             alt="Plan B Concept"
-            width={112}
-            height={112}
+            width={400}
+            height={400}
+            loading="lazy"
             className="h-12 md:h-14 w-auto mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           />
           {/* /85 measured ≥4.5:1 against --primary (dark navy) — meets WCAG AA. */}

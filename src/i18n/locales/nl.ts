@@ -1,6 +1,6 @@
 const nl = {
   nav: { home: "Home", about: "Over mij", services: "Wat wij doen", questionnaire: "Vragenlijst", area: "Regio", contact: "Contact" },
-  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Bespreek vandaag uw project" },
+  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Bespreek vandaag uw project", changeLanguage: "Taal wijzigen" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projectmanagement aan de Côte d'Azur",

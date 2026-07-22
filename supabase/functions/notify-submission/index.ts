@@ -110,7 +110,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    let body: any = null;
+    let body: unknown = null;
     try {
       body = await req.json();
     } catch {
@@ -122,7 +122,8 @@ Deno.serve(async (req) => {
     }
 
     // Supabase database webhook payload shape: { type, table, record, old_record, schema }
-    const row: SubmissionRow = body?.record ?? body ?? {};
+    const payload = body as { record?: SubmissionRow } & SubmissionRow;
+    const row: SubmissionRow = payload?.record ?? payload ?? {};
     if (!row || typeof row !== "object") {
       console.warn("[notify-submission] No record on payload, skipping.");
       return new Response(JSON.stringify({ ok: true, skipped: "no record" }), {

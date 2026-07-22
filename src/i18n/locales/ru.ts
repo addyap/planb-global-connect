@@ -1,6 +1,6 @@
 const ru = {
   nav: { home: "Главная", about: "Обо мне", services: "Услуги", questionnaire: "Анкета", area: "Регион", contact: "Контакты" },
-  cta: { contact: "Связаться", whatsapp: "WhatsApp", discuss: "Обсудим ваш проект сегодня" },
+  cta: { contact: "Связаться", whatsapp: "WhatsApp", discuss: "Обсудим ваш проект сегодня", changeLanguage: "Изменить язык" },
   hero: {
     eyebrow: "Plan B Concept — Лазурный Берег",
     title: "Управление проектами на Лазурном Берегу",

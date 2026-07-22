@@ -1,6 +1,6 @@
 const da = {
   nav: { home: "Hjem", about: "Om mig", services: "Hvad vi gør", questionnaire: "Spørgeskema", area: "Område", contact: "Kontakt" },
-  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Drøft dit projekt i dag" },
+  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Drøft dit projekt i dag", changeLanguage: "Skift sprog" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projektledelse på Den Franske Riviera",

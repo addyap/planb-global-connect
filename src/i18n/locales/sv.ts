@@ -1,6 +1,6 @@
 const sv = {
   nav: { home: "Hem", about: "Om mig", services: "Vad vi gör", questionnaire: "Frågeformulär", area: "Område", contact: "Kontakt" },
-  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Diskutera ditt projekt idag" },
+  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Diskutera ditt projekt idag", changeLanguage: "Byt språk" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projektledning på Franska Rivieran",

@@ -1,6 +1,6 @@
 const fr = {
   nav: { home: "Accueil", about: "À propos", services: "Nos prestations", questionnaire: "Questionnaire", area: "Zone", contact: "Contact" },
-  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui" },
+  cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui", changeLanguage: "Changer de langue" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Coordination des Travaux sur la Côte d'Azur",

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "@/assets/logo-plan-b.png";
+import logo from "@/assets/logo-plan-b.webp";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
@@ -96,9 +96,9 @@ export const Header = () => {
         <button onClick={() => handleNav(navItems[0])} className="group flex items-center gap-2" aria-label="Plan B Côte d'Azur — home">
           <img
             src={logo}
-            alt="Plan B Côte d'Azur"
-            width={200}
-            height={200}
+            alt="Plan B Concept"
+            width={400}
+            height={400}
             className="h-10 w-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-105 md:h-12"
           />
         </button>
@@ -130,7 +130,7 @@ export const Header = () => {
             </a>
           </Button>
           <button
-            className="p-2 text-primary-foreground md:hidden"
+            className="p-2 text-primary-foreground md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}

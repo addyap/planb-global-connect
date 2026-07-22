@@ -31,6 +31,9 @@ const NotFound = () => {
         path={location.pathname}
         noindex
       />
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded">
+        Skip to main content
+      </a>
       <Header />
       <main id="main" className="flex-1 pt-32 md:pt-40 pb-20">
         <div className="container max-w-2xl text-center">

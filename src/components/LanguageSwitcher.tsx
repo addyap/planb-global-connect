@@ -9,12 +9,12 @@ import {
 import { Globe, Check, ChevronDown } from "lucide-react";
 
 export const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const current = LANGUAGES.find((l) => l.code === i18n.resolvedLanguage) ?? LANGUAGES[0];
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        aria-label="Change language"
+        aria-label={t("cta.changeLanguage")}
         className="flex items-center gap-2 rounded-full border-2 border-accent bg-accent text-accent-foreground px-4 py-2 text-sm font-bold uppercase tracking-wider shadow-[0_4px_20px_-4px_hsl(var(--accent)/0.6)] hover:shadow-[0_6px_28px_-4px_hsl(var(--accent)/0.8)] hover:scale-105 transition-all"
       >
         <Globe className="h-4 w-4" />

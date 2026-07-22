@@ -1,6 +1,6 @@
 const de = {
   nav: { home: "Start", about: "Über mich", services: "Leistungen", questionnaire: "Fragebogen", area: "Region", contact: "Kontakt" },
-  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Besprechen Sie Ihr Projekt — noch heute" },
+  cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Besprechen Sie Ihr Projekt — noch heute", changeLanguage: "Sprache ändern" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
     title: "Projektsteuerung an der Côte d'Azur",

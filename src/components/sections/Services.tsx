@@ -9,9 +9,6 @@ export const Services = () => {
     <section id="services" className="py-20 md:py-28 bg-background">
       <div className="container">
         <div className="max-w-2xl mb-14">
-          <span className="font-display text-xs tracking-[0.25em] text-secondary uppercase mb-3 block">
-            {t("services.title")}
-          </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">
             {t("services.title")}
           </h2>
