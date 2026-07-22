@@ -4,7 +4,7 @@
 // missing config or provider errors must never block form submissions,
 // so we always log and return HTTP 200.
 
-import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { corsHeadersFor } from "../_shared/cors.ts";
 
 const NOTIFY_TO = "anthony.gratton13@gmail.com";
 // Until a verified Resend sender/domain is configured, the Resend sandbox
@@ -94,6 +94,8 @@ function buildBody(row: SubmissionRow): { html: string; text: string } {
 }
 
 Deno.serve(async (req) => {
+  const corsHeaders = corsHeadersFor(req);
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }

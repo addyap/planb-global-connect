@@ -5,7 +5,7 @@
 // since the anon INSERT policy has been removed (see the accompanying migration).
 
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { corsHeadersFor } from "../_shared/cors.ts";
 
 const TURNSTILE_SECRET_KEY = Deno.env.get("TURNSTILE_SECRET_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -41,6 +41,8 @@ async function verifyTurnstile(token: string, remoteIp: string | null): Promise<
 }
 
 Deno.serve(async (req) => {
+  const corsHeaders = corsHeadersFor(req);
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
