@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
-import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { useSupabaseClient } from "@/hooks/use-supabase-client";
 import { useTurnstile } from "@/hooks/use-turnstile";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
@@ -18,13 +18,15 @@ export const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
   const mountedAt = useRef<number>(Date.now());
   const turnstile = useTurnstile();
+  const supabaseMod = useSupabaseClient();
+  const isSupabaseConfigured = supabaseMod?.isSupabaseConfigured ?? false;
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
   const mailtoSubject = "Plan B Concept — Project inquiry";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting) return;
-    if (!isSupabaseConfigured) {
+    if (!supabaseMod || !isSupabaseConfigured) {
       toast.error("This form is temporarily unavailable. Please email us directly.");
       return;
     }
@@ -46,7 +48,7 @@ export const Contact = () => {
       return;
     }
 
-    const { error } = await supabase.functions.invoke("submit-form", {
+    const { error } = await supabaseMod.supabase.functions.invoke("submit-form", {
       body: {
         form_type: "contact",
         name,
@@ -160,7 +162,7 @@ export const Contact = () => {
             />
           </div>
           <div ref={turnstile.containerRef} />
-          {!isSupabaseConfigured && (
+          {supabaseMod && !isSupabaseConfigured && (
             <p className="text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
           )}
           <Button type="submit" size="lg" disabled={submitting || !isSupabaseConfigured} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">

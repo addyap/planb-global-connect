@@ -169,6 +169,9 @@ const no = {
     tagline: "Prosjektledelse & byggrådgivning — Côte d'Azur.",
     rights: "Alle rettigheter forbeholdt.",
   },
+  legal: {
+    frenchOnlyNotice: "Denne siden er kun tilgjengelig på fransk.",
+  },
   notFound: {
     eyebrow: "Error 404",
     heading: "This page could not be found",

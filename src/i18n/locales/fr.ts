@@ -169,6 +169,9 @@ const fr = {
     tagline: "Coordination des Travaux & conseil en construction — Côte d'Azur.",
     rights: "Tous droits réservés.",
   },
+  legal: {
+    frenchOnlyNotice: "Cette page n'est disponible qu'en français.",
+  },
   notFound: {
     eyebrow: "Erreur 404",
     heading: "Cette page est introuvable",

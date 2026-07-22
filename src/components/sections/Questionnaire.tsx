@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { useSupabaseClient } from "@/hooks/use-supabase-client";
 import { useTurnstile } from "@/hooks/use-turnstile";
 
 type QuestionnaireValues = {
@@ -72,9 +72,11 @@ export const Questionnaire = () => {
   const mountedAt = useRef<number>(Date.now());
   const honeypotRef = useRef<HTMLInputElement>(null);
   const turnstile = useTurnstile();
+  const supabaseMod = useSupabaseClient();
+  const isSupabaseConfigured = supabaseMod?.isSupabaseConfigured ?? false;
 
   const onSubmit = async (values: QuestionnaireValues) => {
-    if (!isSupabaseConfigured) {
+    if (!supabaseMod || !isSupabaseConfigured) {
       toast.error("This form is temporarily unavailable. Please email us directly.");
       return;
     }
@@ -102,7 +104,7 @@ export const Questionnaire = () => {
       values.brief,
     ];
 
-    const { error } = await supabase.functions.invoke("submit-form", {
+    const { error } = await supabaseMod.supabase.functions.invoke("submit-form", {
       body: {
         form_type: "questionnaire",
         name: values.fullName,
@@ -294,7 +296,7 @@ export const Questionnaire = () => {
 
           <div ref={turnstile.containerRef} className="mt-6" />
 
-          {!isSupabaseConfigured && (
+          {supabaseMod && !isSupabaseConfigured && (
             <p className="mt-4 text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
           )}
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

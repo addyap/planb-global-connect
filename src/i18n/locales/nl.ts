@@ -162,6 +162,9 @@ const nl = {
     tagline: "Projectmanagement & bouwadvies — Côte d'Azur.",
     rights: "Alle rechten voorbehouden.",
   },
+  legal: {
+    frenchOnlyNotice: "Deze pagina is alleen beschikbaar in het Frans.",
+  },
   notFound: {
     eyebrow: "Error 404",
     heading: "This page could not be found",

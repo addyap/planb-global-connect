@@ -169,6 +169,9 @@ const en = {
     tagline: "Project management & construction advisory — Côte d'Azur.",
     rights: "All rights reserved.",
   },
+  legal: {
+    frenchOnlyNotice: "This page is only available in French.",
+  },
   notFound: {
     eyebrow: "Error 404",
     heading: "This page could not be found",

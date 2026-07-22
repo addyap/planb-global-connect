@@ -162,6 +162,9 @@ const de = {
     tagline: "Projektsteuerung & Baubegleitung — Côte d'Azur.",
     rights: "Alle Rechte vorbehalten.",
   },
+  legal: {
+    frenchOnlyNotice: "Diese Seite ist nur auf Französisch verfügbar.",
+  },
   notFound: {
     eyebrow: "Error 404",
     heading: "This page could not be found",

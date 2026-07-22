@@ -162,6 +162,9 @@ const ru = {
     tagline: "Управление проектами и строительный консалтинг — Лазурный Берег.",
     rights: "Все права защищены.",
   },
+  legal: {
+    frenchOnlyNotice: "Эта страница доступна только на французском языке.",
+  },
   notFound: {
     eyebrow: "Error 404",
     heading: "This page could not be found",
