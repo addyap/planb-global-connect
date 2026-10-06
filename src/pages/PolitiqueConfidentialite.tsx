@@ -136,6 +136,9 @@ const PolitiqueConfidentialite = () => {
             Seul le stockage local (<em>localStorage</em>) de la bibliothèque i18next est utilisé, afin de mémoriser votre préférence de langue. Ce stockage est strictement nécessaire au fonctionnement du site et est exempté de recueil de consentement au titre des lignes directrices de la CNIL relatives aux cookies et traceurs.
           </p>
           <p>
+            Nous utilisons également Vercel Web Analytics pour mesurer l&apos;audience du site de manière agrégée et anonyme (pages vues, pays, type d&apos;appareil). Ce service ne dépose aucun cookie et n&apos;identifie pas les visiteurs individuellement.
+          </p>
+          <p>
             Vous pouvez à tout moment supprimer ces données locales en paramétrant votre navigateur.
           </p>
         </div>

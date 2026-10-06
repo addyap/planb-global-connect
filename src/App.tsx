@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
@@ -38,6 +39,7 @@ const App = () => (
         </Routes>
       </Suspense>
     </BrowserRouter>
+    <Analytics />
   </TooltipProvider>
 );
 
