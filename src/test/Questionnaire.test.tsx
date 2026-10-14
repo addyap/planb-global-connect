@@ -57,6 +57,16 @@ describe("Questionnaire form validation", () => {
     expect(screen.getByText("Please enter a valid email address.")).toBeInTheDocument();
     expect(submitForm).not.toHaveBeenCalled();
   });
+
+  it("ties each error message to its field for screen readers", async () => {
+    await renderQuestionnaire();
+    fireEvent.click(getSubmitButton());
+
+    const message = await screen.findByText("Please enter your full name.");
+    const field = screen.getByLabelText(/Full name/);
+    expect(field).toHaveAttribute("aria-invalid", "true");
+    expect(field).toHaveAttribute("aria-describedby", message.id);
+  });
 });
 
 describe("Questionnaire honeypot and timing trap", () => {

@@ -6,10 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle, Loader2 } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { submitForm } from "@/lib/submit-form";
-import { FormSuccess } from "@/components/FormSuccess";
+import { LazyFormSuccess, preloadFormSuccess } from "@/components/LazyFormSuccess";
+import { track } from "@/lib/track";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
 export const Contact = () => {
@@ -23,6 +24,7 @@ export const Contact = () => {
     e.preventDefault();
     if (submitting) return;
     setSubmitting(true);
+    preloadFormSuccess();
     const fd = new FormData(e.currentTarget);
     const name = String(fd.get("name") ?? "");
     const email = String(fd.get("email") ?? "");
@@ -52,6 +54,7 @@ export const Contact = () => {
     setSubmitting(false);
 
     if (!ok) {
+      track("form_error", { form: "contact" });
       toast.error(
         t("contact.error", {
           defaultValue: "Could not send your message. Please try again, or email us at {{email}}.",
@@ -61,6 +64,7 @@ export const Contact = () => {
       return;
     }
 
+    track("form_submit", { form: "contact" });
     setSentTo({ name, email });
   };
 
@@ -81,21 +85,21 @@ export const Contact = () => {
           </h2>
 
           <div className="space-y-3">
-            <a href={`tel:${CONTACT.phoneIntl}`} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
+            <a href={`tel:${CONTACT.phoneIntl}`} onClick={() => track("phone_click", { from: "contact" })} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
               <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center"><Phone className="h-4 w-4 text-accent" /></div>
               <div>
                 <div className="text-xs text-muted-foreground">{t("contact.phoneLabel")}</div>
                 <div className="font-medium text-foreground">{CONTACT.phoneDisplay}</div>
               </div>
             </a>
-            <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
+            <a href={`mailto:${CONTACT.email}`} onClick={() => track("email_click", { from: "contact" })} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
               <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center"><Mail className="h-4 w-4 text-accent" /></div>
               <div>
                 <div className="text-xs text-muted-foreground">{t("contact.emailLabel")}</div>
                 <div className="font-medium text-foreground break-all">{CONTACT.email}</div>
               </div>
             </a>
-            <a href={wa} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
+            <a href={wa} target="_blank" rel="noopener noreferrer" onClick={() => track("whatsapp_click", { from: "contact" })} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent transition-colors">
               <div className="h-10 w-10 rounded-lg bg-[#25D366] flex items-center justify-center"><MessageCircle className="h-4 w-4 text-white" /></div>
               <div>
                 <div className="text-xs text-muted-foreground">{t("contact.whatsappLabel")}</div>
@@ -125,26 +129,26 @@ export const Contact = () => {
         </div>
 
         {sentTo ? (
-          <FormSuccess variant="contact" name={sentTo.name} email={sentTo.email} onReset={resetForm} className="md:col-span-3" />
+          <LazyFormSuccess variant="contact" name={sentTo.name} email={sentTo.email} onReset={resetForm} className="md:col-span-3" />
         ) : (
-          <form onSubmit={handleSubmit} className="md:col-span-3 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-elegant space-y-4">
+          <form onSubmit={handleSubmit} aria-busy={submitting} className="md:col-span-3 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-elegant space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="name">{t("contact.name")}</Label>
-                <Input id="name" name="name" required className="mt-1.5" />
+                <Label htmlFor="name">{t("contact.name")} <span aria-hidden="true" className="text-secondary">*</span></Label>
+                <Input id="name" name="name" required autoComplete="name" maxLength={100} className="mt-1.5" />
               </div>
               <div>
-                <Label htmlFor="email">{t("contact.email")}</Label>
-                <Input id="email" name="email" type="email" required className="mt-1.5" />
+                <Label htmlFor="email">{t("contact.email")} <span aria-hidden="true" className="text-secondary">*</span></Label>
+                <Input id="email" name="email" type="email" required autoComplete="email" inputMode="email" maxLength={255} className="mt-1.5" />
               </div>
             </div>
             <div>
               <Label htmlFor="phone">{t("contact.phone")}</Label>
-              <Input id="phone" name="phone" type="tel" className="mt-1.5" />
+              <Input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={30} className="mt-1.5" />
             </div>
             <div>
-              <Label htmlFor="message">{t("contact.message")}</Label>
-              <Textarea id="message" name="message" required rows={5} className="mt-1.5" />
+              <Label htmlFor="message">{t("contact.message")} <span aria-hidden="true" className="text-secondary">*</span></Label>
+              <Textarea id="message" name="message" required rows={5} maxLength={5000} className="mt-1.5" />
             </div>
             {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
             <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
@@ -158,7 +162,8 @@ export const Contact = () => {
               />
             </div>
             <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
-              {submitting ? "…" : t("contact.send")}
+              {submitting && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+              {t("contact.send")}
             </Button>
             <p className="text-xs text-muted-foreground mt-3">
               {t("contact.privacyNotice")}{" "}

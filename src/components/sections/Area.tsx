@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
 import { MapPin, Plane, Anchor } from "lucide-react";
 
 export const Area = () => {
@@ -9,6 +8,8 @@ export const Area = () => {
   const varCommunes = towns.var;
   const amCommunes = towns.am;
   const monacoCommunes = towns.monaco;
+  // The map pin's pulse is SVG (SMIL) animation, which CSS can't pause, so skip it entirely.
+  const reduceMotion = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
 
   // Cities along the Riviera coast (positioned along the coastline path)
@@ -28,25 +29,19 @@ export const Area = () => {
 
       <div className="container relative grid md:grid-cols-2 gap-14 items-center">
         <div>
-          <span className="font-display text-xs tracking-[0.3em] text-accent uppercase mb-3 block">
-            {t("area.title")}
-          </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-5 leading-tight">{t("area.title")}</h2>
           <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">{t("area.subtitle")}</p>
 
           <div className="grid grid-cols-2 gap-3 mb-6">
             {depts.map((d) => (
-              <motion.div
+              <div
                 key={d.code}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 className="relative overflow-hidden p-5 rounded-2xl bg-gradient-to-br from-accent/15 to-transparent border border-accent/30 backdrop-blur-sm"
               >
                 <div className="font-display text-4xl text-accent font-bold leading-none">{d.code}</div>
                 <div className="font-display text-base mt-2 text-primary-foreground/90">{d.name}</div>
                 <div className="absolute -right-4 -bottom-4 h-20 w-20 rounded-full bg-accent/10 blur-xl" />
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -58,16 +53,10 @@ export const Area = () => {
         </div>
 
         {/* Circular minimalist map — inspired by reference */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative aspect-square w-full max-w-lg mx-auto"
-        >
+        <div className="relative aspect-square w-full max-w-lg mx-auto">
           {/* Outer card */}
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary-foreground/[0.04] to-transparent border border-accent/20 backdrop-blur-sm p-6">
-            <svg viewBox="0 0 600 600" className="w-full h-full" aria-label="French Riviera map">
+            <svg viewBox="0 0 600 600" className="w-full h-full" role="img" aria-label="Map of the French Riviera from Toulon to Monaco">
               <defs>
                 <radialGradient id="seaCircle" cx="55%" cy="55%" r="55%">
                   <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.28" />
@@ -196,10 +185,10 @@ export const Area = () => {
                         ★
                       </text>
                       {/* Pulse */}
-                      <circle cx={m.x} cy={m.y - 24} r="10" fill="none" stroke="hsl(var(--accent))" strokeOpacity="0.6">
+                      {!reduceMotion && <circle cx={m.x} cy={m.y - 24} r="10" fill="none" stroke="hsl(var(--accent))" strokeOpacity="0.6">
                         <animate attributeName="r" values="10;22;10" dur="2.4s" repeatCount="indefinite" />
                         <animate attributeName="stroke-opacity" values="0.6;0;0.6" dur="2.4s" repeatCount="indefinite" />
-                      </circle>
+                      </circle>}
                     </g>
                   );
                 })()}
@@ -214,7 +203,7 @@ export const Area = () => {
           <div className="absolute top-4 left-4 flex items-center gap-2 text-xs text-accent font-display tracking-[0.3em] uppercase bg-primary/60 backdrop-blur px-3 py-1.5 rounded-full border border-accent/30">
             <MapPin className="h-3.5 w-3.5" /> Côte d'Azur
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="container relative mt-16 md:mt-20">

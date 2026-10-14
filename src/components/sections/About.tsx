@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
-import founderPhoto from "@/assets/plan-b-founder.jpg";
+import founderPhoto from "@/assets/plan-b-founder.webp";
 
 export const About = () => {
   const { t } = useTranslation();
@@ -8,7 +8,7 @@ export const About = () => {
   return (
     <section id="about" className="py-20 md:py-28 bg-muted/40">
       <div className="container grid md:grid-cols-5 gap-12 items-start">
-        <div className="md:col-span-3">
+        <div className="min-w-0 md:col-span-3">
           <span className="font-display text-xs tracking-[0.25em] text-secondary uppercase mb-3 block">
             {t("about.title")}
           </span>
@@ -23,10 +23,11 @@ export const About = () => {
         <div className="md:col-span-2 bg-primary text-primary-foreground rounded-2xl p-8 shadow-elegant">
           <img
             src={founderPhoto}
-            alt="Founder of Plan B Côte d’Azur – Project Management expert"
+            alt="Anthony Gratton, founder of Plan B Concept"
             loading="lazy"
-            width={770}
-            height={965}
+            width={886}
+            height={1107}
+            decoding="async"
             className="w-full aspect-[4/5] object-cover rounded-xl mb-6"
           />
           <h3 className="font-display text-accent text-lg mb-5">{t("about.expertiseTitle")}</h3>

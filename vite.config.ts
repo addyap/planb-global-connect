@@ -24,7 +24,6 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           "react-vendor": ["react", "react-dom", "react-router-dom"],
           i18n: ["i18next", "react-i18next"],
-          motion: ["framer-motion"],
         },
       },
     },

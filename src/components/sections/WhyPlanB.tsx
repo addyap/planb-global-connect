@@ -17,7 +17,7 @@ export const WhyPlanB = () => {
             return (
               <div
                 key={i}
-                className="group relative p-7 rounded-2xl border border-border bg-card hover:shadow-elegant hover:-translate-y-1 transition-all"
+                className="group relative p-7 rounded-2xl border border-border bg-card"
               >
                 <div className="h-12 w-12 rounded-xl bg-gold flex items-center justify-center mb-5 shadow-gold">
                   <Icon className="h-6 w-6 text-primary" />

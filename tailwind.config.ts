@@ -8,7 +8,8 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      // 1.25rem gutters on phones (2rem eats 20% of a 320px screen), 2rem from 640px up.
+      padding: { DEFAULT: "1.25rem", sm: "2rem" },
       screens: {
         "2xl": "1400px",
       },

@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { CONTACT } from "@/lib/contact";
 
 interface Props {
   children: ReactNode;
@@ -44,6 +45,12 @@ export class ErrorBoundary extends Component<Props, State> {
             >
               Reload page
             </button>
+            {/* Plain links, no app code: a visitor who hits a crash can still reach Anthony. */}
+            <p className="mt-6 text-sm text-muted-foreground">
+              <a href={`tel:${CONTACT.phoneIntl}`} className="underline">{CONTACT.phoneDisplay}</a>
+              {" · "}
+              <a href={`mailto:${CONTACT.email}`} className="underline">{CONTACT.email}</a>
+            </p>
           </div>
         </div>
       );

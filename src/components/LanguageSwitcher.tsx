@@ -15,11 +15,12 @@ export const LanguageSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger
         aria-label={t("cta.changeLanguage")}
-        className="flex items-center gap-2 rounded-full border-2 border-accent bg-accent text-accent-foreground px-4 py-2 text-sm font-bold uppercase tracking-wider shadow-[0_4px_20px_-4px_hsl(var(--accent)/0.6)] hover:shadow-[0_6px_28px_-4px_hsl(var(--accent)/0.8)] hover:scale-105 transition-all"
+        // Deliberately quieter than the gold WhatsApp button: the CTA should be the one thing that pops.
+        className="flex min-h-10 items-center gap-1.5 rounded-full border border-accent/50 bg-transparent px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
         <Globe className="h-4 w-4" />
         <span>{current.label}</span>
-        <ChevronDown className="h-4 w-4" />
+        <ChevronDown className="h-3.5 w-3.5 opacity-70" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[12rem] p-1">
         {LANGUAGES.map((lng) => {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ClipboardList, Send } from "lucide-react";
+import { ClipboardList, Loader2, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,7 +13,8 @@ import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { submitForm } from "@/lib/submit-form";
-import { FormSuccess } from "@/components/FormSuccess";
+import { LazyFormSuccess, preloadFormSuccess } from "@/components/LazyFormSuccess";
+import { track } from "@/lib/track";
 
 type QuestionnaireValues = {
   fullName: string;
@@ -92,6 +93,7 @@ export const Questionnaire = () => {
   const honeypotRef = useRef<HTMLInputElement>(null);
 
   const onSubmit = async (values: QuestionnaireValues) => {
+    preloadFormSuccess();
     const honeypot = honeypotRef.current?.value ?? "";
     const elapsed = Date.now() - mountedAt.current;
     // Spam trap: silently fake success for bots.
@@ -113,6 +115,7 @@ export const Questionnaire = () => {
     });
 
     if (!ok) {
+      track("form_error", { form: "questionnaire" });
       toast.error(
         t("questionnaire.error", {
           defaultValue: "Could not send your questionnaire. Please try again, or email us at {{email}}.",
@@ -122,6 +125,7 @@ export const Questionnaire = () => {
       return;
     }
 
+    track("form_submit", { form: "questionnaire" });
     setSentTo({ name: values.fullName, email: values.email });
   };
 
@@ -131,13 +135,21 @@ export const Questionnaire = () => {
     setSentTo(null);
   };
 
-  const errorFor = (message?: string) =>
-    message ? <p className="mt-1.5 text-sm font-medium text-destructive">{message}</p> : null;
+  // Errors are tied to their field (aria-describedby) so screen readers announce them on focus.
+  // Darker red than --destructive, which only reaches ~3.8:1 on white.
+  const errorFor = (field: keyof QuestionnaireValues, message?: string) =>
+    message ? (
+      <p id={`${field}-error`} className="mt-1.5 text-sm font-medium text-red-700">
+        {message}
+      </p>
+    ) : null;
+  const a11y = (field: keyof QuestionnaireValues) =>
+    errors[field] ? { "aria-invalid": true as const, "aria-describedby": `${field}-error` } : {};
 
   return (
     <section id="questionnaire" className="py-20 md:py-28">
-      <div className="container grid gap-10 lg:grid-cols-[1.1fr_1.4fr] lg:items-start">
-        <div className="max-w-xl">
+      <div className="container grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[1.1fr_1.4fr] lg:items-start">
+        <div className="min-w-0 max-w-xl">
           <span className="mb-3 block font-display text-xs uppercase tracking-[0.25em] text-secondary">
             {t("questionnaire.title")}
           </span>
@@ -159,33 +171,33 @@ export const Questionnaire = () => {
         </div>
 
         {sentTo ? (
-          <FormSuccess variant="questionnaire" name={sentTo.name} email={sentTo.email} onReset={resetForm} />
+          <LazyFormSuccess variant="questionnaire" name={sentTo.name} email={sentTo.email} onReset={resetForm} />
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="rounded-2xl border border-border bg-card p-6 shadow-elegant md:p-8">
+          <form onSubmit={handleSubmit(onSubmit)} aria-busy={isSubmitting} noValidate className="rounded-2xl border border-border bg-card p-6 shadow-elegant md:p-8">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <Label htmlFor="fullName">
                 {t("questionnaire.fields.fullName")} <span aria-hidden="true" className="text-secondary">*</span>
               </Label>
-                <Input id="fullName" aria-required="true" className="mt-1.5" {...register("fullName")} />
-                {errorFor(errors.fullName?.message)}
+                <Input id="fullName" aria-required="true" autoComplete="name" className="mt-1.5" {...a11y("fullName")} {...register("fullName")} />
+                {errorFor("fullName", errors.fullName?.message)}
               </div>
               <div>
                 <Label htmlFor="email">
                 {t("questionnaire.fields.email")} <span aria-hidden="true" className="text-secondary">*</span>
               </Label>
-                <Input id="email" type="email" aria-required="true" className="mt-1.5" {...register("email")} />
-                {errorFor(errors.email?.message)}
+                <Input id="email" type="email" aria-required="true" autoComplete="email" inputMode="email" className="mt-1.5" {...a11y("email")} {...register("email")} />
+                {errorFor("email", errors.email?.message)}
               </div>
               <div>
                 <Label htmlFor="phone">{t("questionnaire.fields.phone")}</Label>
-                <Input id="phone" type="tel" className="mt-1.5" {...register("phone")} />
-                {errorFor(errors.phone?.message)}
+                <Input id="phone" type="tel" autoComplete="tel" className="mt-1.5" {...a11y("phone")} {...register("phone")} />
+                {errorFor("phone", errors.phone?.message)}
               </div>
               <div>
                 <Label htmlFor="projectLocation">{t("questionnaire.fields.projectLocation")}</Label>
-                <Input id="projectLocation" className="mt-1.5" {...register("projectLocation")} />
-                {errorFor(errors.projectLocation?.message)}
+                <Input id="projectLocation" className="mt-1.5" {...a11y("projectLocation")} {...register("projectLocation")} />
+                {errorFor("projectLocation", errors.projectLocation?.message)}
               </div>
               <div>
                 <Label htmlFor="projectType">{t("questionnaire.fields.projectType")}</Label>
@@ -199,7 +211,7 @@ export const Questionnaire = () => {
                     </option>
                   ))}
                 </select>
-                {errorFor(errors.projectType?.message)}
+                {errorFor("projectType", errors.projectType?.message)}
               </div>
               <div>
                 <Label htmlFor="propertyStatus">{t("questionnaire.fields.propertyStatus")}</Label>
@@ -213,7 +225,7 @@ export const Questionnaire = () => {
                     </option>
                   ))}
                 </select>
-                {errorFor(errors.propertyStatus?.message)}
+                {errorFor("propertyStatus", errors.propertyStatus?.message)}
               </div>
               <div>
                 <Label htmlFor="budget">{t("questionnaire.fields.budget")}</Label>
@@ -227,7 +239,7 @@ export const Questionnaire = () => {
                     </option>
                   ))}
                 </select>
-                {errorFor(errors.budget?.message)}
+                {errorFor("budget", errors.budget?.message)}
               </div>
               <div>
                 <Label htmlFor="timeline">{t("questionnaire.fields.timeline")}</Label>
@@ -241,12 +253,12 @@ export const Questionnaire = () => {
                     </option>
                   ))}
                 </select>
-                {errorFor(errors.timeline?.message)}
+                {errorFor("timeline", errors.timeline?.message)}
               </div>
             </div>
 
-            <div className="mt-6">
-              <Label>{t("questionnaire.fields.services")}</Label>
+            <fieldset className="mt-6">
+              <legend className="text-sm font-medium leading-none">{t("questionnaire.fields.services")}</legend>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {serviceOptions.map((option) => (
                   <label key={option} className="flex items-start gap-3 rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground/90 transition-colors hover:border-primary">
@@ -260,11 +272,11 @@ export const Questionnaire = () => {
                   </label>
                 ))}
               </div>
-              {errorFor(errors.services?.message)}
-            </div>
+              {errorFor("services", errors.services?.message)}
+            </fieldset>
 
-            <div className="mt-6">
-              <Label>{t("questionnaire.fields.siteVisit")}</Label>
+            <fieldset className="mt-6">
+              <legend className="text-sm font-medium leading-none">{t("questionnaire.fields.siteVisit")}</legend>
               <div className="mt-3 flex flex-col gap-3 sm:flex-row">
                 {siteVisitOptions.map((option) => (
                   <label key={option} className="flex flex-1 items-center gap-3 rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground/90 transition-colors hover:border-primary">
@@ -273,8 +285,8 @@ export const Questionnaire = () => {
                   </label>
                 ))}
               </div>
-              {errorFor(errors.siteVisit?.message)}
-            </div>
+              {errorFor("siteVisit", errors.siteVisit?.message)}
+            </fieldset>
 
             <div className="mt-6">
               <Label htmlFor="brief">{t("questionnaire.fields.brief")}</Label>
@@ -285,7 +297,7 @@ export const Questionnaire = () => {
                 placeholder={t("questionnaire.placeholders.brief")}
                 {...register("brief")}
               />
-              {errorFor(errors.brief?.message)}
+              {errorFor("brief", errors.brief?.message)}
             </div>
 
             {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
@@ -304,7 +316,7 @@ export const Questionnaire = () => {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>
               <Button type="submit" size="lg" disabled={isSubmitting} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                <Send className="h-4 w-4" />
+                {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" />}
                 <span>{t("questionnaire.submit")}</span>
               </Button>
             </div>

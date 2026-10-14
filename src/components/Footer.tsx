@@ -22,10 +22,10 @@ export const Footer = () => {
         </div>
         <div className="text-sm space-y-2 text-primary-foreground/90">
           <div className="font-display text-accent text-xs tracking-[0.25em] uppercase mb-3">{CONTACT.name}</div>
-          <a href={`tel:${CONTACT.phoneIntl}`} className="block hover:text-accent transition-colors">
+          <a href={`tel:${CONTACT.phoneIntl}`} className="block py-1 hover:text-accent transition-colors">
             {CONTACT.phoneDisplay}
           </a>
-          <a href={`mailto:${CONTACT.email}`} className="block break-all hover:text-accent transition-colors">
+          <a href={`mailto:${CONTACT.email}`} className="block py-1 break-all hover:text-accent transition-colors">
             {CONTACT.email}
           </a>
         </div>
@@ -34,11 +34,11 @@ export const Footer = () => {
         </div>
       </div>
       <div className="container mt-3 pt-3 border-t border-accent/10 flex flex-wrap gap-x-5 gap-y-2 text-xs text-primary-foreground/85 justify-center">
-        <Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link>
+        <Link to="/mentions-legales" className="inline-block py-1.5 hover:text-accent transition-colors">Mentions légales</Link>
         <span className="text-primary-foreground/40" aria-hidden="true">|</span>
-        <Link to="/politique-de-confidentialite" className="hover:text-accent transition-colors">Politique de confidentialité</Link>
+        <Link to="/politique-de-confidentialite" className="inline-block py-1.5 hover:text-accent transition-colors">Politique de confidentialité</Link>
         <span className="text-primary-foreground/40" aria-hidden="true">|</span>
-        <Link to="/cgu" className="hover:text-accent transition-colors">CGU</Link>
+        <Link to="/cgu" className="inline-block py-1.5 hover:text-accent transition-colors">CGU</Link>
       </div>
     </footer>
   );

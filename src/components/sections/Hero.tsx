@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
-// Served from /public with a stable URL so index.html can <link rel="preload"> it.
+// Served from /public with stable URLs so index.html can <link rel="preload" imagesrcset> them.
 const heroBg = "/hero-riviera.webp";
+const heroSrcSet = "/hero-riviera-800.webp 800w, /hero-riviera.webp 1600w";
 
 export const Hero = () => {
   const { t } = useTranslation();
@@ -17,10 +17,12 @@ export const Hero = () => {
       {/* Background image */}
       <img
         src={heroBg}
+        srcSet={heroSrcSet}
+        sizes="100vw"
         alt=""
         aria-hidden="true"
-        width={1920}
-        height={1080}
+        width={1600}
+        height={900}
         loading="eager"
         decoding="async"
         // @ts-expect-error fetchpriority is a valid HTML attribute
@@ -36,16 +38,12 @@ export const Hero = () => {
       />
 
       <div className="container relative">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl"
-        >
+        {/* Slide only, no fade: the headline is the LCP element and must paint at full opacity. */}
+        <div className="max-w-4xl motion-safe:animate-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
           <span className="inline-block font-display text-xs md:text-sm tracking-[0.3em] text-accent uppercase mb-5">
             {t("hero.eyebrow")}
           </span>
-          <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl leading-[1.05] font-bold mb-5 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
+          <h1 className="font-display text-[1.75rem] min-[400px]:text-[2rem] sm:text-5xl md:text-6xl leading-[1.08] font-bold mb-5 hyphens-auto [overflow-wrap:anywhere] sm:[overflow-wrap:normal] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
             {t("hero.title")}
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/90 max-w-2xl mb-8 leading-relaxed drop-shadow-md">
@@ -74,7 +72,7 @@ export const Hero = () => {
           {/* Stats strip */}
           <div className="mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-lg border-t border-accent/30 pt-6">
             <div>
-              <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">Over 30</div>
+              <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">30+</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
                 {t("hero.statYears")}
               </div>
@@ -92,7 +90,7 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

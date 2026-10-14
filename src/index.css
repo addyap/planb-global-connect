@@ -99,4 +99,11 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Orbitron is wide, and German / Dutch / Scandinavian compounds ("Bauherrenvertretung")
+     are longer than a phone is wide. Let headings hyphenate (uses <html lang>) or break. */
+  h1, h2, h3 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }

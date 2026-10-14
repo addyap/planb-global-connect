@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0f1b3d" />
     <title>Project Management Côte d'Azur | Plan B Concept</title>
     <meta name="description" content="Bilingual EN/FR project management & construction advisory on the French Riviera. 30+ years experience in Var (83) & Alpes-Maritimes (06)." />
@@ -20,7 +20,7 @@
 
 
     <!-- Preload the LCP hero image so it starts downloading alongside the HTML. -->
-    <link rel="preload" as="image" type="image/webp" href="/hero-riviera.webp" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="/hero-riviera.webp" imagesrcset="/hero-riviera-800.webp 800w, /hero-riviera.webp 1600w" imagesizes="100vw" fetchpriority="high" />
 
     <meta property="og:site_name" content="Plan B Concept" />
     <meta property="og:title" content="Project Management Côte d'Azur | Plan B Concept" />
@@ -35,7 +35,6 @@
     <meta property="og:locale:alternate" content="da_DK" />
     <meta property="og:locale:alternate" content="nb_NO" />
     <meta property="og:locale:alternate" content="ru_RU" />
-    <!-- og-image.png is a placeholder design; replace with branded asset when ready. -->
     <meta property="og:image" content="https://www.planb-concept.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -56,9 +55,9 @@
           "url": "https://www.planb-concept.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.planb-concept.com/og-image.png",
-            "width": 1200,
-            "height": 630
+            "url": "https://www.planb-concept.com/web-app-manifest-512x512.png",
+            "width": 512,
+            "height": 512
           },
           "sameAs": [
             "https://www.linkedin.com/in/anthonygratton/"

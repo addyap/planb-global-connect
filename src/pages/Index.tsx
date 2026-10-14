@@ -3,16 +3,16 @@ import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
 import { Hero } from "@/components/sections/Hero";
-import { HomeSummary } from "@/components/sections/HomeSummary";
 import { About } from "@/components/sections/About";
 import { WhyPlanB } from "@/components/sections/WhyPlanB";
 import { Services } from "@/components/sections/Services";
+import { ProjectCTA } from "@/components/sections/ProjectCTA";
+import { MobileCTA } from "@/components/MobileCTA";
 import { FAQ } from "@/components/sections/FAQ";
 import { Area } from "@/components/sections/Area";
 import { Contact } from "@/components/sections/Contact";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { CONTACT } from "@/lib/contact";
 import en from "@/i18n/locales/en";
 
 const SITE = "https://www.planb-concept.com";
@@ -110,16 +110,18 @@ const Index = () => {
       </a>
       <Header />
       <main id="main">
+        {/* Story order: who → what → act → why him → where → objections → contact. */}
         <Hero />
-        <HomeSummary />
         <About />
-        <WhyPlanB />
         <Services />
-        <FAQ />
+        <ProjectCTA />
+        <WhyPlanB />
         <Area />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
+      <MobileCTA />
     </div>
   );
 };

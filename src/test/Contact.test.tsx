@@ -27,9 +27,9 @@ const renderContact = async () => {
 };
 
 const fillRequiredFields = () => {
-  fireEvent.change(screen.getByLabelText("Name"), { target: { value: "Jane Doe" } });
-  fireEvent.change(screen.getByLabelText("Email"), { target: { value: "jane@example.com" } });
-  fireEvent.change(screen.getByLabelText("Message"), { target: { value: "Hello, I'd like to discuss a project." } });
+  fireEvent.change(screen.getByLabelText(/^Name/), { target: { value: "Jane Doe" } });
+  fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: "jane@example.com" } });
+  fireEvent.change(screen.getByLabelText(/^Message/), { target: { value: "Hello, I'd like to discuss a project." } });
 };
 
 beforeEach(() => {
@@ -113,10 +113,10 @@ describe("Contact form success panel", () => {
     dateSpy.mockRestore();
 
     expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toHaveFocus();
-    expect(screen.queryByLabelText("Message")).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/^Message/)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Send another message" }));
     expect(getSubmitButton()).toBeInTheDocument();
-    expect(screen.getByLabelText("Name")).toHaveValue("");
+    expect(screen.getByLabelText(/^Name/)).toHaveValue("");
   });
 });

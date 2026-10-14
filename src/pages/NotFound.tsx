@@ -37,7 +37,7 @@ const NotFound = () => {
       <Header />
       <main id="main" className="flex-1 pt-32 md:pt-40 pb-20">
         <div className="container max-w-2xl text-center">
-          <p className="font-display text-xs tracking-[0.3em] text-accent uppercase mb-4">{t("notFound.eyebrow")}</p>
+          <p className="font-display text-xs tracking-[0.3em] text-secondary uppercase mb-4">{t("notFound.eyebrow")}</p>
           <h1 className="font-display text-4xl md:text-6xl font-bold text-primary mb-6 leading-tight">
             {t("notFound.heading")}
           </h1>
