@@ -14,15 +14,6 @@ vi.mock("@/lib/submit-form", () => ({
   submitForm: (...args: unknown[]) => submitForm(...args),
 }));
 
-vi.mock("@/hooks/use-turnstile", () => ({
-  useTurnstile: () => ({
-    containerRef: { current: null },
-    getToken: () => "test-turnstile-token",
-    reset: vi.fn(),
-    isConfigured: true,
-  }),
-}));
-
 const getSubmitButton = () => screen.getByRole("button", { name: "Send message" });
 
 const renderContact = async () => {
@@ -88,7 +79,6 @@ describe("Contact form real submission", () => {
       lang: "en",
       name: "Jane Doe",
       email: "jane@example.com",
-      turnstileToken: "test-turnstile-token",
     });
     expect(toast.success).toHaveBeenCalled();
   });

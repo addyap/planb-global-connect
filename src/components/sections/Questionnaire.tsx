@@ -13,7 +13,6 @@ import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { submitForm } from "@/lib/submit-form";
-import { useTurnstile } from "@/hooks/use-turnstile";
 
 type QuestionnaireValues = {
   fullName: string;
@@ -71,7 +70,6 @@ export const Questionnaire = () => {
 
   const mountedAt = useRef<number>(Date.now());
   const honeypotRef = useRef<HTMLInputElement>(null);
-  const turnstile = useTurnstile();
 
   const onSubmit = async (values: QuestionnaireValues) => {
     const honeypot = honeypotRef.current?.value ?? "";
@@ -92,10 +90,7 @@ export const Questionnaire = () => {
       payload: values,
       honeypot,
       elapsedMs: elapsed,
-      turnstileToken: turnstile.getToken(),
     });
-
-    turnstile.reset();
 
     if (!ok) {
       toast.error(
@@ -272,8 +267,6 @@ export const Questionnaire = () => {
               tabIndex={-1}
             />
           </div>
-
-          <div ref={turnstile.containerRef} className="mt-6" />
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>

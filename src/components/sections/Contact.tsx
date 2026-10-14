@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { submitForm } from "@/lib/submit-form";
-import { useTurnstile } from "@/hooks/use-turnstile";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
 export const Contact = () => {
@@ -17,7 +16,6 @@ export const Contact = () => {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const mountedAt = useRef<number>(Date.now());
-  const turnstile = useTurnstile();
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,10 +48,8 @@ export const Contact = () => {
       message,
       honeypot,
       elapsedMs: elapsed,
-      turnstileToken: turnstile.getToken(),
     });
 
-    turnstile.reset();
     setSubmitting(false);
 
     if (!ok) {
@@ -156,7 +152,6 @@ export const Contact = () => {
               tabIndex={-1}
             />
           </div>
-          <div ref={turnstile.containerRef} />
           <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
             {submitting ? "…" : t("contact.send")}
           </Button>

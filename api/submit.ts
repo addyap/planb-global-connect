@@ -1,17 +1,21 @@
 // Vercel Function: POST /api/submit
-// Receives the contact and questionnaire forms, verifies the Cloudflare Turnstile token
-// server-side (the secret key can never live in client code), re-checks the
-// honeypot/timing spam trap, then sends two emails via Resend: the full submission to
+// Receives the contact and questionnaire forms, runs the spam checks below, then sends two
+// emails via Resend: the full submission to
 // Anthony, and a confirmation to the visitor in the language they used on the site.
 // No database: the email is the record. Templates live in api/_lib/emails.ts.
 //
+// Spam protection (no CAPTCHA, by choice): requests must come from the site's own origin,
+// carry the form's honeypot/fill-time fields, and stay under a per-IP rate limit. This
+// stops drive-by bots but not a determined attacker; if abuse appears, add a rate-limit
+// rule in the Vercel Firewall (no code change needed).
+//
 // Required environment variables (Vercel project settings):
 //   RESEND_API_KEY        Resend API key
-//   TURNSTILE_SECRET_KEY  Cloudflare Turnstile secret key
 // Optional:
 //   RESEND_FROM           Verified sender, e.g. "Plan B Concept <noreply@planb-concept.com>".
 //                         Defaults to Resend's sandbox sender, which only delivers to the
 //                         Resend account owner's own address.
+//   ALLOWED_ORIGINS       Extra comma-separated origins allowed to post (e.g. a preview URL).
 //   NOTIFY_TO             Notification recipient; defaults to Anthony's address (CONTACT.email).
 
 import { buildOwnerEmail, buildVisitorEmail, SUPPORTED_LANGS, type BuiltEmail, type FormType, type Submission } from "./_lib/emails.js";
@@ -22,6 +26,30 @@ const NOTIFY_FROM = process.env.RESEND_FROM ?? "Plan B Concept <onboarding@resen
 const FORM_TYPES: FormType[] = ["contact", "questionnaire"];
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const MAX_FIELD_LENGTH = 5000;
+const MIN_FILL_MS = 2000;
+
+const ALLOWED_ORIGINS = new Set([
+  "https://www.planb-concept.com",
+  "https://planb-concept.com",
+  "http://localhost:8080",
+  "http://localhost:3000",
+  ...(process.env.ALLOWED_ORIGINS ?? "").split(",").map((o) => o.trim()).filter(Boolean),
+]);
+
+// Best-effort per-IP rate limit. It lives in the function instance's memory, so it resets on
+// cold starts and isn't shared between instances — enough to blunt a burst from one source.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const recentByIp = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (recentByIp.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  recent.push(now);
+  recentByIp.set(ip, recent);
+  if (recentByIp.size > 5000) recentByIp.clear();
+  return recent.length > RATE_LIMIT;
+}
 
 type SubmitPayload = {
   form_type?: string;
@@ -31,7 +59,6 @@ type SubmitPayload = {
   phone?: string;
   message?: string;
   payload?: Record<string, unknown>;
-  turnstileToken?: string;
   honeypot?: string;
   elapsedMs?: number;
 };
@@ -53,24 +80,6 @@ function cleanAnswers(payload: unknown): Record<string, unknown> {
     else if (Array.isArray(v)) out[k] = v.filter((x) => typeof x === "string").slice(0, 20).map(clip);
   }
   return out;
-}
-
-async function verifyTurnstile(token: string, remoteIp: string | null): Promise<boolean> {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret) {
-    console.error("[submit] TURNSTILE_SECRET_KEY not set — rejecting submission.");
-    return false;
-  }
-  const body = new URLSearchParams({ secret, response: token });
-  if (remoteIp) body.set("remoteip", remoteIp);
-
-  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
-  });
-  const result = await res.json().catch(() => ({ success: false }));
-  return result.success === true;
 }
 
 async function sendEmail(apiKey: string, to: string, replyTo: string | undefined, email: BuiltEmail) {
@@ -106,9 +115,16 @@ export async function POST(request: Request): Promise<Response> {
       return json(400, { ok: false, error: "invalid form_type" });
     }
 
-    // Honeypot / minimum-fill-time spam trap, re-checked server-side.
-    if (body.honeypot || (typeof body.elapsedMs === "number" && body.elapsedMs < 2000)) {
-      // Pretend success so bots don't learn anything from the response.
+    // Only the site itself may post. Browsers always send Origin on a cross-origin-capable POST.
+    const origin = request.headers.get("origin") ?? "";
+    if (!ALLOWED_ORIGINS.has(origin)) {
+      console.warn(`[submit] rejected origin "${origin}"`);
+      return json(403, { ok: false, error: "forbidden" });
+    }
+
+    // Honeypot / minimum-fill-time spam trap. The real form always sends elapsedMs, so a
+    // request without it didn't come from the form. Pretend success so bots learn nothing.
+    if (body.honeypot || typeof body.elapsedMs !== "number" || body.elapsedMs < MIN_FILL_MS) {
       return json(200, { ok: true });
     }
 
@@ -116,14 +132,11 @@ export async function POST(request: Request): Promise<Response> {
       return json(400, { ok: false, error: "invalid email" });
     }
 
-    if (!body.turnstileToken) {
-      return json(400, { ok: false, error: "missing turnstile token" });
-    }
-
-    const remoteIp =
-      request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null;
-    if (!(await verifyTurnstile(body.turnstileToken, remoteIp))) {
-      return json(400, { ok: false, error: "turnstile verification failed" });
+    const ip =
+      request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+    if (isRateLimited(ip)) {
+      console.warn(`[submit] rate limited ${ip}`);
+      return json(429, { ok: false, error: "too many submissions" });
     }
 
     const apiKey = process.env.RESEND_API_KEY;

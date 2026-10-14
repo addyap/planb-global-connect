@@ -9,7 +9,6 @@ export type SubmitFormBody = {
   payload?: Record<string, unknown>;
   honeypot?: string;
   elapsedMs?: number;
-  turnstileToken?: string;
 };
 
 /** Posts a form to the /api/submit Vercel Function, which emails it via Resend. Returns true on success. */
