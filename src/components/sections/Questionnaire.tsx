@@ -118,7 +118,7 @@ export const Questionnaire = () => {
       track("form_error", { form: "questionnaire" });
       toast.error(
         t("questionnaire.error", {
-          defaultValue: "Could not send your questionnaire. Please try again, or email us at {{email}}.",
+          defaultValue: "Could not send your questionnaire. Please try again, or email me at {{email}}.",
           email: CONTACT.email,
         }),
       );

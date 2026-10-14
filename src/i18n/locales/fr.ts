@@ -1,5 +1,5 @@
 const fr = {
-  nav: { home: "Accueil", about: "À propos", services: "Nos prestations", questionnaire: "Questionnaire", area: "Zone", contact: "Contact" },
+  nav: { home: "Accueil", about: "À propos", services: "Mes prestations", questionnaire: "Questionnaire", area: "Zone", contact: "Contact" },
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui", changeLanguage: "Changer de langue" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
@@ -9,27 +9,12 @@ const fr = {
     statBilingual: "Bilingue",
     statRegion: "Côte d'Azur",
   },
-  home: {
-    whatTitle: "Nos prestations",
-    whatText: "Coordination des Travaux et coordination de chantier de bout en bout, pour particuliers, investisseurs et promoteurs sur la Côte d'Azur.",
-    aboutTitle: "À propos d'Anthony",
-    aboutText: "Anthony Gratton est de langue maternelle anglaise, parfaitement bilingue français, et vit et travaille en France depuis plus de 30 ans. Il vous représente sur site, défend vos intérêts et fait avancer chaque projet.",
-    areaTitle: "Zones d'intervention",
-    areaText: "Nous intervenons dans le Var (83) et les Alpes-Maritimes (06), sur toute la Côte d'Azur et ses environs.",
-    whyTitle: "Pourquoi Plan B Concept",
-    why: [
-      { t: "Avantage bilingue", d: "Une communication claire entre clients anglophones et professionnels français." },
-      { t: "Expertise locale", d: "Trente ans de réseau, d'artisans et de fournisseurs sur la Côte d'Azur." },
-      { t: "Orienté solutions", d: "Nous concevons des solutions pratiques et sur mesure pour mener chaque projet à bien — dans les délais, dans le budget." },
-      { t: "Interlocuteur unique", d: "Un seul référent de confiance qui coordonne architectes, entreprises et administration." },
-    ],
-  },
   about: {
     title: "À propos",
     lead: "Anthony Gratton — votre partenaire bilingue sur la Côte d'Azur.",
-    p1: "Plan B Concept a été fondé par Anthony Gratton, fort de plus de 30 ans d'expérience dans la construction et la coordination de travaux dans le sud de la France. L'entreprise répond à un besoin précis : les propriétaires internationaux installés sur la Côte d'Azur méritent un suivi de projet de la même qualité que celui qu'ils attendraient chez eux, dans leur propre langue, et porté par un interlocuteur qui sait comment fonctionne réellement le système français.",
+    p1: "J'ai fondé Plan B Concept fort de plus de 30 ans d'expérience dans la construction et la coordination de travaux dans le sud de la France. L'entreprise répond à un besoin précis : les propriétaires internationaux installés sur la Côte d'Azur méritent un suivi de projet de la même qualité que celui qu'ils attendraient chez eux, dans leur propre langue, et porté par un interlocuteur qui sait comment fonctionne réellement le système français.",
     p2: "La plupart des acheteurs étrangers sous-estiment l'investissement de pilotage qu'exige une rénovation ou une construction sur la Côte d'Azur. Les artisans fonctionnent autrement ici, les autorisations avancent à leur propre rythme, et les conséquences des petites incompréhensions s'additionnent vite. Un bon maître d'ouvrage délégué, c'est la différence entre un projet livré dans les délais et dans le budget — et un projet qui dérape.",
-    p3: "Implanté dans le Var, intervenant sur le Var (83) et les Alpes-Maritimes (06), Plan B Concept accompagne des clients à Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne et les communes environnantes. Chaque projet est suivi personnellement — pas d'équipe de juniors qui gère votre villa.",
+    p3: "Installé dans le Var, j'interviens sur le Var (83) et les Alpes-Maritimes (06) et j'accompagne des clients à Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne et dans les communes environnantes. Je suis personnellement chaque projet — pas d'équipe de juniors qui gère votre villa.",
     p4: "Si vous envisagez un projet sur la Côte d'Azur et souhaitez un échange franc et concret sur ce qu'il implique, contactez-moi.",
     expertiseTitle: "Expertise",
     expertise: [
@@ -49,7 +34,7 @@ const fr = {
     ],
   },
   services: {
-    title: "Nos prestations",
+    title: "Mes prestations",
     subtitle: "Des services structurés pour particuliers, investisseurs et promoteurs.",
     items: [
       { t: "Maître d'ouvrage délégué", d: "J'agis en votre nom tout au long du projet, en pilotant architectes, entreprises et fournisseurs pour que vous n'ayez pas à être sur place tous les jours. Particulièrement précieux pour les propriétaires basés hors de France.", b: "Votre projet, suivi sur le terrain — sans les allers-retours." },
@@ -62,10 +47,10 @@ const fr = {
   },
   faq: {
     title: "Questions fréquentes",
-    subtitle: "Des réponses claires aux questions que se posent les clients avant de nous confier un projet.",
+    subtitle: "Des réponses claires aux questions que se posent les clients avant de me confier un projet.",
     items: [
       { q: "Que fait concrètement un maître d'ouvrage délégué ?", a: "Un maître d'ouvrage délégué pilote votre projet de construction ou de rénovation pour votre compte, en gérant les relations avec architectes, entreprises et administrations. Il défend vos intérêts, contrôle la qualité et le planning, et traduit la complexité technique et administrative en informations claires sur lesquelles vous pouvez décider." },
-      { q: "Ai-je toujours besoin d'un architecte si je fais appel à Plan B Concept ?", a: "Oui. L'architecte conçoit le projet ; Plan B Concept le pilote. Les deux rôles sont complémentaires. Nous travaillons aux côtés de votre architecte (ou vous aidons à en choisir un) pour que la conception soit livrée sur le terrain comme prévue." },
+      { q: "Ai-je toujours besoin d'un architecte si je fais appel à Plan B Concept ?", a: "Oui. L'architecte conçoit le projet ; je le pilote. Les deux rôles sont complémentaires. Je travaille aux côtés de votre architecte (ou vous aide à en choisir un) pour que la conception soit livrée sur le terrain comme prévu." },
       { q: "Quelle est la différence avec un maître d'œuvre ?", a: "Le maître d'œuvre représente la conception et l'exécution des travaux eux-mêmes. Le maître d'ouvrage délégué vous représente, vous le client. La distinction est essentielle lorsque les intérêts divergent." },
       { q: "Intervenez-vous en dehors du Var et des Alpes-Maritimes ?", a: "Ponctuellement, pour des clients existants. La zone d'intervention standard couvre la Côte d'Azur, de Saint-Tropez à Menton, en passant par Monaco." },
       { q: "Comment sont structurés vos honoraires ?", a: "Soit en pourcentage de la valeur du projet, soit sous forme de forfait mensuel, selon l'envergure et la durée. Les honoraires sont chiffrés de manière transparente après un premier échange." },
@@ -113,6 +98,7 @@ const fr = {
     siteVisitOptions: ["Oui", "Non"],
     note: "Votre questionnaire m'est transmis directement et vous recevrez une confirmation par e-mail.",
     submit: "Envoyer le questionnaire",
+    error: "Votre questionnaire n'a pas pu être envoyé. Merci de réessayer ou de m'écrire à {{email}}.",
     success: "Merci — votre questionnaire a bien été reçu. Anthony vous recontactera rapidement.",
     emailSubject: "Plan B Concept — Nouveau questionnaire projet",
     validation: {
@@ -157,6 +143,7 @@ const fr = {
     phone: "Téléphone",
     message: "Message",
     send: "Envoyer",
+    error: "Votre message n'a pas pu être envoyé. Merci de réessayer ou de m'écrire à {{email}}.",
     sent: "Merci — votre message a bien été envoyé.",
     phoneLabel: "Téléphone",
     emailLabel: "E-mail",
@@ -170,11 +157,11 @@ const fr = {
     eyebrowQuestionnaire: "Questionnaire envoyé",
     title: "Merci, {{name}}.",
     titleNoName: "Merci.",
-    bodyContact: "Votre message a bien été transmis à Anthony. Il étudie personnellement chaque demande et reviendra vers vous rapidement.",
-    bodyQuestionnaire: "Votre questionnaire a bien été transmis à Anthony. Il va étudier votre projet et reviendra vers vous rapidement pour échanger sur la suite.",
+    bodyContact: "Votre message m'a bien été transmis. J'étudie personnellement chaque demande et reviendrai vers vous rapidement.",
+    bodyQuestionnaire: "Votre questionnaire m'a bien été transmis. Je vais étudier votre projet et reviendrai vers vous rapidement pour échanger sur la suite.",
     emailNote: "Une confirmation a été envoyée à <bold>{{email}}</bold>.",
     spamNote: "Vous ne la voyez pas ? Pensez à vérifier vos courriers indésirables.",
-    urgent: "Une urgence ? Contactez Anthony directement :",
+    urgent: "Une urgence ? Contactez-moi directement :",
     call: "Appeler",
     sendAnother: "Envoyer un autre message",
   },
@@ -192,7 +179,7 @@ const fr = {
     sectionsLabel: "Sections du site",
     home: "Accueil",
     about: "À propos d'Anthony Gratton",
-    services: "Ce que nous faisons — services",
+    services: "Mes prestations",
     area: "Zones couvertes — Var & Alpes-Maritimes",
     questionnaire: "Questionnaire projet",
     contact: "Contact",

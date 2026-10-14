@@ -1,5 +1,5 @@
 const da = {
-  nav: { home: "Hjem", about: "Om mig", services: "Hvad vi gør", questionnaire: "Spørgeskema", area: "Område", contact: "Kontakt" },
+  nav: { home: "Hjem", about: "Om mig", services: "Hvad jeg gør", questionnaire: "Spørgeskema", area: "Område", contact: "Kontakt" },
   cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Drøft dit projekt i dag", changeLanguage: "Skift sprog" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
@@ -9,27 +9,12 @@ const da = {
     statBilingual: "Tosproget",
     statRegion: "Côte d'Azur",
   },
-  home: {
-    whatTitle: "Hvad vi gør",
-    whatText: "Komplet projektledelse og byggekoordinering for private kunder, investorer og udviklere på Den Franske Riviera.",
-    aboutTitle: "Om Anthony",
-    aboutText: "Anthony Gratton har engelsk som modersmål, er fuldt tosproget på fransk og har boet og arbejdet i Frankrig i over 30 år. Han repræsenterer dig på stedet, varetager dine interesser og holder hvert projekt i bevægelse.",
-    areaTitle: "Indsatsområder",
-    areaText: "Aktiv i Var (83) og Alpes-Maritimes (06), på hele Den Franske Riviera og i de omkringliggende regioner.",
-    whyTitle: "Hvorfor Plan B Concept",
-    why: [
-      { t: "Tosproget fordel", d: "Klar kommunikation mellem engelsktalende kunder og franske fagfolk." },
-      { t: "Lokal ekspertise", d: "Tre årtiers netværk, leverandører og håndværkere på Côte d'Azur." },
-      { t: "Løsningsorienteret", d: "Vi udvikler praktiske, skræddersyede løsninger, der holder hvert projekt til tiden og inden for budgettet." },
-      { t: "Ét kontaktpunkt", d: "Én betroet rådgiver, der koordinerer arkitekter, entreprenører og administration." },
-    ],
-  },
   about: {
     title: "Om mig",
     lead: "Anthony Gratton — din tosprogede projektpartner på Den Franske Riviera.",
-    p1: "Plan B Concept blev grundlagt af Anthony Gratton med afsæt i mere end 30 års erfaring inden for byggeri og projektledelse i Sydfrankrig. Virksomheden findes for at løse et helt konkret problem: internationale ejendomsejere på Côte d'Azur fortjener den samme kvalitet i projekttilsynet, som de ville forvente derhjemme — på deres eget sprog og fra en person, der ved, hvordan det franske system faktisk fungerer.",
+    p1: "Jeg grundlagde Plan B Concept med afsæt i mere end 30 års erfaring inden for byggeri og projektledelse i Sydfrankrig. Virksomheden findes for at løse et helt konkret problem: internationale ejendomsejere på Côte d'Azur fortjener den samme kvalitet i projekttilsynet, som de ville forvente derhjemme — på deres eget sprog og fra en person, der ved, hvordan det franske system faktisk fungerer.",
     p2: "De fleste udenlandske købere undervurderer, hvor meget hands-on styring en renovering eller et byggeri på Rivieraen kræver. Fagfolk arbejder anderledes her, tilladelser har deres eget tempo, og konsekvenserne af små misforståelser hober sig hurtigt op. En god bygherrerepræsentant er forskellen på et projekt, der lander til tiden og inden for budgettet — og et, der ikke gør.",
-    p3: "Med base i Var og virksom i Var (83) og Alpes-Maritimes (06) betjener Plan B Concept kunder i Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne og de omkringliggende kommuner. Hvert projekt håndteres personligt — intet juniorteam, der står for din villa.",
+    p3: "Jeg har base i Var, arbejder i Var (83) og Alpes-Maritimes (06) og betjener kunder i Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne og de omkringliggende kommuner. Jeg håndterer hvert projekt personligt — intet juniorteam, der står for din villa.",
     p4: "Overvejer du et projekt på Rivieraen og vil have en åben, konkret samtale om, hvad det indebærer? Tag fat i mig.",
     expertiseTitle: "Ekspertise",
     expertise: [
@@ -49,7 +34,7 @@ const da = {
     ],
   },
   services: {
-    title: "Hvad vi gør",
+    title: "Hvad jeg gør",
     subtitle: "Strukturerede tjenester for private kunder, investorer og udviklere.",
     items: [
       { t: "Bygherrerepræsentation", d: "Jeg handler på dine vegne gennem hele projektet og styrer arkitekter, entreprenører og leverandører, så du ikke behøver være på pladsen dagligt. Særligt værdifuldt for ejere uden for Frankrig.", b: "Dit projekt, drevet på stedet — uden flyrejserne." },
@@ -62,10 +47,10 @@ const da = {
   },
   faq: {
     title: "Ofte stillede spørgsmål",
-    subtitle: "Lige svar på de spørgsmål, klienter stiller, før de hyrer os.",
+    subtitle: "Lige svar på de spørgsmål, klienter stiller, før de hyrer mig.",
     items: [
       { q: "Hvad gør en bygherrerepræsentant egentlig?", a: "En bygherrerepræsentant leder dit bygge- eller renoveringsprojekt på dine vegne og håndterer kontakten med arkitekter, entreprenører og myndigheder. Han beskytter dine interesser, følger kvalitet og tidsplan og oversætter den tekniske og administrative kompleksitet til klare opdateringer, du kan handle på." },
-      { q: "Skal jeg stadig bruge en arkitekt, hvis jeg hyrer Plan B Concept?", a: "Ja. Arkitekten tegner projektet; Plan B Concept styrer det. De to roller supplerer hinanden. Vi arbejder side om side med din arkitekt (eller hjælper dig med at vælge en), så designet leveres på pladsen som tiltænkt." },
+      { q: "Skal jeg stadig bruge en arkitekt, hvis jeg hyrer Plan B Concept?", a: "Ja. Arkitekten tegner projektet; jeg styrer det. De to roller supplerer hinanden. Jeg arbejder side om side med din arkitekt (eller hjælper dig med at vælge en), så designet leveres på pladsen som tiltænkt." },
       { q: "Hvad er forskellen i forhold til en maître d'œuvre?", a: "En maître d'œuvre repræsenterer typisk projekteringen og udførelsen af selve arbejderne. En bygherrerepræsentant — maître d'ouvrage délégué — repræsenterer dig, klienten. Skellet betyder noget, når interesserne trækker i hver sin retning." },
       { q: "Arbejder I uden for Var og Alpes-Maritimes?", a: "Lejlighedsvis, for eksisterende klienter. Det normale arbejdsområde er Den Franske Riviera fra Saint-Tropez til Menton, inklusive Monaco." },
       { q: "Hvordan er honorarerne struktureret?", a: "Enten som en procentdel af projektværdien eller som et fast månedligt honorar, afhængigt af projektets størrelse og varighed. Tilbydes transparent efter en indledende samtale." },
@@ -113,6 +98,7 @@ const da = {
     siteVisitOptions: ["Ja", "Nej"],
     note: "Dit spørgeskema sendes direkte til mig, og du modtager en bekræftelse på e-mail.",
     submit: "Send spørgeskema",
+    error: "Dit spørgeskema kunne ikke sendes. Prøv igen, eller skriv til mig på {{email}}.",
     success: "Tak — dit spørgeskema er modtaget. Anthony vender tilbage til dig snarest.",
     emailSubject: "Plan B Concept — Nyt projektspørgeskema",
     validation: {
@@ -157,6 +143,7 @@ const da = {
     phone: "Telefon",
     message: "Besked",
     send: "Send besked",
+    error: "Din besked kunne ikke sendes. Prøv igen, eller skriv til mig på {{email}}.",
     sent: "Tak — din besked er blevet sendt.",
     phoneLabel: "Telefon",
     emailLabel: "E-mail",
@@ -170,11 +157,11 @@ const da = {
     eyebrowQuestionnaire: "Spørgeskema sendt",
     title: "Tak, {{name}}.",
     titleNoName: "Tak.",
-    bodyContact: "Din besked er nået frem til Anthony. Han gennemgår personligt hver henvendelse og kontakter dig snarest.",
-    bodyQuestionnaire: "Dit spørgeskema er nået frem til Anthony. Han gennemgår dit projekt og kontakter dig snarest for at drøfte de næste skridt.",
+    bodyContact: "Din besked er nået frem til mig. Jeg gennemgår personligt hver henvendelse og kontakter dig snarest.",
+    bodyQuestionnaire: "Dit spørgeskema er nået frem til mig. Jeg gennemgår dit projekt og kontakter dig snarest for at drøfte de næste skridt.",
     emailNote: "En bekræftelse er sendt til <bold>{{email}}</bold>.",
     spamNote: "Kan du ikke se den? Tjek din spammappe.",
-    urgent: "Noget hastende? Kontakt Anthony direkte:",
+    urgent: "Noget hastende? Kontakt mig direkte:",
     call: "Ring",
     sendAnother: "Send en ny besked",
   },

@@ -1,5 +1,5 @@
 const nl = {
-  nav: { home: "Home", about: "Over mij", services: "Wat wij doen", questionnaire: "Vragenlijst", area: "Regio", contact: "Contact" },
+  nav: { home: "Home", about: "Over mij", services: "Wat ik doe", questionnaire: "Vragenlijst", area: "Regio", contact: "Contact" },
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Bespreek vandaag uw project", changeLanguage: "Taal wijzigen" },
   hero: {
     eyebrow: "Plan B Concept — Côte d'Azur",
@@ -9,28 +9,13 @@ const nl = {
     statBilingual: "Tweetalig",
     statRegion: "Côte d'Azur",
   },
-  home: {
-    whatTitle: "Wat wij doen",
-    whatText: "Volledig projectmanagement en bouwcoördinatie voor particulieren, investeerders en ontwikkelaars aan de Franse Rivièra.",
-    aboutTitle: "Over Anthony",
-    aboutText: "Anthony Gratton is een Britse moedertaalspreker, volledig tweetalig Frans, en woont en werkt al meer dan 30 jaar in Frankrijk. Hij vertegenwoordigt u op de bouwplaats, behartigt uw belangen en houdt elk project in beweging.",
-    areaTitle: "Werkgebied",
-    areaText: "Actief in de Var (83) en Alpes-Maritimes (06), aan de Franse Rivièra en omliggende regio's.",
-    whyTitle: "Waarom Plan B Concept",
-    why: [
-      { t: "Tweetalig voordeel", d: "Heldere communicatie tussen Engelstalige klanten en Franse vakmensen." },
-      { t: "Lokale expertise", d: "Dertig jaar netwerk, leveranciers en ambachtslieden aan de Côte d'Azur." },
-      { t: "Oplossingsgericht", d: "Wij bedenken praktische, op maat gemaakte oplossingen die elk project op tijd en binnen budget houden." },
-      { t: "Eén aanspreekpunt", d: "Eén vertrouwde adviseur die architecten, aannemers en administratie coördineert." },
-    ],
-  },
   about: {
     title: "Over mij",
     lead: "Anthony Gratton — uw tweetalige projectpartner aan de Franse Rivièra.",
-    p1: "Plan B Concept is opgericht door Anthony Gratton, voortbouwend op meer dan 30 jaar ervaring in bouw en projectmanagement in Zuid-Frankrijk. Het bureau bestaat om een specifiek probleem op te lossen: internationale eigenaren aan de Côte d'Azur verdienen dezelfde kwaliteit van projecttoezicht als ze thuis zouden verwachten, in hun eigen taal, geleverd door iemand die weet hoe het Franse systeem werkelijk werkt.",
+    p1: "Ik heb Plan B Concept opgericht na meer dan 30 jaar ervaring in bouw en projectmanagement in Zuid-Frankrijk. Het bureau bestaat om een specifiek probleem op te lossen: internationale eigenaren aan de Côte d'Azur verdienen dezelfde kwaliteit van projecttoezicht als ze thuis zouden verwachten, in hun eigen taal, geleverd door iemand die weet hoe het Franse systeem werkelijk werkt.",
     p2: "De meeste buitenlandse kopers onderschatten hoeveel praktische sturing een renovatie of nieuwbouw aan de Rivièra vraagt. Vakmensen werken hier anders, vergunningen gaan in hun eigen tempo, en de gevolgen van kleine misverstanden lopen snel op. Een goede opdrachtgeversvertegenwoordiger is het verschil tussen een project dat op tijd en binnen budget landt — en een dat dat niet doet.",
-    p3: "Gevestigd in de Var en actief in Var (83) en Alpes-Maritimes (06), werkt Plan B Concept voor klanten in Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne en de omliggende gemeenten. Elk project wordt persoonlijk opgepakt — geen team van junioren dat uw villa onder zijn hoede heeft.",
-    p4: "Overweegt u een project aan de Rivièra en wilt u een eerlijk, concreet gesprek over wat er bij komt kijken? Neem contact op.",
+    p3: "Ik ben gevestigd in de Var, actief in Var (83) en Alpes-Maritimes (06), en werk voor klanten in Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne en de omliggende gemeenten. Ik pak elk project persoonlijk op — geen team van junioren dat uw villa onder zijn hoede heeft.",
+    p4: "Overweegt u een project aan de Rivièra en wilt u een eerlijk, concreet gesprek over wat er bij komt kijken? Neem contact met mij op.",
     expertiseTitle: "Expertise",
     expertise: [
       "Projectmanagement",
@@ -49,7 +34,7 @@ const nl = {
     ],
   },
   services: {
-    title: "Wat wij doen",
+    title: "Wat ik doe",
     subtitle: "Gestructureerde diensten voor particulieren, investeerders en ontwikkelaars.",
     items: [
       { t: "Vertegenwoordiging opdrachtgever", d: "Ik handel namens u gedurende het hele project en stuur architecten, aannemers en leveranciers aan zodat u niet dagelijks op de bouwplaats hoeft te zijn. Bijzonder waardevol voor eigenaren buiten Frankrijk.", b: "Uw project, op de bouwplaats geleid — zonder de vluchten." },
@@ -62,10 +47,10 @@ const nl = {
   },
   faq: {
     title: "Veelgestelde vragen",
-    subtitle: "Heldere antwoorden op de vragen die klanten stellen voor ze ons inschakelen.",
+    subtitle: "Heldere antwoorden op de vragen die klanten stellen voor ze mij inschakelen.",
     items: [
       { q: "Wat doet een opdrachtgeversvertegenwoordiger eigenlijk?", a: "Een opdrachtgeversvertegenwoordiger leidt uw bouw- of renovatieproject namens u en regelt het contact met architecten, aannemers en overheden. Hij beschermt uw belangen, bewaakt kwaliteit en planning en vertaalt de technische en administratieve complexiteit naar duidelijke updates waarop u kunt sturen." },
-      { q: "Heb ik nog een architect nodig als ik Plan B Concept inschakel?", a: "Ja. De architect ontwerpt het project; Plan B Concept stuurt het aan. De twee rollen vullen elkaar aan. We werken naast uw architect (of helpen u er een te kiezen) zodat het ontwerp op de bouwplaats wordt uitgevoerd zoals bedoeld." },
+      { q: "Heb ik nog een architect nodig als ik Plan B Concept inschakel?", a: "Ja. De architect ontwerpt het project; ik stuur het aan. De twee rollen vullen elkaar aan. Ik werk naast uw architect (of help u er een te kiezen) zodat het ontwerp op de bouwplaats wordt uitgevoerd zoals bedoeld." },
       { q: "Wat is het verschil met een maître d'œuvre?", a: "Een maître d'œuvre vertegenwoordigt doorgaans het ontwerp en de uitvoering van het werk zelf. Een opdrachtgeversvertegenwoordiger — maître d'ouvrage délégué — vertegenwoordigt ú, de klant. Dat onderscheid telt zodra de belangen uiteenlopen." },
       { q: "Werkt u ook buiten Var en Alpes-Maritimes?", a: "Soms, voor bestaande klanten. Het standaardgebied is de Franse Rivièra van Saint-Tropez tot Menton, inclusief Monaco." },
       { q: "Hoe zijn de honoraria opgebouwd?", a: "Ofwel een percentage van de projectwaarde, ofwel een vaste maandelijkse vergoeding, afhankelijk van omvang en duur. Transparant geoffreerd na een eerste gesprek." },
@@ -106,6 +91,7 @@ const nl = {
     siteVisitOptions: ["Ja", "Nee"],
     note: "Uw vragenlijst komt rechtstreeks bij mij terecht en u ontvangt een bevestiging per e-mail.",
     submit: "Vragenlijst verzenden",
+    error: "Uw vragenlijst kon niet worden verzonden. Probeer het opnieuw of mail mij op {{email}}.",
     success: "Bedankt — uw vragenlijst is ontvangen. Anthony neemt spoedig contact met u op.",
     emailSubject: "Plan B Concept — Nieuwe projectvragenlijst",
     validation: {
@@ -150,6 +136,7 @@ const nl = {
     phone: "Telefoon",
     message: "Bericht",
     send: "Verstuur",
+    error: "Uw bericht kon niet worden verzonden. Probeer het opnieuw of mail mij op {{email}}.",
     sent: "Bedankt — uw bericht is verzonden.",
     phoneLabel: "Telefoon",
     emailLabel: "E-mail",
@@ -163,11 +150,11 @@ const nl = {
     eyebrowQuestionnaire: "Vragenlijst verzonden",
     title: "Hartelijk dank, {{name}}.",
     titleNoName: "Hartelijk dank.",
-    bodyContact: "Uw bericht is bij Anthony aangekomen. Hij bekijkt elke aanvraag persoonlijk en neemt binnenkort contact met u op.",
-    bodyQuestionnaire: "Uw vragenlijst is bij Anthony aangekomen. Hij bekijkt uw project en neemt binnenkort contact met u op om de volgende stappen te bespreken.",
+    bodyContact: "Uw bericht is bij mij aangekomen. Ik bekijk elke aanvraag persoonlijk en neem binnenkort contact met u op.",
+    bodyQuestionnaire: "Uw vragenlijst is bij mij aangekomen. Ik bekijk uw project en neem binnenkort contact met u op om de volgende stappen te bespreken.",
     emailNote: "Er is een bevestiging verzonden naar <bold>{{email}}</bold>.",
     spamNote: "Niet ontvangen? Controleer uw spammap.",
-    urgent: "Iets dringends? Neem rechtstreeks contact op met Anthony:",
+    urgent: "Iets dringends? Neem rechtstreeks contact met mij op:",
     call: "Bellen",
     sendAnother: "Nog een bericht sturen",
   },

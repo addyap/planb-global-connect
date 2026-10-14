@@ -57,7 +57,7 @@ export const Contact = () => {
       track("form_error", { form: "contact" });
       toast.error(
         t("contact.error", {
-          defaultValue: "Could not send your message. Please try again, or email us at {{email}}.",
+          defaultValue: "Could not send your message. Please try again, or email me at {{email}}.",
           email: CONTACT.email,
         }),
       );

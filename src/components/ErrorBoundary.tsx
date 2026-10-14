@@ -37,7 +37,7 @@ export class ErrorBoundary extends Component<Props, State> {
             </h1>
             <p className="text-sm text-muted-foreground mb-6">
               The page hit an unexpected error. Please reload — if the problem
-              persists, contact us by phone or email.
+              persists, contact me by phone or email.
             </p>
             <button
               onClick={this.reset}
