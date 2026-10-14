@@ -230,7 +230,7 @@ function layout(opts: { lang: string; title: string; preheader: string; body: st
 <td valign="middle" style="padding-right:16px;"><img src="${LOGO_URL}" width="56" height="56" alt="Plan B" style="display:block;border:0;border-radius:8px;"></td>
 <td valign="middle">
 <div style="font-family:${FONT};font-size:18px;font-weight:800;letter-spacing:4px;color:${C.gold};">PLAN B CONCEPT</div>
-<div style="margin-top:4px;font-family:${FONT};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${C.headerSub};">Maîtrise d'œuvre · Côte d'Azur</div>
+<div style="margin-top:4px;font-family:${FONT};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${C.headerSub};">Owner's Representative · Côte d'Azur</div>
 </td></tr></table>
 </td></tr>
 <tr><td style="height:4px;line-height:4px;font-size:0;background:${C.gold};">&nbsp;</td></tr>
