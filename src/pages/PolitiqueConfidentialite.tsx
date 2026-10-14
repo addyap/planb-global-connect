@@ -70,7 +70,7 @@ const PolitiqueConfidentialite = () => {
         <h2 className="font-display text-xl text-primary mb-4">Durée de conservation</h2>
         <ul className="list-disc pl-5 space-y-2 text-foreground/90">
           <li>Données de contact : conservées 3 ans à compter du dernier échange, puis archivées pendant la durée légale applicable.</li>
-          <li>Journaux techniques (logs serveur, hébergeur et fonctions edge) : conservés 12 mois maximum.</li>
+          <li>Journaux techniques (logs serveur, hébergeur et fonctions serveur) : conservés 12 mois maximum.</li>
           <li>Données comptables : conservées 10 ans conformément à l&apos;article L.123-22 du Code de commerce.</li>
         </ul>
       </section>
@@ -84,10 +84,7 @@ const PolitiqueConfidentialite = () => {
           <p>Les sous-traitants actuellement utilisés sont les suivants :</p>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Vercel Inc.</strong> (États-Unis) — hébergement du site et diffusion via CDN. Traite l&apos;adresse IP et les en-têtes HTTP des visiteurs (logs techniques, protection contre les abus).
-            </li>
-            <li>
-              <strong>Supabase</strong> — base de données et fonctions serveur (<em>edge functions</em>), hébergée sur un projet propre à Plan B Concept. Stocke les données soumises via les formulaires de contact et de questionnaire (nom, email, téléphone, message, détails du projet, <em>user-agent</em>) et exécute la notification associée.
+              <strong>Vercel Inc.</strong> (États-Unis) — hébergement du site, diffusion via CDN et fonction serveur de transmission des formulaires. Traite l&apos;adresse IP et les en-têtes HTTP des visiteurs (logs techniques, protection contre les abus), ainsi que les données soumises via les formulaires de contact et de questionnaire, qui sont transmises par email sans être stockées en base de données.
             </li>
             <li>
               <strong>Resend</strong> (États-Unis) — prestataire d&apos;envoi d&apos;email. Reçoit le contenu des notifications envoyées à Plan B Concept lorsqu&apos;un formulaire est soumis (nom, email, téléphone, message, détails du projet) afin d&apos;acheminer l&apos;email.
@@ -97,7 +94,7 @@ const PolitiqueConfidentialite = () => {
             Les polices de caractères affichées sur le site (Orbitron, Inter) sont auto-hébergées et servies depuis notre propre domaine ; aucune requête n&apos;est effectuée vers Google Fonts ou un autre tiers pour leur chargement.
           </p>
           <p>
-            Certains de ces sous-traitants (Vercel, Supabase, Resend) sont susceptibles de traiter ou transférer des données en dehors de l&apos;Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou, le cas échéant, par le cadre de protection des données UE — États-Unis (<em>EU-U.S. Data Privacy Framework</em>).
+            Certains de ces sous-traitants (Vercel, Resend) sont susceptibles de traiter ou transférer des données en dehors de l&apos;Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne ou, le cas échéant, par le cadre de protection des données UE — États-Unis (<em>EU-U.S. Data Privacy Framework</em>).
           </p>
         </div>
       </section>

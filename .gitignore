@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local environment variables (Supabase keys)
+# Local environment variables (API keys)
 .env

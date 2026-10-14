@@ -25,11 +25,13 @@ export default async function middleware(request: Request) {
   const url = new URL(request.url);
   const pathname = url.pathname.replace(/\/+$/, "") || "/";
 
-  // /_vercel/* is Vercel's own endpoints (e.g. Web Analytics beacons) — never 404 them.
+  // /_vercel/* is Vercel's own endpoints (e.g. Web Analytics beacons) and /api/* is our
+  // own Vercel Functions (form submission) — never 404 them.
   if (
     KNOWN_ROUTES.has(pathname) ||
     HAS_FILE_EXTENSION.test(pathname) ||
-    pathname.startsWith("/_vercel/")
+    pathname.startsWith("/_vercel/") ||
+    pathname.startsWith("/api/")
   ) {
     return;
   }

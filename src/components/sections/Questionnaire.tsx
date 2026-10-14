@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { useSupabaseClient } from "@/hooks/use-supabase-client";
+import { submitForm } from "@/lib/submit-form";
 import { useTurnstile } from "@/hooks/use-turnstile";
 
 type QuestionnaireValues = {
@@ -72,14 +72,8 @@ export const Questionnaire = () => {
   const mountedAt = useRef<number>(Date.now());
   const honeypotRef = useRef<HTMLInputElement>(null);
   const turnstile = useTurnstile();
-  const supabaseMod = useSupabaseClient();
-  const isSupabaseConfigured = supabaseMod?.isSupabaseConfigured ?? false;
 
   const onSubmit = async (values: QuestionnaireValues) => {
-    if (!supabaseMod || !isSupabaseConfigured) {
-      toast.error("This form is temporarily unavailable. Please email us directly.");
-      return;
-    }
     const honeypot = honeypotRef.current?.value ?? "";
     const elapsed = Date.now() - mountedAt.current;
     // Spam trap: silently fake success for bots.
@@ -88,43 +82,27 @@ export const Questionnaire = () => {
       return;
     }
 
-    const lines = [
-      `${t("questionnaire.fields.fullName")}: ${values.fullName}`,
-      `${t("questionnaire.fields.email")}: ${values.email}`,
-      `${t("questionnaire.fields.phone")}: ${values.phone}`,
-      `${t("questionnaire.fields.projectLocation")}: ${values.projectLocation}`,
-      `${t("questionnaire.fields.projectType")}: ${values.projectType}`,
-      `${t("questionnaire.fields.propertyStatus")}: ${values.propertyStatus}`,
-      `${t("questionnaire.fields.budget")}: ${values.budget}`,
-      `${t("questionnaire.fields.timeline")}: ${values.timeline}`,
-      `${t("questionnaire.fields.services")}: ${values.services.join(", ")}`,
-      `${t("questionnaire.fields.siteVisit")}: ${values.siteVisit}`,
-      "",
-      `${t("questionnaire.fields.brief")}:`,
-      values.brief,
-    ];
-
-    const { error } = await supabaseMod.supabase.functions.invoke("submit-form", {
-      body: {
-        form_type: "questionnaire",
-        name: values.fullName,
-        email: values.email,
-        phone: values.phone,
-        message: values.brief,
-        payload: values,
-        honeypot,
-        elapsedMs: elapsed,
-        turnstileToken: turnstile.getToken(),
-      },
+    const ok = await submitForm({
+      form_type: "questionnaire",
+      name: values.fullName,
+      email: values.email,
+      phone: values.phone,
+      message: values.brief,
+      payload: values,
+      honeypot,
+      elapsedMs: elapsed,
+      turnstileToken: turnstile.getToken(),
     });
 
     turnstile.reset();
 
-    if (error) {
-      toast.error(t("questionnaire.error", { defaultValue: "Could not submit. Opening your email app as a fallback." }));
-      const subject = encodeURIComponent(t("questionnaire.emailSubject"));
-      const body = encodeURIComponent(lines.join("\n"));
-      window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
+    if (!ok) {
+      toast.error(
+        t("questionnaire.error", {
+          defaultValue: "Could not send your questionnaire. Please try again, or email us at {{email}}.",
+          email: CONTACT.email,
+        }),
+      );
       return;
     }
 
@@ -296,12 +274,9 @@ export const Questionnaire = () => {
 
           <div ref={turnstile.containerRef} className="mt-6" />
 
-          {supabaseMod && !isSupabaseConfigured && (
-            <p className="mt-4 text-sm text-destructive">This form is temporarily unavailable. Please contact us by phone or email.</p>
-          )}
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">{t("questionnaire.note")}</p>
-            <Button type="submit" size="lg" disabled={isSubmitting || !isSupabaseConfigured} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+            <Button type="submit" size="lg" disabled={isSubmitting} className={cn("w-full sm:w-auto", "bg-primary text-primary-foreground hover:bg-primary/90")}>
               <Send className="h-4 w-4" />
               <span>{t("questionnaire.submit")}</span>
             </Button>

@@ -4,15 +4,14 @@ import { MemoryRouter } from "react-router-dom";
 import { toast } from "sonner";
 import { Contact } from "@/components/sections/Contact";
 
-const invoke = vi.fn().mockResolvedValue({ error: null });
+const submitForm = vi.fn().mockResolvedValue(true);
 
 vi.mock("sonner", () => ({
   toast: { success: vi.fn(), error: vi.fn() },
 }));
 
-vi.mock("@/integrations/supabase/client", () => ({
-  isSupabaseConfigured: true,
-  supabase: { functions: { invoke: (...args: unknown[]) => invoke(...args) } },
+vi.mock("@/lib/submit-form", () => ({
+  submitForm: (...args: unknown[]) => submitForm(...args),
 }));
 
 vi.mock("@/hooks/use-turnstile", () => ({
@@ -32,9 +31,7 @@ const renderContact = async () => {
       <Contact />
     </MemoryRouter>,
   );
-  // The Supabase client loads via a dynamic import on mount; wait for it
-  // so the submit button is enabled before a test interacts with it.
-  await waitFor(() => expect(getSubmitButton()).not.toBeDisabled());
+  expect(getSubmitButton()).not.toBeDisabled();
   return utils;
 };
 
@@ -45,7 +42,8 @@ const fillRequiredFields = () => {
 };
 
 beforeEach(() => {
-  invoke.mockClear();
+  submitForm.mockClear();
+  submitForm.mockResolvedValue(true);
   vi.mocked(toast.success).mockClear();
   vi.mocked(toast.error).mockClear();
 });
@@ -59,7 +57,7 @@ describe("Contact form honeypot and timing trap", () => {
     fireEvent.submit(getSubmitButton().closest("form")!);
 
     await waitFor(() => expect(toast.success).toHaveBeenCalled());
-    expect(invoke).not.toHaveBeenCalled();
+    expect(submitForm).not.toHaveBeenCalled();
   });
 
   it("silently succeeds without submitting when the form is filled too quickly", async () => {
@@ -69,12 +67,12 @@ describe("Contact form honeypot and timing trap", () => {
     fireEvent.submit(getSubmitButton().closest("form")!);
 
     await waitFor(() => expect(toast.success).toHaveBeenCalled());
-    expect(invoke).not.toHaveBeenCalled();
+    expect(submitForm).not.toHaveBeenCalled();
   });
 });
 
 describe("Contact form real submission", () => {
-  it("submits to Supabase with the expected payload once past the timing trap", async () => {
+  it("submits to /api/submit with the expected payload once past the timing trap", async () => {
     await renderContact();
     fillRequiredFields();
 
@@ -84,15 +82,30 @@ describe("Contact form real submission", () => {
     fireEvent.submit(getSubmitButton().closest("form")!);
     dateSpy.mockRestore();
 
-    await waitFor(() => expect(invoke).toHaveBeenCalledTimes(1));
-    const [fnName, options] = invoke.mock.calls[0];
-    expect(fnName).toBe("submit-form");
-    expect(options.body).toMatchObject({
+    await waitFor(() => expect(submitForm).toHaveBeenCalledTimes(1));
+    expect(submitForm.mock.calls[0][0]).toMatchObject({
       form_type: "contact",
       name: "Jane Doe",
       email: "jane@example.com",
       turnstileToken: "test-turnstile-token",
     });
     expect(toast.success).toHaveBeenCalled();
+  });
+});
+
+describe("Contact form failed submission", () => {
+  it("shows an error toast and does not redirect to a mail client when sending fails", async () => {
+    submitForm.mockResolvedValue(false);
+    const hrefBefore = window.location.href;
+    await renderContact();
+    fillRequiredFields();
+
+    const dateSpy = vi.spyOn(Date, "now").mockReturnValue(Date.now() + 3000);
+    fireEvent.submit(getSubmitButton().closest("form")!);
+    dateSpy.mockRestore();
+
+    await waitFor(() => expect(toast.error).toHaveBeenCalledTimes(1));
+    expect(toast.success).not.toHaveBeenCalled();
+    expect(window.location.href).toBe(hrefBefore);
   });
 });

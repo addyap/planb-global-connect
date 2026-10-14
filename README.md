@@ -33,12 +33,13 @@ The base static `<head>` (sitewide Organization / WebSite / ProfessionalService 
 
 - `bun run dev` — local dev (Vite).
 - `bun run build` — production build. Runs `prebuild` (sitemap), `vite build`, then `postbuild` (per-route prerender + sanity check).
-- `dist/` is what Vercel deploys. `vercel.json` at the repo root supplies the SPA fallback rewrite (`(.*) → /index.html`) for unknown paths.
+- `dist/` is what Vercel deploys. `vercel.json` at the repo root supplies the SPA fallback rewrite (`(.*) → /index.html`, excluding `/api/`) for unknown paths.
 
 ## Notable conventions
 
 - All 8 UI languages auto-detect from the visitor's browser; English is the canonical indexed language for meta tags.
 - All locales except EN are lazy-loaded via `i18next-resources-to-backend` (see `src/i18n/index.ts`).
 - Route-level code splitting via `React.lazy()` in `src/App.tsx`; the homepage import stays synchronous.
-- Form submissions go through the `submit-form` edge function (`supabase/functions/submit-form`), not a direct client insert. It verifies a Cloudflare Turnstile token and the honeypot/timing trap server-side, then writes to `form_submissions` with the service role key. RLS has no INSERT policy for `anon`/`authenticated` at all — direct REST inserts are rejected. A DB trigger rate-limits (3/email/15min, 10 total/min) and checks email format regardless of entry point.
-- Turnstile requires `VITE_TURNSTILE_SITE_KEY` (client, public) and `TURNSTILE_SECRET_KEY` (edge function secret, set via the Supabase dashboard — never in client code).
+- Form submissions (contact + questionnaire) `POST` to the `api/submit.ts` Vercel Function — there is no database. It verifies a Cloudflare Turnstile token, re-checks the honeypot/timing trap and email format server-side, then emails the submission to Anthony via Resend (the email is the only record). `middleware.ts` and the `vercel.json` rewrite both skip `/api/`.
+- Vercel environment variables: `VITE_TURNSTILE_SITE_KEY` (client, public), `TURNSTILE_SECRET_KEY` and `RESEND_API_KEY` (server only — never in client code). Optional: `RESEND_FROM` (a sender on a Resend-verified domain; without it Resend's sandbox sender only delivers to the Resend account owner's address) and `NOTIFY_TO`.
+- `/api/*` isn't served by `bun run dev` (plain Vite); use `vercel dev` to test the forms locally.

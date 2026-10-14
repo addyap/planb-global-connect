@@ -4,15 +4,14 @@ import { MemoryRouter } from "react-router-dom";
 import { toast } from "sonner";
 import { Questionnaire } from "@/components/sections/Questionnaire";
 
-const invoke = vi.fn().mockResolvedValue({ error: null });
+const submitForm = vi.fn().mockResolvedValue(true);
 
 vi.mock("sonner", () => ({
   toast: { success: vi.fn(), error: vi.fn() },
 }));
 
-vi.mock("@/integrations/supabase/client", () => ({
-  isSupabaseConfigured: true,
-  supabase: { functions: { invoke: (...args: unknown[]) => invoke(...args) } },
+vi.mock("@/lib/submit-form", () => ({
+  submitForm: (...args: unknown[]) => submitForm(...args),
 }));
 
 vi.mock("@/hooks/use-turnstile", () => ({
@@ -32,9 +31,7 @@ const renderQuestionnaire = async () => {
       <Questionnaire />
     </MemoryRouter>,
   );
-  // The Supabase client loads via a dynamic import on mount; wait for it
-  // so the submit button is enabled before a test interacts with it.
-  await waitFor(() => expect(getSubmitButton()).not.toBeDisabled());
+  expect(getSubmitButton()).not.toBeDisabled();
   return utils;
 };
 
@@ -55,7 +52,8 @@ const fillRequiredFields = (container: HTMLElement) => {
 };
 
 beforeEach(() => {
-  invoke.mockClear();
+  submitForm.mockClear();
+  submitForm.mockResolvedValue(true);
   vi.mocked(toast.success).mockClear();
   vi.mocked(toast.error).mockClear();
 });
@@ -67,7 +65,7 @@ describe("Questionnaire form validation", () => {
 
     expect(await screen.findByText("Please enter your full name.")).toBeInTheDocument();
     expect(screen.getByText("Please enter a valid email address.")).toBeInTheDocument();
-    expect(invoke).not.toHaveBeenCalled();
+    expect(submitForm).not.toHaveBeenCalled();
   });
 });
 
@@ -80,7 +78,7 @@ describe("Questionnaire honeypot and timing trap", () => {
     fireEvent.click(getSubmitButton());
 
     await waitFor(() => expect(toast.success).toHaveBeenCalledWith("Thank you — your questionnaire has been received. Anthony will be in touch shortly."));
-    expect(invoke).not.toHaveBeenCalled();
+    expect(submitForm).not.toHaveBeenCalled();
   });
 
   it("silently succeeds without submitting when the form is filled too quickly", async () => {
@@ -90,12 +88,12 @@ describe("Questionnaire honeypot and timing trap", () => {
     fireEvent.click(getSubmitButton());
 
     await waitFor(() => expect(toast.success).toHaveBeenCalled());
-    expect(invoke).not.toHaveBeenCalled();
+    expect(submitForm).not.toHaveBeenCalled();
   });
 });
 
 describe("Questionnaire real submission", () => {
-  it("submits to Supabase with the expected payload once past the timing trap", async () => {
+  it("submits to /api/submit with the expected payload once past the timing trap", async () => {
     const { container } = await renderQuestionnaire();
     fillRequiredFields(container);
 
@@ -106,11 +104,9 @@ describe("Questionnaire real submission", () => {
     const dateSpy = vi.spyOn(Date, "now").mockReturnValue(Date.now() + 3000);
     fireEvent.click(getSubmitButton());
 
-    await waitFor(() => expect(invoke).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(submitForm).toHaveBeenCalledTimes(1));
     dateSpy.mockRestore();
-    const [fnName, options] = invoke.mock.calls[0];
-    expect(fnName).toBe("submit-form");
-    expect(options.body).toMatchObject({
+    expect(submitForm.mock.calls[0][0]).toMatchObject({
       form_type: "questionnaire",
       name: "Jane Doe",
       email: "jane@example.com",
@@ -118,5 +114,22 @@ describe("Questionnaire real submission", () => {
       turnstileToken: "test-turnstile-token",
     });
     expect(toast.success).toHaveBeenCalled();
+  });
+});
+
+describe("Questionnaire failed submission", () => {
+  it("shows an error toast and does not redirect to a mail client when sending fails", async () => {
+    submitForm.mockResolvedValue(false);
+    const hrefBefore = window.location.href;
+    const { container } = await renderQuestionnaire();
+    fillRequiredFields(container);
+
+    const dateSpy = vi.spyOn(Date, "now").mockReturnValue(Date.now() + 3000);
+    fireEvent.click(getSubmitButton());
+
+    await waitFor(() => expect(toast.error).toHaveBeenCalledTimes(1));
+    dateSpy.mockRestore();
+    expect(toast.success).not.toHaveBeenCalled();
+    expect(window.location.href).toBe(hrefBefore);
   });
 });
