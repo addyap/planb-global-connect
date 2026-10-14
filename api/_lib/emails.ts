@@ -105,6 +105,25 @@ function questionnaireValue(s: Submission, key: QuestionnaireKey): unknown {
   return s.answers[key];
 }
 
+// The visitor confirmation goes to whatever address was typed into the form, so anything it
+// echoes back could be used to send spam from our domain (a scripted POST with a victim's
+// address and a link in the name or message). It therefore never repeats free text, only
+// answers that match one of the form's own options, and a name that doesn't look like a link.
+const FREE_TEXT_FIELDS = new Set<string>(["brief", "message", "projectLocation"]);
+const LINK_LIKE = /:\/\/|www\.|\S\.[a-z]{2,}/i;
+
+function safeVisitorName(name: string): string {
+  const n = name.trim();
+  return n && n.length <= 60 && !LINK_LIKE.test(n) ? n : "";
+}
+
+function isKnownOption(lang: string, key: QuestionnaireKey, value: string): boolean {
+  const listKey = OPTION_LISTS[key];
+  if (!listKey) return false;
+  const options = LOCALES[lang]?.questionnaire[listKey] as unknown as string[] | undefined;
+  return !!options?.includes(value);
+}
+
 function contactValue(s: Submission, key: ContactKey): string {
   return { name: s.name, email: s.email, phone: s.phone, message: s.message }[key];
 }
@@ -376,32 +395,33 @@ export function buildVisitorEmail(s: Submission): BuiltEmail {
 
   const rows: { label: string; html: string }[] = [];
   const textRows: string[] = [];
-  let longHtml = "";
 
   if (isQ) {
     for (const section of QUESTIONNAIRE_SECTIONS) {
       for (const key of section.keys) {
+        if (FREE_TEXT_FIELDS.has(key)) continue;
         const label = locale.questionnaire.fields[key];
         const raw = questionnaireValue(s, key);
-        if (LONG_FIELDS.has(key)) {
-          const v = str(raw);
-          longHtml = `<p style="margin:20px 0 0;font-family:${FONT};font-size:13px;color:${C.label};">${esc(label)}</p>` + longBlock(v ? multiline(v) : empty(NR));
-          textRows.push(`${label}:\n${v || NR}`);
+        if (key === "fullName") {
+          const v = safeVisitorName(str(raw));
+          rows.push({ label, html: v ? esc(v) : empty(NR) });
+          textRows.push(`${label}: ${v || NR}`);
           continue;
         }
-        const values = key === "services" ? list(raw) : [str(raw)].filter(Boolean);
+        const all = key === "services" ? list(raw) : [str(raw)].filter(Boolean);
+        // email / phone are the visitor's own details; everything else must be a known option.
+        const values = OPTION_LISTS[key] ? all.filter((v) => isKnownOption(lang, key, v)) : all.map((v) => v.slice(0, 50));
         rows.push({ label, html: values.length ? values.map(esc).join("<br>") : empty(NR) });
         textRows.push(`${label}: ${values.length ? values.join(", ") : NR}`);
       }
     }
   } else {
     for (const key of ["name", "email", "phone"] as const) {
-      const v = contactValue(s, key);
+      const raw = contactValue(s, key);
+      const v = key === "name" ? safeVisitorName(raw) : raw.slice(0, 50);
       rows.push({ label: locale.contact[key], html: v ? esc(v) : empty(NR) });
       textRows.push(`${locale.contact[key]}: ${v || NR}`);
     }
-    longHtml = longBlock(s.message ? multiline(s.message) : empty(NR));
-    textRows.push(`${locale.contact.message}:\n${s.message || NR}`);
   }
 
   const steps = copy.steps
@@ -427,7 +447,8 @@ export function buildVisitorEmail(s: Submission): BuiltEmail {
   const subject = isQ ? copy.subjectQuestionnaire : copy.subjectContact;
   const intro = isQ ? copy.introQuestionnaire : copy.introContact;
   // Both forms require a name; the fallback only guards against a hand-crafted request.
-  const title = s.name ? copy.thanks(s.name) : copy.thanks("").replace(/,\s*\.$/, ".");
+  const visitorName = safeVisitorName(s.name);
+  const title = visitorName ? copy.thanks(visitorName) : copy.thanks("").replace(/,\s*\.$/, ".");
 
   const body =
     heading(isQ ? copy.eyebrowQuestionnaire : copy.eyebrowContact, title) +
@@ -436,7 +457,6 @@ export function buildVisitorEmail(s: Submission): BuiltEmail {
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">${steps}</table>` +
     sectionTitle(isQ ? copy.recapQuestionnaire : copy.recapContact) +
     rowsTable(rows) +
-    longHtml +
     directCard;
 
   const footer =
