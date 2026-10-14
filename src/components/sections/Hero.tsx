@@ -12,7 +12,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative text-primary-foreground min-h-[100svh] flex items-center pt-28 md:pt-32 pb-20 md:pb-28 overflow-hidden"
+      className="relative text-primary-foreground min-h-[88svh] flex items-center pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden"
     >
       {/* Background image */}
       <img
@@ -40,15 +40,15 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl"
+          className="max-w-4xl"
         >
-          <span className="inline-block font-display text-xs md:text-sm tracking-[0.3em] text-accent uppercase mb-6">
+          <span className="inline-block font-display text-xs md:text-sm tracking-[0.3em] text-accent uppercase mb-5">
             {t("hero.eyebrow")}
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1.02] font-bold mb-6 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
+          <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl leading-[1.05] font-bold mb-5 drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
             {t("hero.title")}
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mb-10 leading-relaxed drop-shadow-md">
+          <p className="text-base md:text-lg text-primary-foreground/90 max-w-2xl mb-8 leading-relaxed drop-shadow-md">
             {t("hero.subtitle")}
           </p>
           <div className="flex flex-wrap gap-3">
@@ -72,21 +72,21 @@ export const Hero = () => {
           </div>
 
           {/* Stats strip */}
-          <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg border-t border-accent/30 pt-6">
+          <div className="mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-lg border-t border-accent/30 pt-6">
             <div>
-              <div className="font-display text-2xl md:text-3xl font-bold text-accent">Over 30</div>
+              <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">Over 30</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
                 {t("hero.statYears")}
               </div>
             </div>
             <div>
-              <div className="font-display text-2xl md:text-3xl font-bold text-accent">EN/FR</div>
+              <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">EN/FR</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
                 {t("hero.statBilingual")}
               </div>
             </div>
             <div>
-              <div className="font-display text-2xl md:text-3xl font-bold text-accent">06 / 83</div>
+              <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">06 / 83</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
                 {t("hero.statRegion")}
               </div>
