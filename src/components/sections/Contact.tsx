@@ -9,11 +9,12 @@ import { toast } from "sonner";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { submitForm } from "@/lib/submit-form";
+import { FormSuccess } from "@/components/FormSuccess";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
 
 export const Contact = () => {
   const { t, i18n } = useTranslation();
-  const [sent, setSent] = useState(false);
+  const [sentTo, setSentTo] = useState<{ name: string; email: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const mountedAt = useRef<number>(Date.now());
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsappPrefill"))}`;
@@ -33,9 +34,7 @@ export const Contact = () => {
     // Spam trap: bots fill hidden field or submit too fast. Fake success silently.
     if (honeypot || elapsed < 2000) {
       setSubmitting(false);
-      setSent(true);
-      toast.success(t("contact.sent"));
-      (e.target as HTMLFormElement).reset();
+      setSentTo({ name, email });
       return;
     }
 
@@ -62,9 +61,12 @@ export const Contact = () => {
       return;
     }
 
-    setSent(true);
-    toast.success(t("contact.sent"));
-    (e.target as HTMLFormElement).reset();
+    setSentTo({ name, email });
+  };
+
+  const resetForm = () => {
+    mountedAt.current = Date.now();
+    setSentTo(null);
   };
 
   return (
@@ -122,47 +124,50 @@ export const Contact = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="md:col-span-3 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-elegant space-y-4">
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="name">{t("contact.name")}</Label>
-              <Input id="name" name="name" required className="mt-1.5" />
+        {sentTo ? (
+          <FormSuccess variant="contact" name={sentTo.name} email={sentTo.email} onReset={resetForm} className="md:col-span-3" />
+        ) : (
+          <form onSubmit={handleSubmit} className="md:col-span-3 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-elegant space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="name">{t("contact.name")}</Label>
+                <Input id="name" name="name" required className="mt-1.5" />
+              </div>
+              <div>
+                <Label htmlFor="email">{t("contact.email")}</Label>
+                <Input id="email" name="email" type="email" required className="mt-1.5" />
+              </div>
             </div>
             <div>
-              <Label htmlFor="email">{t("contact.email")}</Label>
-              <Input id="email" name="email" type="email" required className="mt-1.5" />
+              <Label htmlFor="phone">{t("contact.phone")}</Label>
+              <Input id="phone" name="phone" type="tel" className="mt-1.5" />
             </div>
-          </div>
-          <div>
-            <Label htmlFor="phone">{t("contact.phone")}</Label>
-            <Input id="phone" name="phone" type="tel" className="mt-1.5" />
-          </div>
-          <div>
-            <Label htmlFor="message">{t("contact.message")}</Label>
-            <Textarea id="message" name="message" required rows={5} className="mt-1.5" />
-          </div>
-          {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
-          <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
-            <label htmlFor="company">Company</label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              autoComplete="off"
-              tabIndex={-1}
-            />
-          </div>
-          <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
-            {submitting ? "…" : t("contact.send")}
-          </Button>
-          {sent && <p className="text-sm text-secondary">{t("contact.sent")}</p>}
-          <p className="text-xs text-muted-foreground mt-3">
-            {t("contact.privacyNotice")}{" "}
-            <Link to="/politique-de-confidentialite" className="underline hover:text-accent">
-              {t("contact.privacyPolicy")}
-            </Link>
-          </p>
-        </form>
+            <div>
+              <Label htmlFor="message">{t("contact.message")}</Label>
+              <Textarea id="message" name="message" required rows={5} className="mt-1.5" />
+            </div>
+            {/* Honeypot field — hidden from real users; bots fill it and get silently dropped. */}
+            <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+              <label htmlFor="company">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                autoComplete="off"
+                tabIndex={-1}
+              />
+            </div>
+            <Button type="submit" size="lg" disabled={submitting} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
+              {submitting ? "…" : t("contact.send")}
+            </Button>
+            <p className="text-xs text-muted-foreground mt-3">
+              {t("contact.privacyNotice")}{" "}
+              <Link to="/politique-de-confidentialite" className="underline hover:text-accent">
+                {t("contact.privacyPolicy")}
+              </Link>
+            </p>
+          </form>
+        )}
       </div>
     </section>
   );

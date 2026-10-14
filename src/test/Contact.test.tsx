@@ -35,7 +35,6 @@ const fillRequiredFields = () => {
 beforeEach(() => {
   submitForm.mockClear();
   submitForm.mockResolvedValue(true);
-  vi.mocked(toast.success).mockClear();
   vi.mocked(toast.error).mockClear();
 });
 
@@ -47,7 +46,7 @@ describe("Contact form honeypot and timing trap", () => {
 
     fireEvent.submit(getSubmitButton().closest("form")!);
 
-    await waitFor(() => expect(toast.success).toHaveBeenCalled());
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
     expect(submitForm).not.toHaveBeenCalled();
   });
 
@@ -57,7 +56,7 @@ describe("Contact form honeypot and timing trap", () => {
 
     fireEvent.submit(getSubmitButton().closest("form")!);
 
-    await waitFor(() => expect(toast.success).toHaveBeenCalled());
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
     expect(submitForm).not.toHaveBeenCalled();
   });
 });
@@ -80,7 +79,9 @@ describe("Contact form real submission", () => {
       name: "Jane Doe",
       email: "jane@example.com",
     });
-    expect(toast.success).toHaveBeenCalled();
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
+    expect(screen.getByText("jane@example.com")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^send (message|questionnaire)$/i })).not.toBeInTheDocument();
   });
 });
 
@@ -96,7 +97,26 @@ describe("Contact form failed submission", () => {
     dateSpy.mockRestore();
 
     await waitFor(() => expect(toast.error).toHaveBeenCalledTimes(1));
-    expect(toast.success).not.toHaveBeenCalled();
+    expect(screen.queryByRole("heading", { name: /thank you/i })).not.toBeInTheDocument();
+    expect(getSubmitButton()).toBeInTheDocument();
     expect(window.location.href).toBe(hrefBefore);
+  });
+});
+
+describe("Contact form success panel", () => {
+  it("replaces the form with the confirmation, and 'send another' brings the form back", async () => {
+    await renderContact();
+    fillRequiredFields();
+
+    const dateSpy = vi.spyOn(Date, "now").mockReturnValue(Date.now() + 3000);
+    fireEvent.submit(getSubmitButton().closest("form")!);
+    dateSpy.mockRestore();
+
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toHaveFocus();
+    expect(screen.queryByLabelText("Message")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Send another message" }));
+    expect(getSubmitButton()).toBeInTheDocument();
+    expect(screen.getByLabelText("Name")).toHaveValue("");
   });
 });

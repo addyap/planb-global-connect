@@ -27,8 +27,8 @@ const renderQuestionnaire = async () => {
 };
 
 const fillRequiredFields = (container: HTMLElement) => {
-  fireEvent.change(screen.getByLabelText("Full name"), { target: { value: "Jane Doe" } });
-  fireEvent.change(screen.getByLabelText("Email"), { target: { value: "jane@example.com" } });
+  fireEvent.change(screen.getByLabelText(/Full name/), { target: { value: "Jane Doe" } });
+  fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: "jane@example.com" } });
   fireEvent.change(screen.getByLabelText("Phone"), { target: { value: "+33612345678" } });
   fireEvent.change(screen.getByLabelText("Project location"), { target: { value: "Cannes" } });
   fireEvent.change(container.querySelector("#projectType")!, { target: { value: "Renovation" } });
@@ -45,7 +45,6 @@ const fillRequiredFields = (container: HTMLElement) => {
 beforeEach(() => {
   submitForm.mockClear();
   submitForm.mockResolvedValue(true);
-  vi.mocked(toast.success).mockClear();
   vi.mocked(toast.error).mockClear();
 });
 
@@ -68,7 +67,7 @@ describe("Questionnaire honeypot and timing trap", () => {
 
     fireEvent.click(getSubmitButton());
 
-    await waitFor(() => expect(toast.success).toHaveBeenCalledWith("Thank you — your questionnaire has been received. Anthony will be in touch shortly."));
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
     expect(submitForm).not.toHaveBeenCalled();
   });
 
@@ -78,7 +77,7 @@ describe("Questionnaire honeypot and timing trap", () => {
 
     fireEvent.click(getSubmitButton());
 
-    await waitFor(() => expect(toast.success).toHaveBeenCalled());
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
     expect(submitForm).not.toHaveBeenCalled();
   });
 });
@@ -104,7 +103,9 @@ describe("Questionnaire real submission", () => {
       email: "jane@example.com",
       phone: "+33612345678",
     });
-    expect(toast.success).toHaveBeenCalled();
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
+    expect(screen.getByText("jane@example.com")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^send (message|questionnaire)$/i })).not.toBeInTheDocument();
   });
 });
 
@@ -120,7 +121,42 @@ describe("Questionnaire failed submission", () => {
 
     await waitFor(() => expect(toast.error).toHaveBeenCalledTimes(1));
     dateSpy.mockRestore();
-    expect(toast.success).not.toHaveBeenCalled();
+    expect(screen.queryByRole("heading", { name: /thank you/i })).not.toBeInTheDocument();
+    expect(getSubmitButton()).toBeInTheDocument();
     expect(window.location.href).toBe(hrefBefore);
+  });
+});
+
+describe("Questionnaire optional fields", () => {
+  it("submits with only name and email, sending the skipped answers empty", async () => {
+    await renderQuestionnaire();
+    fireEvent.change(screen.getByLabelText(/Full name/), { target: { value: "Jane Doe" } });
+    fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: "jane@example.com" } });
+
+    const dateSpy = vi.spyOn(Date, "now").mockReturnValue(Date.now() + 3000);
+    fireEvent.click(getSubmitButton());
+
+    await waitFor(() => expect(submitForm).toHaveBeenCalledTimes(1));
+    dateSpy.mockRestore();
+    expect(submitForm.mock.calls[0][0].payload).toMatchObject({
+      phone: "",
+      projectLocation: "",
+      projectType: "",
+      budget: "",
+      services: [],
+      siteVisit: "",
+      brief: "",
+    });
+    expect(await screen.findByRole("heading", { name: "Thank you, Jane Doe." })).toBeInTheDocument();
+  });
+
+  it("still requires name and email", async () => {
+    await renderQuestionnaire();
+    fireEvent.click(getSubmitButton());
+
+    expect(await screen.findByText("Please enter your full name.")).toBeInTheDocument();
+    expect(screen.getByText("Please enter a valid email address.")).toBeInTheDocument();
+    expect(screen.queryByText("Please select a budget range.")).not.toBeInTheDocument();
+    expect(submitForm).not.toHaveBeenCalled();
   });
 });
