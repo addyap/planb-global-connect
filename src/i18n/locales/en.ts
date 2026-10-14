@@ -111,7 +111,7 @@ const en = {
       "Administrative guidance",
     ],
     siteVisitOptions: ["Yes", "No"],
-    note: "Submitting opens your email app with the completed questionnaire addressed directly to me.",
+    note: "Your questionnaire comes straight to me, and you'll receive a confirmation by email.",
     submit: "Send questionnaire",
     success: "Thank you — your questionnaire has been received. Anthony will be in touch shortly.",
     emailSubject: "Plan B Concept — New project questionnaire",

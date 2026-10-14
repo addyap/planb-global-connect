@@ -104,7 +104,7 @@ const de = {
     timelineOptions: ["Sofort", "Innerhalb von 3 Monaten", "Innerhalb von 6 Monaten", "6–12 Monate", "Nur Planungsphase"],
     serviceOptions: ["Projektsteuerung", "Baukoordination", "Bauherrenvertretung", "Budget- und Anbieterauswahl", "Baustellenüberwachung", "Administrative Begleitung"],
     siteVisitOptions: ["Ja", "Nein"],
-    note: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit dem ausgefüllten Fragebogen an mich.",
+    note: "Ihr Fragebogen geht direkt an mich, und Sie erhalten eine Bestätigung per E-Mail.",
     submit: "Fragebogen senden",
     success: "Danke — Ihr Fragebogen ist eingegangen. Anthony meldet sich in Kürze bei Ihnen.",
     emailSubject: "Plan B Concept — Neuer Projektfragebogen",

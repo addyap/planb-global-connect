@@ -111,7 +111,7 @@ const fr = {
       "Accompagnement administratif",
     ],
     siteVisitOptions: ["Oui", "Non"],
-    note: "L'envoi ouvre votre messagerie avec le questionnaire complété prêt à m'être adressé directement.",
+    note: "Votre questionnaire m'est transmis directement et vous recevrez une confirmation par e-mail.",
     submit: "Envoyer le questionnaire",
     success: "Merci — votre questionnaire a bien été reçu. Anthony vous recontactera rapidement.",
     emailSubject: "Plan B Concept — Nouveau questionnaire projet",

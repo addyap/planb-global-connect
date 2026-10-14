@@ -85,6 +85,7 @@ describe("Contact form real submission", () => {
     await waitFor(() => expect(submitForm).toHaveBeenCalledTimes(1));
     expect(submitForm.mock.calls[0][0]).toMatchObject({
       form_type: "contact",
+      lang: "en",
       name: "Jane Doe",
       email: "jane@example.com",
       turnstileToken: "test-turnstile-token",

@@ -104,7 +104,7 @@ const sv = {
     timelineOptions: ["Omedelbart", "Inom 3 månader", "Inom 6 månader", "6–12 månader", "Endast planeringsfas"],
     serviceOptions: ["Projektledning", "Byggsamordning", "Representation av beställare", "Budget- och leverantörsråd", "Byggplatsuppföljning", "Administrativ vägledning"],
     siteVisitOptions: ["Ja", "Nej"],
-    note: "När du skickar öppnas ditt e-postprogram med det ifyllda formuläret adresserat direkt till mig.",
+    note: "Ditt formulär skickas direkt till mig och du får en bekräftelse via e-post.",
     submit: "Skicka formuläret",
     success: "Tack — ditt formulär har tagits emot. Anthony hör av sig inom kort.",
     emailSubject: "Plan B Concept — Ny projektförfrågan",

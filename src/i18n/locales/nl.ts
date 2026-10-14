@@ -104,7 +104,7 @@ const nl = {
     timelineOptions: ["Onmiddellijk", "Binnen 3 maanden", "Binnen 6 maanden", "6–12 maanden", "Alleen in planningsfase"],
     serviceOptions: ["Projectmanagement", "Bouwcoördinatie", "Vertegenwoordiging opdrachtgever", "Budget- en leveranciersadvies", "Toezicht en rapportage", "Administratieve begeleiding"],
     siteVisitOptions: ["Ja", "Nee"],
-    note: "Bij verzenden opent uw e-mailprogramma met de ingevulde vragenlijst direct aan mij.",
+    note: "Uw vragenlijst komt rechtstreeks bij mij terecht en u ontvangt een bevestiging per e-mail.",
     submit: "Vragenlijst verzenden",
     success: "Bedankt — uw vragenlijst is ontvangen. Anthony neemt spoedig contact met u op.",
     emailSubject: "Plan B Concept — Nieuwe projectvragenlijst",

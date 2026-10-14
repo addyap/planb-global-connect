@@ -87,7 +87,7 @@ const PolitiqueConfidentialite = () => {
               <strong>Vercel Inc.</strong> (États-Unis) — hébergement du site, diffusion via CDN et fonction serveur de transmission des formulaires. Traite l&apos;adresse IP et les en-têtes HTTP des visiteurs (logs techniques, protection contre les abus), ainsi que les données soumises via les formulaires de contact et de questionnaire, qui sont transmises par email sans être stockées en base de données.
             </li>
             <li>
-              <strong>Resend</strong> (États-Unis) — prestataire d&apos;envoi d&apos;email. Reçoit le contenu des notifications envoyées à Plan B Concept lorsqu&apos;un formulaire est soumis (nom, email, téléphone, message, détails du projet) afin d&apos;acheminer l&apos;email.
+              <strong>Resend</strong> (États-Unis) — prestataire d&apos;envoi d&apos;email. Reçoit le contenu des formulaires soumis (nom, email, téléphone, message, détails du projet) afin d&apos;acheminer la notification envoyée à Plan B Concept et l&apos;e-mail de confirmation envoyé à l&apos;adresse indiquée dans le formulaire.
             </li>
           </ul>
           <p>

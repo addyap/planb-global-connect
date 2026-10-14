@@ -108,6 +108,7 @@ describe("Questionnaire real submission", () => {
     dateSpy.mockRestore();
     expect(submitForm.mock.calls[0][0]).toMatchObject({
       form_type: "questionnaire",
+      lang: "en",
       name: "Jane Doe",
       email: "jane@example.com",
       phone: "+33612345678",

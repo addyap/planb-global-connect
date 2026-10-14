@@ -111,7 +111,7 @@ const da = {
       "Administrativ vejledning",
     ],
     siteVisitOptions: ["Ja", "Nej"],
-    note: "Når du sender, åbnes din e-mail-app med det udfyldte spørgeskema adresseret direkte til mig.",
+    note: "Dit spørgeskema sendes direkte til mig, og du modtager en bekræftelse på e-mail.",
     submit: "Send spørgeskema",
     success: "Tak — dit spørgeskema er modtaget. Anthony vender tilbage til dig snarest.",
     emailSubject: "Plan B Concept — Nyt projektspørgeskema",

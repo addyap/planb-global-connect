@@ -111,7 +111,7 @@ const no = {
       "Administrativ veiledning",
     ],
     siteVisitOptions: ["Ja", "Nei"],
-    note: "Når du sender, åpnes e-postappen din med det utfylte skjemaet adressert direkte til meg.",
+    note: "Skjemaet ditt sendes direkte til meg, og du mottar en bekreftelse på e-post.",
     submit: "Send skjema",
     success: "Takk — skjemaet ditt er mottatt. Anthony tar kontakt med deg snart.",
     emailSubject: "Plan B Concept — Nytt prosjektskjema",

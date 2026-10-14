@@ -1,5 +1,7 @@
 export type SubmitFormBody = {
   form_type: "contact" | "questionnaire";
+  /** Site language the visitor used; their confirmation email is sent in it. */
+  lang?: string;
   name?: string;
   email?: string;
   phone?: string;

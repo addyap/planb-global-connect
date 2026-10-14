@@ -1,8 +1,9 @@
 // Vercel Function: POST /api/submit
 // Receives the contact and questionnaire forms, verifies the Cloudflare Turnstile token
 // server-side (the secret key can never live in client code), re-checks the
-// honeypot/timing spam trap, then emails the submission to Anthony via Resend.
-// No database: the email is the record.
+// honeypot/timing spam trap, then sends two emails via Resend: the full submission to
+// Anthony, and a confirmation to the visitor in the language they used on the site.
+// No database: the email is the record. Templates live in api/_lib/emails.ts.
 //
 // Required environment variables (Vercel project settings):
 //   RESEND_API_KEY        Resend API key
@@ -11,18 +12,20 @@
 //   RESEND_FROM           Verified sender, e.g. "Plan B Concept <noreply@planb-concept.com>".
 //                         Defaults to Resend's sandbox sender, which only delivers to the
 //                         Resend account owner's own address.
-//   NOTIFY_TO             Recipient; defaults to Anthony's address.
+//   NOTIFY_TO             Notification recipient; defaults to Anthony's address (CONTACT.email).
 
-const NOTIFY_TO = process.env.NOTIFY_TO ?? "anthony.gratton13@gmail.com";
+import { buildOwnerEmail, buildVisitorEmail, SUPPORTED_LANGS, type BuiltEmail, type FormType, type Submission } from "./_lib/emails.js";
+import { CONTACT } from "../src/lib/contact.js";
+
+const NOTIFY_TO = process.env.NOTIFY_TO ?? CONTACT.email;
 const NOTIFY_FROM = process.env.RESEND_FROM ?? "Plan B Concept <onboarding@resend.dev>";
-const FORM_TYPES = ["contact", "questionnaire"] as const;
+const FORM_TYPES: FormType[] = ["contact", "questionnaire"];
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const MAX_FIELD_LENGTH = 5000;
 
-type FormType = (typeof FORM_TYPES)[number];
-
 type SubmitPayload = {
   form_type?: string;
+  lang?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -39,17 +42,18 @@ const json = (status: number, data: unknown) =>
     headers: { "Content-Type": "application/json" },
   });
 
-const escapeHtml = (s: string) =>
-  s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+const clip = (v: unknown) => (typeof v === "string" ? v.trim().slice(0, MAX_FIELD_LENGTH) : "");
 
-const clip = (v: unknown) => String(v ?? "").slice(0, MAX_FIELD_LENGTH);
-
-const formatValue = (v: unknown) => clip(Array.isArray(v) ? v.join(", ") : v);
+/** Keeps only string / string[] answers, clipped, so nothing unexpected reaches the templates. */
+function cleanAnswers(payload: unknown): Record<string, unknown> {
+  if (!payload || typeof payload !== "object") return {};
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(payload).slice(0, 50)) {
+    if (typeof v === "string") out[k] = clip(v);
+    else if (Array.isArray(v)) out[k] = v.filter((x) => typeof x === "string").slice(0, 20).map(clip);
+  }
+  return out;
+}
 
 async function verifyTurnstile(token: string, remoteIp: string | null): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
@@ -69,53 +73,28 @@ async function verifyTurnstile(token: string, remoteIp: string | null): Promise<
   return result.success === true;
 }
 
-function buildEmail(formType: FormType, body: SubmitPayload, userAgent: string | null) {
-  const rows: [string, string][] = [
-    ["Form type", formType],
-    ["Name", clip(body.name)],
-    ["Email", clip(body.email)],
-    ["Phone", clip(body.phone)],
-    ["Message", clip(body.message)],
-  ];
-  const details =
-    formType === "questionnaire" && body.payload && typeof body.payload === "object"
-      ? Object.entries(body.payload).map(([k, v]): [string, string] => [k, formatValue(v)])
-      : [];
-  const submittedAt = new Date().toISOString();
-
-  const htmlTable = (entries: [string, string][]) =>
-    `<table style="border-collapse:collapse;font-family:sans-serif;font-size:14px;">` +
-    entries
-      .map(
-        ([k, v]) =>
-          `<tr><td style="padding:4px 12px 4px 0;vertical-align:top;color:#666;"><strong>${escapeHtml(k)}</strong></td>` +
-          `<td style="padding:4px 0;white-space:pre-wrap;">${escapeHtml(v)}</td></tr>`,
-      )
-      .join("") +
-    `</table>`;
-
-  const text =
-    rows.map(([k, v]) => `${k}: ${v}`).join("\n") +
-    (details.length
-      ? "\n\n— Questionnaire details —\n" + details.map(([k, v]) => `${k}: ${v}`).join("\n")
-      : "") +
-    (userAgent ? `\n\nUser agent: ${userAgent}` : "") +
-    `\nSubmitted at: ${submittedAt}`;
-
-  const html =
-    `<div style="font-family:sans-serif;font-size:14px;color:#111;">` +
-    `<h2 style="margin:0 0 16px;">New ${escapeHtml(formType)} submission</h2>` +
-    htmlTable(rows) +
-    (details.length
-      ? `<h3 style="margin-top:24px;font-family:sans-serif;">Questionnaire details</h3>` + htmlTable(details)
-      : "") +
-    (userAgent
-      ? `<p style="margin-top:24px;color:#888;font-size:12px;">User agent: ${escapeHtml(userAgent)}</p>`
-      : "") +
-    `<p style="margin:4px 0 0;color:#888;font-size:12px;">Submitted at: ${submittedAt}</p>` +
-    `</div>`;
-
-  return { html, text };
+async function sendEmail(apiKey: string, to: string, replyTo: string | undefined, email: BuiltEmail) {
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: NOTIFY_FROM,
+      to: [to],
+      subject: email.subject,
+      html: email.html,
+      text: email.text,
+      reply_to: replyTo,
+    }),
+  });
+  if (!res.ok) {
+    const errText = await res.text().catch(() => "");
+    throw new Error(`Resend returned ${res.status}: ${errText}`);
+  }
+  const sent = await res.json().catch(() => ({}));
+  return sent?.id as string | undefined;
 }
 
 export async function POST(request: Request): Promise<Response> {
@@ -153,33 +132,37 @@ export async function POST(request: Request): Promise<Response> {
       return json(500, { ok: false, error: "email not configured" });
     }
 
-    const { html, text } = buildEmail(formType, body, request.headers.get("user-agent"));
-    const subject = `[Plan B Concept] New ${formType} submission${body.name ? ` — ${clip(body.name).slice(0, 100)}` : ""}`;
+    const submission: Submission = {
+      formType,
+      lang: SUPPORTED_LANGS.includes(body.lang ?? "") ? body.lang! : "en",
+      name: clip(body.name).slice(0, 200),
+      email: clip(body.email),
+      phone: clip(body.phone).slice(0, 50),
+      message: clip(body.message),
+      answers: cleanAnswers(body.payload),
+      userAgent: request.headers.get("user-agent"),
+      receivedAt: new Date(),
+    };
 
-    const resendRes = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: NOTIFY_FROM,
-        to: [NOTIFY_TO],
-        subject,
-        html,
-        text,
-        reply_to: body.email || undefined,
-      }),
-    });
-
-    if (!resendRes.ok) {
-      const errText = await resendRes.text().catch(() => "");
-      console.error(`[submit] Resend returned ${resendRes.status}: ${errText}`);
+    // Anthony's notification must go out; if it fails the visitor sees an error and can retry.
+    try {
+      const id = await sendEmail(apiKey, NOTIFY_TO, submission.email || undefined, buildOwnerEmail(submission));
+      console.log(`[submit] Sent ${formType} notification. Resend id=${id ?? "?"}`);
+    } catch (err) {
+      console.error("[submit] notification failed:", err);
       return json(502, { ok: false, error: "email send failed" });
     }
 
-    const sent = await resendRes.json().catch(() => ({}));
-    console.log(`[submit] Sent ${formType}. Resend id=${sent?.id ?? "?"}`);
+    // The visitor's confirmation is best-effort: the submission already reached Anthony.
+    if (submission.email) {
+      try {
+        const id = await sendEmail(apiKey, submission.email, CONTACT.email, buildVisitorEmail(submission));
+        console.log(`[submit] Sent ${formType} confirmation (${submission.lang}). Resend id=${id ?? "?"}`);
+      } catch (err) {
+        console.error("[submit] confirmation failed:", err);
+      }
+    }
+
     return json(200, { ok: true });
   } catch (err) {
     console.error("[submit] unexpected error:", err);
