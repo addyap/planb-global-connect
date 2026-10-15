@@ -12,6 +12,7 @@ vi.mock("sonner", () => ({
 
 vi.mock("@/lib/submit-form", () => ({
   submitForm: (...args: unknown[]) => submitForm(...args),
+  primeChallenge: vi.fn(),
 }));
 
 const getSubmitButton = () => screen.getByRole("button", { name: /send questionnaire/i });

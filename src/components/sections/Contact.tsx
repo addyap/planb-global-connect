@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Phone, Mail, MessageCircle, Loader2 } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
-import { submitForm } from "@/lib/submit-form";
+import { primeChallenge, submitForm } from "@/lib/submit-form";
 import { LazyFormSuccess, preloadFormSuccess } from "@/components/LazyFormSuccess";
 import { track } from "@/lib/track";
 import linkedInQr from "@/assets/anthony-gratton-linkedin-qr.jpg";
@@ -131,7 +131,7 @@ export const Contact = () => {
         {sentTo ? (
           <LazyFormSuccess variant="contact" name={sentTo.name} email={sentTo.email} onReset={resetForm} className="md:col-span-3" />
         ) : (
-          <form onSubmit={handleSubmit} aria-busy={submitting} className="md:col-span-3 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-elegant space-y-4">
+          <form onFocus={primeChallenge} onSubmit={handleSubmit} aria-busy={submitting} className="md:col-span-3 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-elegant space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="name">{t("contact.name")} <span aria-hidden="true" className="text-secondary">*</span></Label>

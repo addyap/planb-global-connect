@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { submitForm } from "@/lib/submit-form";
+import { primeChallenge, submitForm } from "@/lib/submit-form";
 import { LazyFormSuccess, preloadFormSuccess } from "@/components/LazyFormSuccess";
 import { track } from "@/lib/track";
 
@@ -173,7 +173,7 @@ export const Questionnaire = () => {
         {sentTo ? (
           <LazyFormSuccess variant="questionnaire" name={sentTo.name} email={sentTo.email} onReset={resetForm} />
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} aria-busy={isSubmitting} noValidate className="rounded-2xl border border-border bg-card p-6 shadow-elegant md:p-8">
+          <form onFocus={primeChallenge} onSubmit={handleSubmit(onSubmit)} aria-busy={isSubmitting} noValidate className="rounded-2xl border border-border bg-card p-6 shadow-elegant md:p-8">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <Label htmlFor="fullName">
