@@ -2,8 +2,8 @@ const en = {
   nav: { home: "Home", about: "About Me", services: "What I Do", questionnaire: "Questionnaire", area: "Area", contact: "Contact" },
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Discuss your project today", changeLanguage: "Change language" },
   hero: {
-    eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Project Management on the French Riviera",
+    eyebrow: "Project management — Côte d'Azur",
+    title: "Your Riviera project, managed as if you were here.",
     subtitle: "30+ years of on-the-ground experience. Fully bilingual English & French. Trusted guidance from first sketch to final handover.",
     statYears: "years of experience",
     statBilingual: "Bilingual",
@@ -16,14 +16,6 @@ const en = {
     p2: "Most foreign buyers underestimate how much hands-on management a Riviera renovation or build requires. Trades work differently here, permits move at their own pace, and the consequences of small miscommunications add up quickly. A good owner's representative is the difference between a project that lands on time and on budget — and one that doesn't.",
     p3: "I'm based in the Var and work across Var (83) and Alpes-Maritimes (06), with clients in Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne and the surrounding communes. I take on every project personally — there is no team of juniors handling your villa.",
     p4: "If you are considering a project on the Riviera and want a frank, practical conversation about what's involved, get in touch with me.",
-    expertiseTitle: "Expertise",
-    expertise: [
-      "Project management",
-      "Construction coordination",
-      "Client representation",
-      "Site monitoring & reporting",
-      "Administrative and technical handling",
-    ],
   },
   whyPlanB: {
     title: "Why Plan B Concept",
@@ -118,7 +110,7 @@ const en = {
     privacyPolicy: "Politique de confidentialité",
   },
   area: {
-    title: "Area of Intervention",
+    title: "Where I work",
     subtitle: "Operating across the French Riviera and surrounding regions.",
     intro: "Serving private clients across the French Riviera, from the Var to the Italian border.",
     varLabel: "Var (83)",
@@ -151,6 +143,16 @@ const en = {
     whatsappPrefill: "Hello Anthony, I would like to discuss a project.",
     privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
     privacyPolicy: "Politique de confidentialité",
+  },
+  process: {
+    eyebrow: "How it works",
+    title: "From first call to handover",
+    steps: [
+      { t: "A first conversation", d: "Call, WhatsApp or fill in the questionnaire. Tell me about the property and what you have in mind — no commitment." },
+      { t: "Site visit", d: "I visit the property to assess the scope, the constraints and a realistic budget." },
+      { t: "A clear proposal", d: "A written proposal setting out my role, the timeline and my fees, agreed before anything starts." },
+      { t: "Managed to handover", d: "I run the project on the ground, with weekly photo reports until the keys are back in your hands." },
+    ],
   },
   formSuccess: {
     eyebrowContact: "Message sent",

@@ -29,13 +29,11 @@ export const Hero = () => {
         fetchpriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      {/* Layered overlays for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
-      <div
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
-        style={{ backgroundImage: "repeating-linear-gradient(45deg, hsl(var(--accent)) 0 2px, transparent 2px 14px)" }}
-      />
+      {/* Overlays: dark behind the text on the left, fading out so the coastline shows on the right.
+          Phones get an extra even tint because the text spans the full width there. */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/55 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-primary/35 md:hidden" />
 
       <div className="container relative">
         {/* Slide only, no fade: the headline is the LCP element and must paint at full opacity. */}
@@ -70,7 +68,7 @@ export const Hero = () => {
           </div>
 
           {/* Stats strip */}
-          <div className="mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-lg border-t border-accent/30 pt-6">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-[auto_auto_1fr] gap-x-5 gap-y-5 md:gap-x-10 max-w-2xl border-t border-accent/30 pt-6">
             <div>
               <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">30+</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
@@ -83,8 +81,8 @@ export const Hero = () => {
                 {t("hero.statBilingual")}
               </div>
             </div>
-            <div>
-              <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-accent whitespace-nowrap">06 / 83</div>
+            <div className="col-span-2 sm:col-span-1">
+              <div className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-accent whitespace-nowrap">St-Tropez → Monaco</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-foreground/70 mt-1">
                 {t("hero.statRegion")}
               </div>

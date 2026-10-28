@@ -2,8 +2,8 @@ const nl = {
   nav: { home: "Home", about: "Over mij", services: "Wat ik doe", questionnaire: "Vragenlijst", area: "Regio", contact: "Contact" },
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Bespreek vandaag uw project", changeLanguage: "Taal wijzigen" },
   hero: {
-    eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projectmanagement aan de Côte d'Azur",
+    eyebrow: "Projectmanagement — Côte d'Azur",
+    title: "Uw project aan de Rivièra, beheerd alsof u er zelf bij bent.",
     subtitle: "Meer dan 30 jaar praktijkervaring. Volledig tweetalig Engels & Frans. Betrouwbare begeleiding van eerste schets tot oplevering.",
     statYears: "jaar ervaring",
     statBilingual: "Tweetalig",
@@ -16,14 +16,6 @@ const nl = {
     p2: "De meeste buitenlandse kopers onderschatten hoeveel praktische sturing een renovatie of nieuwbouw aan de Rivièra vraagt. Vakmensen werken hier anders, vergunningen gaan in hun eigen tempo, en de gevolgen van kleine misverstanden lopen snel op. Een goede opdrachtgeversvertegenwoordiger is het verschil tussen een project dat op tijd en binnen budget landt — en een dat dat niet doet.",
     p3: "Ik ben gevestigd in de Var, actief in Var (83) en Alpes-Maritimes (06), en werk voor klanten in Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne en de omliggende gemeenten. Ik pak elk project persoonlijk op — geen team van junioren dat uw villa onder zijn hoede heeft.",
     p4: "Overweegt u een project aan de Rivièra en wilt u een eerlijk, concreet gesprek over wat er bij komt kijken? Neem contact met mij op.",
-    expertiseTitle: "Expertise",
-    expertise: [
-      "Projectmanagement",
-      "Bouwcoördinatie",
-      "Vertegenwoordiging opdrachtgever",
-      "Toezicht en rapportage",
-      "Administratieve en technische afhandeling",
-    ],
   },
   whyPlanB: {
     title: "Waarom Plan B Concept",
@@ -144,6 +136,16 @@ const nl = {
     whatsappPrefill: "Hallo Anthony, ik zou graag een project willen bespreken.",
     privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
     privacyPolicy: "Politique de confidentialité",
+  },
+  process: {
+    eyebrow: "Hoe het werkt",
+    title: "Van eerste gesprek tot oplevering",
+    steps: [
+      { t: "Een eerste gesprek", d: "Bel, stuur een WhatsApp of vul de vragenlijst in. Vertel me over het pand en uw plannen — vrijblijvend." },
+      { t: "Bezoek ter plaatse", d: "Ik bezoek het pand om de omvang, de beperkingen en een realistisch budget in te schatten." },
+      { t: "Een helder voorstel", d: "Een schriftelijk voorstel met mijn rol, de planning en mijn honorarium, afgesproken voordat er iets begint." },
+      { t: "Begeleiding tot oplevering", d: "Ik leid het project ter plaatse, met wekelijkse fotorapporten tot u de sleutels weer in handen heeft." },
+    ],
   },
   formSuccess: {
     eyebrowContact: "Bericht verzonden",

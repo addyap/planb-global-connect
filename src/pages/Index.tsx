@@ -7,6 +7,7 @@ import { About } from "@/components/sections/About";
 import { WhyPlanB } from "@/components/sections/WhyPlanB";
 import { Services } from "@/components/sections/Services";
 import { ProjectCTA } from "@/components/sections/ProjectCTA";
+import { Process } from "@/components/sections/Process";
 import { MobileCTA } from "@/components/MobileCTA";
 import { FAQ } from "@/components/sections/FAQ";
 import { Area } from "@/components/sections/Area";
@@ -110,10 +111,11 @@ const Index = () => {
       </a>
       <Header />
       <main id="main">
-        {/* Story order: who → what → act → why him → where → objections → contact. */}
+        {/* Story order: who → what → how → act → why him → where → objections → contact. */}
         <Hero />
         <About />
         <Services />
+        <Process />
         <ProjectCTA />
         <WhyPlanB />
         <Area />

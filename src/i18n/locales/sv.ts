@@ -2,8 +2,8 @@ const sv = {
   nav: { home: "Hem", about: "Om mig", services: "Vad jag gör", questionnaire: "Frågeformulär", area: "Område", contact: "Kontakt" },
   cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Diskutera ditt projekt idag", changeLanguage: "Byt språk" },
   hero: {
-    eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projektledning på Franska Rivieran",
+    eyebrow: "Projektledning — Côte d'Azur",
+    title: "Ditt projekt på Rivieran – styrt som om du vore på plats.",
     subtitle: "Över 30 års erfarenhet i fält. Fullt tvåspråkig engelska & franska. Pålitlig vägledning från första skiss till slutbesiktning.",
     statYears: "års erfarenhet",
     statBilingual: "Tvåspråkig",
@@ -16,14 +16,6 @@ const sv = {
     p2: "De flesta utländska köpare underskattar hur mycket praktisk styrning en renovering eller nybyggnation på Rivieran kräver. Yrkesfolk arbetar annorlunda här, tillstånd går i sin egen takt, och konsekvenserna av små missförstånd blir snabbt stora. En bra beställarrepresentant är skillnaden mellan ett projekt som landar i tid och inom budget — och ett som inte gör det.",
     p3: "Jag är baserad i Var, verksam i Var (83) och Alpes-Maritimes (06), och arbetar för kunder i Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne och de omkringliggande kommunerna. Jag tar mig an varje projekt personligen — inget juniorteam som hanterar din villa.",
     p4: "Om du överväger ett projekt på Rivieran och vill ha ett rakt, praktiskt samtal om vad det innebär — hör av dig till mig.",
-    expertiseTitle: "Expertis",
-    expertise: [
-      "Projektledning",
-      "Byggsamordning",
-      "Representation av beställare",
-      "Byggplatsuppföljning och rapportering",
-      "Administrativ och teknisk hantering",
-    ],
   },
   whyPlanB: {
     title: "Varför Plan B Concept",
@@ -144,6 +136,16 @@ const sv = {
     whatsappPrefill: "Hej Anthony, jag skulle vilja diskutera ett projekt.",
     privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
     privacyPolicy: "Politique de confidentialité",
+  },
+  process: {
+    eyebrow: "Så går det till",
+    title: "Från första samtal till överlämning",
+    steps: [
+      { t: "Ett första samtal", d: "Ring, skriv på WhatsApp eller fyll i formuläret. Berätta om fastigheten och dina planer – helt utan förpliktelser." },
+      { t: "Platsbesök", d: "Jag besöker fastigheten för att bedöma omfattning, förutsättningar och en realistisk budget." },
+      { t: "Ett tydligt förslag", d: "Ett skriftligt förslag om min roll, tidsplanen och mitt arvode, överenskommet innan något påbörjas." },
+      { t: "Ledning till överlämning", d: "Jag driver projektet på plats, med veckovisa fotorapporter tills nycklarna är tillbaka i dina händer." },
+    ],
   },
   formSuccess: {
     eyebrowContact: "Meddelande skickat",

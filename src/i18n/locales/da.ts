@@ -2,8 +2,8 @@ const da = {
   nav: { home: "Hjem", about: "Om mig", services: "Hvad jeg gør", questionnaire: "Spørgeskema", area: "Område", contact: "Kontakt" },
   cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Drøft dit projekt i dag", changeLanguage: "Skift sprog" },
   hero: {
-    eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projektledelse på Den Franske Riviera",
+    eyebrow: "Projektledelse — Côte d'Azur",
+    title: "Dit projekt på Rivieraen – styret, som om du selv var der.",
     subtitle: "Over 30 års praktisk erfaring. Fuldt tosproget engelsk & fransk. Pålidelig vejledning fra første skitse til endelig overdragelse.",
     statYears: "års erfaring",
     statBilingual: "Tosproget",
@@ -16,14 +16,6 @@ const da = {
     p2: "De fleste udenlandske købere undervurderer, hvor meget hands-on styring en renovering eller et byggeri på Rivieraen kræver. Fagfolk arbejder anderledes her, tilladelser har deres eget tempo, og konsekvenserne af små misforståelser hober sig hurtigt op. En god bygherrerepræsentant er forskellen på et projekt, der lander til tiden og inden for budgettet — og et, der ikke gør.",
     p3: "Jeg har base i Var, arbejder i Var (83) og Alpes-Maritimes (06) og betjener kunder i Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne og de omkringliggende kommuner. Jeg håndterer hvert projekt personligt — intet juniorteam, der står for din villa.",
     p4: "Overvejer du et projekt på Rivieraen og vil have en åben, konkret samtale om, hvad det indebærer? Tag fat i mig.",
-    expertiseTitle: "Ekspertise",
-    expertise: [
-      "Projektledelse",
-      "Byggekoordinering",
-      "Bygherrerepræsentation",
-      "Tilsyn og rapportering",
-      "Administrativ og teknisk håndtering",
-    ],
   },
   whyPlanB: {
     title: "Hvorfor Plan B Concept",
@@ -151,6 +143,16 @@ const da = {
     whatsappPrefill: "Hej Anthony, jeg vil gerne drøfte et projekt.",
     privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
     privacyPolicy: "Politique de confidentialité",
+  },
+  process: {
+    eyebrow: "Sådan foregår det",
+    title: "Fra første samtale til aflevering",
+    steps: [
+      { t: "En første samtale", d: "Ring, skriv på WhatsApp eller udfyld spørgeskemaet. Fortæl mig om ejendommen og dine planer – helt uforpligtende." },
+      { t: "Besøg på stedet", d: "Jeg besøger ejendommen for at vurdere omfang, forudsætninger og et realistisk budget." },
+      { t: "Et klart tilbud", d: "Et skriftligt tilbud om min rolle, tidsplanen og mit honorar, aftalt før noget går i gang." },
+      { t: "Styring til aflevering", d: "Jeg styrer projektet på stedet, med ugentlige fotorapporter, indtil nøglerne er tilbage i dine hænder." },
+    ],
   },
   formSuccess: {
     eyebrowContact: "Besked sendt",

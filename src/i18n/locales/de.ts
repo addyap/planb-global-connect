@@ -2,8 +2,8 @@ const de = {
   nav: { home: "Start", about: "Über mich", services: "Leistungen", questionnaire: "Fragebogen", area: "Region", contact: "Kontakt" },
   cta: { contact: "Kontakt", whatsapp: "WhatsApp", discuss: "Besprechen Sie Ihr Projekt — noch heute", changeLanguage: "Sprache ändern" },
   hero: {
-    eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Projektsteuerung an der Côte d'Azur",
+    eyebrow: "Projektsteuerung — Côte d'Azur",
+    title: "Ihr Projekt an der Riviera – betreut, als wären Sie vor Ort.",
     subtitle: "Über 30 Jahre Praxiserfahrung. Vollständig zweisprachig Englisch & Französisch. Verlässliche Begleitung von der ersten Skizze bis zur Schlüsselübergabe.",
     statYears: "Jahre Erfahrung",
     statBilingual: "Zweisprachig",
@@ -16,14 +16,6 @@ const de = {
     p2: "Die meisten ausländischen Käufer unterschätzen, wie viel praktische Steuerung eine Renovierung oder ein Neubau an der Riviera erfordert. Handwerker arbeiten hier anders, Genehmigungen folgen ihrem eigenen Tempo, und die Folgen kleiner Missverständnisse summieren sich schnell. Ein guter Bauherrenvertreter ist der Unterschied zwischen einem Projekt, das pünktlich und im Budget landet — und einem, das es nicht tut.",
     p3: "Ich bin im Département Var ansässig, in Var (83) und Alpes-Maritimes (06) tätig und betreue Kunden in Saint-Tropez, Cannes, Nizza, Antibes, Monaco, Grasse, Mougins, Valbonne und den umliegenden Gemeinden. Jedes Projekt begleite ich persönlich — kein Team von Junioren, das Ihre Villa betreut.",
     p4: "Wenn Sie ein Projekt an der Riviera erwägen und ein offenes, sachliches Gespräch über das Vorhaben führen möchten, melden Sie sich bei mir.",
-    expertiseTitle: "Kompetenzen",
-    expertise: [
-      "Projektsteuerung",
-      "Baukoordination",
-      "Bauherrenvertretung",
-      "Baustellenüberwachung und Reporting",
-      "Administrative und technische Abwicklung",
-    ],
   },
   whyPlanB: {
     title: "Warum Plan B Concept",
@@ -144,6 +136,16 @@ const de = {
     whatsappPrefill: "Hallo Anthony, ich würde gerne ein Projekt besprechen.",
     privacyNotice: "The data collected (name, email, phone, message) is used solely to respond to your enquiry.",
     privacyPolicy: "Politique de confidentialité",
+  },
+  process: {
+    eyebrow: "So läuft es ab",
+    title: "Vom ersten Gespräch bis zur Übergabe",
+    steps: [
+      { t: "Ein erstes Gespräch", d: "Per Telefon, WhatsApp oder über den Fragebogen. Erzählen Sie mir von der Immobilie und Ihren Plänen – unverbindlich." },
+      { t: "Besichtigung vor Ort", d: "Ich besichtige die Immobilie und beurteile Umfang, Rahmenbedingungen und ein realistisches Budget." },
+      { t: "Ein klares Angebot", d: "Ein schriftliches Angebot zu meiner Rolle, dem Zeitplan und meinem Honorar – vereinbart, bevor etwas beginnt." },
+      { t: "Betreuung bis zur Übergabe", d: "Ich steuere das Projekt vor Ort, mit wöchentlichen Fotoberichten, bis Sie die Schlüssel wieder in der Hand halten." },
+    ],
   },
   formSuccess: {
     eyebrowContact: "Nachricht gesendet",

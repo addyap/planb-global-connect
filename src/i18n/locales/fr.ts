@@ -2,8 +2,8 @@ const fr = {
   nav: { home: "Accueil", about: "À propos", services: "Mes prestations", questionnaire: "Questionnaire", area: "Zone", contact: "Contact" },
   cta: { contact: "Contact", whatsapp: "WhatsApp", discuss: "Parlons de votre projet dès aujourd'hui", changeLanguage: "Changer de langue" },
   hero: {
-    eyebrow: "Plan B Concept — Côte d'Azur",
-    title: "Coordination des Travaux sur la Côte d'Azur",
+    eyebrow: "Coordination des travaux — Côte d'Azur",
+    title: "Votre projet sur la Côte d'Azur, piloté comme si vous étiez là.",
     subtitle: "Plus de 30 ans d'expérience sur le terrain. Parfaitement bilingue anglais & français. Un accompagnement de confiance, de l'esquisse à la livraison.",
     statYears: "ans d'expérience",
     statBilingual: "Bilingue",
@@ -16,14 +16,6 @@ const fr = {
     p2: "La plupart des acheteurs étrangers sous-estiment l'investissement de pilotage qu'exige une rénovation ou une construction sur la Côte d'Azur. Les artisans fonctionnent autrement ici, les autorisations avancent à leur propre rythme, et les conséquences des petites incompréhensions s'additionnent vite. Un bon maître d'ouvrage délégué, c'est la différence entre un projet livré dans les délais et dans le budget — et un projet qui dérape.",
     p3: "Installé dans le Var, j'interviens sur le Var (83) et les Alpes-Maritimes (06) et j'accompagne des clients à Saint-Tropez, Cannes, Nice, Antibes, Monaco, Grasse, Mougins, Valbonne et dans les communes environnantes. Je suis personnellement chaque projet — pas d'équipe de juniors qui gère votre villa.",
     p4: "Si vous envisagez un projet sur la Côte d'Azur et souhaitez un échange franc et concret sur ce qu'il implique, contactez-moi.",
-    expertiseTitle: "Expertise",
-    expertise: [
-      "Coordination des Travaux",
-      "Coordination de chantier",
-      "Représentation du maître d'ouvrage",
-      "Suivi de chantier et reporting",
-      "Démarches administratives et techniques",
-    ],
   },
   whyPlanB: {
     title: "Pourquoi Plan B Concept",
@@ -151,6 +143,16 @@ const fr = {
     whatsappPrefill: "Bonjour Anthony, je souhaiterais discuter d'un projet.",
     privacyNotice: "Les données collectées (nom, e-mail, téléphone, message) sont utilisées uniquement pour répondre à votre demande.",
     privacyPolicy: "Politique de confidentialité",
+  },
+  process: {
+    eyebrow: "Comment ça se passe",
+    title: "Du premier appel à la livraison",
+    steps: [
+      { t: "Un premier échange", d: "Par téléphone, WhatsApp ou via le questionnaire. Parlez-moi du bien et de votre projet — sans engagement." },
+      { t: "Visite sur place", d: "Je me rends sur place pour évaluer l'ampleur des travaux, les contraintes et un budget réaliste." },
+      { t: "Une proposition claire", d: "Une proposition écrite précisant mon rôle, le calendrier et mes honoraires, validée avant tout démarrage." },
+      { t: "Un suivi jusqu'à la livraison", d: "Je pilote le projet sur le terrain, avec un reporting photo hebdomadaire jusqu'à la remise des clés." },
+    ],
   },
   formSuccess: {
     eyebrowContact: "Message envoyé",

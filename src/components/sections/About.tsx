@@ -1,10 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { Check } from "lucide-react";
 import founderPhoto from "@/assets/plan-b-founder.webp";
 
 export const About = () => {
   const { t } = useTranslation();
-  const expertise = t("about.expertise", { returnObjects: true }) as string[];
   return (
     <section id="about" className="py-20 md:py-28 bg-muted/40">
       <div className="container grid md:grid-cols-5 gap-12 items-start">
@@ -15,12 +13,7 @@ export const About = () => {
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">
             {t("about.lead")}
           </h2>
-          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p1")}</p>
-          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p2")}</p>
-          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p3")}</p>
-          <p className="text-lg text-foreground/80 leading-relaxed">{t("about.p4")}</p>
-        </div>
-        <div className="md:col-span-2 bg-primary text-primary-foreground rounded-2xl p-8 shadow-elegant">
+          {/* On phones the portrait sits here, breaking up the text; on desktop it's in the side column. */}
           <img
             src={founderPhoto}
             alt="Anthony Gratton, founder of Plan B Concept"
@@ -28,18 +21,28 @@ export const About = () => {
             width={886}
             height={1107}
             decoding="async"
-            className="w-full aspect-[4/5] object-cover rounded-xl mb-6"
+            className="md:hidden w-full aspect-[4/3] object-cover object-[center_8%] rounded-2xl shadow-elegant mb-6"
           />
-          <h3 className="font-display text-accent text-lg mb-5">{t("about.expertiseTitle")}</h3>
-          <ul className="space-y-3">
-            {expertise.map((e, i) => (
-              <li key={i} className="flex gap-3 items-start">
-                <Check className="h-5 w-5 text-accent mt-0.5 shrink-0" />
-                <span className="text-primary-foreground/90">{e}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p1")}</p>
+          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p2")}</p>
+          <p className="text-lg text-foreground/80 mb-4 leading-relaxed">{t("about.p3")}</p>
+          <p className="text-lg text-foreground/80 leading-relaxed">{t("about.p4")}</p>
         </div>
+        <figure className="hidden md:block md:col-span-2 md:sticky md:top-28 bg-primary text-primary-foreground rounded-2xl p-6 shadow-elegant">
+          <img
+            src={founderPhoto}
+            alt="Anthony Gratton, founder of Plan B Concept"
+            loading="lazy"
+            width={886}
+            height={1107}
+            decoding="async"
+            className="w-full aspect-[4/5] object-cover rounded-xl"
+          />
+          <figcaption className="mt-5 px-1">
+            <div className="font-display text-lg text-accent">Anthony Gratton</div>
+            <div className="mt-1 text-sm text-primary-foreground/75">{t("footer.tagline")}</div>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
