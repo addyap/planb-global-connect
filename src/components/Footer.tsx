@@ -3,8 +3,21 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo-plan-b.webp";
 import { CONTACT } from "@/lib/contact";
 
+// Designer credit, in the page's language (English for the others).
+const CREDIT: Record<string, string> = {
+  fr: "Site réalisé par",
+  en: "Website by",
+  de: "Website von",
+  nl: "Website door",
+  da: "Hjemmeside af",
+  sv: "Webbplats av",
+  no: "Nettside av",
+  ru: "Сайт создан",
+};
+
 export const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.resolvedLanguage || i18n.language || "fr").slice(0, 2);
   return (
     <footer className="bg-primary text-primary-foreground py-8 border-t border-accent/20">
       <div className="container grid md:grid-cols-3 gap-10 items-start">
@@ -39,6 +52,18 @@ export const Footer = () => {
         <Link to="/politique-de-confidentialite" className="inline-block py-1.5 hover:text-accent transition-colors">Politique de confidentialité</Link>
         <span className="text-primary-foreground/40" aria-hidden="true">|</span>
         <Link to="/cgu" className="inline-block py-1.5 hover:text-accent transition-colors">CGU</Link>
+        <span className="text-primary-foreground/40" aria-hidden="true">|</span>
+        <span className="inline-block py-1.5">
+          {CREDIT[lang] ?? CREDIT.en}{" "}
+          <a
+            href={lang === "fr" ? "https://thevitrine.fr/" : "https://thevitrine.fr/en/"}
+            target="_blank"
+            rel="noopener"
+            className="underline underline-offset-2 hover:text-accent transition-colors"
+          >
+            The Vitrine
+          </a>
+        </span>
       </div>
     </footer>
   );
